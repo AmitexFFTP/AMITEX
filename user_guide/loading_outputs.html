@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LOADING&amp;OUTPUTS &#8212; AMITEX user guide  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ALGORITHM" href="algorithm.html" />
+    <link rel="prev" title="MATERIALS" href="materials.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+ <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="map-site-user.html"><span><img src="_static/amitex.png"></span>
+<!-- LG : SUPPRESSION titre et version 
+           -->
+		  </a>
+
+<!-- LG : suppression VERSION 
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+-->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="to_begin.html">TO BEGIN</a></li>
+                <li><a href="input_files.html">INPUT FILES</a></li>
+                <li><a href="materials.html">MATERIALS</a></li>
+                <li><a href="#">LOAD&OUT</a></li>
+                <li><a href="algorithm.html">ALGORITHM</a></li>
+                <li><a href="behaviors.html">BEHAVIORS</a></li>
+            
+			
+<!-- LG : SUPPRESSION menu deroulant SITE 
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="map-site-user.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="to_begin.html">TO BEGIN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="to_begin.html#geometry-unit-cell-description">GEOMETRY : UNIT-CELL DESCRIPTION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#definitions">Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#materialid-and-zoneid-integer-fields">MaterialID and ZoneID integer fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#example-of-a-non-unique-description">Example of a non-unique description</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="to_begin.html#how-to-launch-amitex-fftp">HOW TO LAUNCH AMITEX_FFTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">INPUT FILES</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#vtk-files">VTK files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#xml-files">XML files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#bin-files">BIN files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">MATERIALS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#standard-description">STANDARD DESCRIPTION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#begin-and-end">Begin and End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#reference-material">Reference Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#id2">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#material-coefficients">Material Coefficients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#initial-internal-variables">Initial Internal Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#composite-voxels-advanced-users">COMPOSITE VOXELS (ADVANCED USERS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#general-description">General Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#format-for-composite-voxels-description">Format for Composite Voxels description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="materials.html#one-file">One file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="materials.html#one-directory-per-composite-material">One directory per composite material</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#interphase-definition">Interphase Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#example-1-a-voronoi-polycrystal-with-isotropic-grains">Example 1 : a voronoï polycrystal with isotropic grains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#example-2-a-single-composite-voxel">Example 2 : a single composite voxel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LOADING&amp;OUTPUTS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mechanical-loading">MECHANICAL LOADING</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-1-creep-loading">Example 1 : creep loading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2-loading-with-a-stress-direction">Example 2 : loading with a stress direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin-and-end">Begin and End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-output">Default Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-outputs">Additional Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Loading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#external-loading">EXTERNAL LOADING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strain-gradient-loadings">STRAIN GRADIENT LOADINGS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#beam-and-plates">Beam and plates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-of-plates-example-with-normal-vector-e-z">Loading of plates (example with normal vector <span class="math notranslate nohighlight">\(e_z\)</span> )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-of-beams-example-below-with-beam-axis-e-x">Loading of beams (example below with beam axis <span class="math notranslate nohighlight">\(e_x\)</span> )</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#diffusion">DIFFUSION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#material-properties">Material properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithm-parameters">Algorithm parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-and-output">Loading and output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">ALGORITHM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#standard-parameters">Standard parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#additional-parameters">Additional Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors.html">BEHAVIORS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#umat-procedures">UMAT procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#native-behaviors">NATIVE behaviors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#umat-behaviors">UMAT behaviors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#mfront-behaviors">MFRONT behaviors</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+ -->
+
+<!-- LG : SUPPRESSION SEARCH
+            
+-->
+            
+            
+            
+          </ul>
+<!-- LG : SUPPRESSION SEARCH
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+-->
+        </div>
+    </div>
+
+	<!-- LG : AJOUT SECONDE PARTIE DE NAVBAR -->
+<!--	<div class="container"> -->
+    <div class="sous_navbar">
+		 <!-- LG <li class="dropdown" 	>-->
+<div class="dropdown" 	>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+	 style="color:#fff" 
+     href="#"> <span >LOADING&OUTPUTS</span><b class="caret" style="color:#fff"></b></a> <!-- LG : on met ici le titre de la page -->
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">LOADING&amp;OUTPUTS</a><ul>
+<li><a class="reference internal" href="#mechanical-loading">MECHANICAL LOADING</a><ul>
+<li><a class="reference internal" href="#example-1-creep-loading">Example 1 : creep loading</a></li>
+<li><a class="reference internal" href="#example-2-loading-with-a-stress-direction">Example 2 : loading with a stress direction</a></li>
+<li><a class="reference internal" href="#begin-and-end">Begin and End</a></li>
+<li><a class="reference internal" href="#default-output">Default Output</a></li>
+<li><a class="reference internal" href="#additional-outputs">Additional Outputs</a></li>
+<li><a class="reference internal" href="#id1">Loading</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#external-loading">EXTERNAL LOADING</a></li>
+<li><a class="reference internal" href="#strain-gradient-loadings">STRAIN GRADIENT LOADINGS</a><ul>
+<li><a class="reference internal" href="#beam-and-plates">Beam and plates</a></li>
+<li><a class="reference internal" href="#loading-of-plates-example-with-normal-vector-e-z">Loading of plates (example with normal vector <span class="math notranslate nohighlight">\(e_z\)</span> )</a></li>
+<li><a class="reference internal" href="#loading-of-beams-example-below-with-beam-axis-e-x">Loading of beams (example below with beam axis <span class="math notranslate nohighlight">\(e_x\)</span> )</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#diffusion">DIFFUSION</a><ul>
+<li><a class="reference internal" href="#material-properties">Material properties</a></li>
+<li><a class="reference internal" href="#algorithm-parameters">Algorithm parameters</a></li>
+<li><a class="reference internal" href="#loading-and-output">Loading and output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</div>
+<!--</li>          class="hidden-sm hidden-tablet"  -->
+    </div>    
+<!--    </div>    -->
+
+  </div>
+  
+  
+
+
+  
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="loading-outputs">
+<span id="loading"></span><h1>LOADING&amp;OUTPUTS<a class="headerlink" href="#loading-outputs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mechanical-loading">
+<span id="loading-mechanical"></span><h2>MECHANICAL LOADING<a class="headerlink" href="#mechanical-loading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1-creep-loading">
+<h3>Example 1 : creep loading<a class="headerlink" href="#example-1-creep-loading" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example of a <em>loading.xml</em> file where the loading and the stress-strain fields output are defined.
+This loading reproduces an <strong>experimental creep procedure</strong> : at first the load is applied proportionnaly (tensile test) and then the macroscopic stress is kept constant (creep test):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Loading_Output&gt;</span>
+
+    <span class="c">&lt;!-- ADDITIONNAL OUPUT QUANTITIES         --&gt;</span>
+    <span class="c">&lt;!-- specify the quantities of interest   --&gt;</span>
+    <span class="nt">&lt;Output&gt;</span>
+
+        <span class="c">&lt;!-- Stress output (stress= &quot;1&quot;) --&gt;</span>
+        <span class="nt">&lt;vtk_StressStrain</span> <span class="na">Strain =</span> <span class="s">&quot;0&quot;</span> <span class="na">Stress =</span> <span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;vtk_IntVarList</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          1
+        <span class="nt">&lt;/vtk_IntVarList&gt;</span>
+        <span class="nt">&lt;Zone</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;VarIntList&gt;</span>  1  <span class="nt">&lt;/VarIntList&gt;</span>
+        <span class="nt">&lt;/Zone&gt;</span>
+
+    <span class="nt">&lt;/Output&gt;</span>
+
+    <span class="c">&lt;!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES --&gt;</span>
+
+    <span class="c">&lt;!-- Partial loading 1 --&gt;</span>
+    <span class="nt">&lt;Loading</span> <span class="na">Tag=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- User defined time discretization, 10 increments --&gt;</span>
+        <span class="nt">&lt;Time_Discretization</span> <span class="na">Discretization=</span><span class="s">&quot;User&quot;</span> <span class="na">Nincr=</span><span class="s">&quot;10&quot;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- Increment times (user definition) --&gt;</span>
+        <span class="nt">&lt;Time_List&gt;</span>
+        32832 83808 143424 211680 289440 380160 483840 604800 738720 898560
+        <span class="nt">&lt;/Time_List&gt;</span>
+        <span class="nt">&lt;Output_zone</span> <span class="na">Number =</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--  No field output required --&gt;</span>
+        <span class="c">&lt;!-- Strain driven on xx component --&gt;</span>
+        <span class="nt">&lt;xx</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;-5e-4&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;yy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;zz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;xy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;xz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;yz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- For finite strains simulations       --&gt;</span>
+        <span class="nt">&lt;yx</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;zx</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;zy</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span>  <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Loading&gt;</span>
+
+    <span class="c">&lt;!-- Partial loading 2 --&gt;</span>
+    <span class="nt">&lt;Loading</span> <span class="na">Tag=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- Linear time discretization --&gt;</span>
+        <span class="nt">&lt;Time_Discretization</span> <span class="na">Discretization=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Nincr=</span><span class="s">&quot;22&quot;</span> <span class="na">Tfinal=</span><span class="s">&quot;25920000&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;Output_zone</span> <span class="na">Number =</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Output_cell</span> <span class="na">Number=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span> <span class="c">&lt;!-- usefull for very high number of increments --&gt;</span>
+        <span class="c">&lt;!-- Field output for the last increment (22)  --&gt;</span>
+        <span class="nt">&lt;Output_vtkList&gt;</span>
+          22
+        <span class="nt">&lt;/Output_vtkList&gt;</span>
+        <span class="c">&lt;!-- Full stress driving --&gt;</span>
+        <span class="nt">&lt;xx</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;yy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;zz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;xy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;xz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;yz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- For finite strains simulations      --&gt;</span>
+        <span class="nt">&lt;yx</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;zx</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;zy</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/Loading&gt;</span>
+
+<span class="nt">&lt;/Loading_Output&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>This <em>loading.xml</em> file example is designed for a finite strain simulation and must be consistent with <a class="reference internal" href="algorithm.html#algorithm-standard"><span class="std std-ref">Standard parameters</span></a>.</p>
+<p class="last">In case of a Small Perturbation assumption, discard the <code class="docutils literal notranslate"><span class="pre">yx</span></code>, <code class="docutils literal notranslate"><span class="pre">zx</span></code> and <code class="docutils literal notranslate"><span class="pre">zy</span></code> components.</p>
+</div>
+</div>
+<div class="section" id="example-2-loading-with-a-stress-direction">
+<h3>Example 2 : loading with a stress direction<a class="headerlink" href="#example-2-loading-with-a-stress-direction" title="Permalink to this headline">¶</a></h3>
+<p>This second example imposes a <code class="docutils literal notranslate"><span class="pre">xx</span></code> strain loading while maintaining a constant stress direction given by DirStress.
+Here it corresponds to a constant triaxiality ratio of 2.5.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- OUPUT QUANTITIES --&gt;</span>
+<span class="nt">&lt;Output&gt;</span>
+    <span class="nt">&lt;vtk_StressStrain</span> <span class="na">Strain =</span> <span class="s">&quot;0&quot;</span> <span class="na">Stress =</span> <span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Output&gt;</span>
+
+<span class="c">&lt;!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES --&gt;</span>
+<span class="nt">&lt;Loading</span> <span class="na">Tag=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Time_Discretization</span> <span class="na">Discretization=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Nincr=</span><span class="s">&quot;40&quot;</span> <span class="na">Tfinal=</span><span class="s">&quot;40&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;xx</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;1.&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;yy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;1.3&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;zz</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.004&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;1.6&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;xy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;xz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;yz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- below : Finite Strain specific --&gt;</span>
+    <span class="nt">&lt;yx</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;zx</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;zy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">DirStress=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DirStress</span> <span class="na">Type=</span><span class="s">&quot;cauchy&quot;</span> <span class="nt">/&gt;</span>  <span class="c">&lt;!-- Cauchy or PK1 --&gt;</span>
+<span class="nt">&lt;/Loading&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="begin-and-end">
+<h3>Begin and End<a class="headerlink" href="#begin-and-end" title="Permalink to this headline">¶</a></h3>
+<p>The file must begin and end with</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Loading_Output&gt;</span>
+.
+.
+<span class="nt">&lt;/Loading_Output&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-output">
+<span id="user-output"></span><h3>Default Output<a class="headerlink" href="#default-output" title="Permalink to this headline">¶</a></h3>
+<p>The section <em>&lt;output&gt; … &lt;/Output&gt;</em> should be optionnal. Up to now, the minimum requested is</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Output&gt;</span>
+    <span class="nt">&lt;vtk_StressStrain</span> <span class="na">Strain =</span> <span class="s">&quot;0&quot;</span> <span class="na">Stress =</span> <span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Output&gt;</span>
+</pre></div>
+</div>
+<p>In that context, the <strong>default output reduces to three ouput files</strong> :</p>
+<ul class="simple">
+<li><em>.std</em> file : stress and strains average and standard deviations within the whole unit-cell.</li>
+<li><em>.mstd</em> file : per material stress and strains average and standard deviations.</li>
+<li><em>.log</em> file : informations on the simulation (number of iterations, criterion values, computation times etc…).</li>
+</ul>
+<p>These quantities are output for each loading increment (= time step).</p>
+</div>
+<div class="section" id="additional-outputs">
+<h3>Additional Outputs<a class="headerlink" href="#additional-outputs" title="Permalink to this headline">¶</a></h3>
+<p>The section <em>&lt;output&gt; … &lt;/Output&gt;</em> allows to specify two types of additionnal output : fields (<em>vtk</em> files) and per zone statistical quantities (<em>zstd</em>). Because these files can be very heavy (and their writing time consuming), the times to write these outputs files must be limited and chosen carefully. This is done in the section <em>&lt;Loading&gt; … &lt;/Loading&gt;</em>.</p>
+<ul>
+<li><p class="first"><em>.vtk files</em> - Strain and/or stress fields (VTK files) can be chosen through the <code class="docutils literal notranslate"><span class="pre">&lt;vtk_StressStrain&gt;</span></code> node. If no field are required, simply complete “0” and “0” for <em>Strain</em> and <em>Stress</em>. Similarly, the <code class="docutils literal notranslate"><span class="pre">&lt;vtk_IntVarList&gt;</span></code> node, gives the possibility to write in VTK files different fields of internal variables for each material <em>numM</em>. One <code class="docutils literal notranslate"><span class="pre">&lt;vtk_IntVarList&gt;</span></code> node per <em>material</em> node can be added, if necessary. The example below asks for <em>.vtk</em> output fields for the internal variables “1” and “5” of material “1”</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;vtk_IntVarList</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+  1 5
+<span class="nt">&lt;/vtk_IntVarList&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><em>.zstd files</em> - If the <em>Zone</em> node is present, per zone average and standard deviations of the stress, strain and requested internal variables, are printed for the material associated to the <em>numM</em> value. <strong>If nothing else is precised, only the means and standard deviations of the stress and strain tensors will be printed</strong>. However, a <code class="docutils literal notranslate"><span class="pre">&lt;VarIntList&gt;</span></code> node can be added to choose the list of internal variables to be output. One <code class="docutils literal notranslate"><span class="pre">&lt;Zone&gt;</span></code> node per <em>material</em> can be added, if necessary. The example below asks for per zone output <em>.zstd</em> files for the stress, strain and internal variable “3” of material “2”, and only for the stress and strain of material “1”</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Zone</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/Zone&gt;</span>
+<span class="nt">&lt;Zone</span> <span class="na">numM=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;VarIntList&gt;</span>  3  <span class="nt">&lt;/VarIntList&gt;</span>
+<span class="nt">&lt;/Zone&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The <em>.std</em>, <em>.mstd</em> and <em>.zstd</em> files are written so that the value of each variable is given in column. Comments at the beginning of these files describe the variable associated to each column.  More details about how to plot these results are given in the <a class="reference external" href="../general/tools.html#tools" title="(in AMITEX general)"><span>Tools</span></a> section.</p>
+</div>
+<div class="section" id="id1">
+<h3>Loading<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The loading is defined by successive partial loadings, tagged 1, 2, 3, etc…</p>
+<p><strong>Time_Discretization</strong> within each partial loading can be chosen:</p>
+<ul class="simple">
+<li>linear (loading 1 in the example): the user gives the final time and the number of increments,</li>
+<li>user defined (loading 2): the user gives a time list, excluding the initial time.</li>
+</ul>
+<p>In both cases, the initial time is the final time of the previous loading or equal to 0 for the first partial loading (<em>i.e.</em> Tag=”1”).</p>
+<p><strong>Output_vtkList</strong> is the list of increment numbers, within the partial loading, for which stress, strain and/or internal variable fields (<em>.vtk</em> files) will be output (see the choice in the node <code class="docutils literal notranslate"><span class="pre">&lt;output&gt;</span></code>).</p>
+<p><strong>Output_zone</strong> gives the number of loading steps in the partial loading for which per zone quantities (<em>.zstd</em> files) will be output. For each loading, the output increments are equally distributed among the increasing increments, including the final increment.</p>
+<p><strong>Output_cell</strong> gives the number of loading steps in the partial loading for which per unit-cell and per material quantities (<em>.std</em> and <em>.mstd</em> files) will be output. This is especially useful if the number of increment is very large.</p>
+<p><strong>xx, yy, zz, xy, xz, yz</strong> (and yx, zx, yz in finite strain) allows to define the loading, for each partial loading, and each component  :</p>
+<ul>
+<li><p class="first">Driving=”Stress” or “Strain” if average stress or strain component is applied</p>
+</li>
+<li><p class="first">Evolution=”Linear” Value=”val”: the component evolves linearly as a function of the time from the initial value until “val”. Voigt notation is assumed <strong>for small strains : the shear components of the strain tensor are multiplied by 2</strong>.</p>
+</li>
+<li><p class="first">Evolution=”Constant”: the component is constant and equal to its initial value</p>
+</li>
+<li><p class="first">DirStress=”val”(optional): if present must be present on all the components to impose a constant stress direction. At finite strains, an additional node must be given to specify wether the Cauchy or PK1 stress tensor is considered</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DirStress</span> <span class="na">Type=</span><span class="s">&quot;cauchy&quot;</span> <span class="nt">/&gt;</span>  <span class="c">&lt;!-- Cauchy or PK1 --&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>For “Constant” and “Linear” evolutions, the initial value is the final value of the previous partial loading, or equal to 0 for the first partial loading <em>i.e. Tag=”1”</em>.</p>
+<div class="admonition warning" id="warning-hpp">
+<p class="first admonition-title">Warning</p>
+<p><strong>With the small perturbation hypothesis</strong> (see <a class="reference internal" href="algorithm.html#algorithm-standard"><span class="std std-ref">Standard parameters</span></a>), the “Strain” and “Stress” components are related to the component of :</p>
+<ul class="simple">
+<li>the average <strong>linearized strain tensor</strong>,</li>
+<li>the average <strong>Cauchy stress tensor</strong>.</li>
+</ul>
+<p>Since the <strong>Voigt notation</strong> is used (in the inputs, the outputs and within the code itself), the value given for xy, xz or yz must be the double of the xy, xz or yz strain components.</p>
+<p><strong>Without the small perturbation hypothesis</strong> (see <a class="reference internal" href="algorithm.html#algorithm-standard"><span class="std std-ref">Standard parameters</span></a>), corresponding to the finite strain framework, the “Strain” and “Stress” components are related to the components of :</p>
+<ul class="last simple">
+<li>the average <strong>first Piola-Kirchoff stress tensor</strong>,</li>
+<li>the average <strong>displacement gradient</strong> (which is not strictly speaking a measure of the strain).</li>
+</ul>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="external-loading">
+<span id="loading-external"></span><h2>EXTERNAL LOADING<a class="headerlink" href="#external-loading" title="Permalink to this headline">¶</a></h2>
+<p>If the user wishes to use a material behaviour law depending on the temperature and/or external parameters, he has to implement it in the <strong>UMAT</strong> compatible procedure (see <a class="reference internal" href="behaviors.html#behaviors"><span class="std std-ref">BEHAVIORS</span></a>). Then, it is possible to impose the evolution of the temperature and external parameters (assumed constants on the whole unit-cell) during the loading. The temperature corresponds to the scalar <strong>UMAT</strong> variable <em>TEMP</em>. The other external parameters are gathered within the vector <strong>UMAT</strong> variable <em>PREDEF</em>. <strong>These external parameters must be indexed continuously starting from 1.</strong></p>
+<p>Here is an example of a <em>loading.xml</em> file where the temperature and two other external parameters are imposed:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Loading_Output&gt;</span>
+
+    <span class="c">&lt;!-- ADDITIONNAL OUPUT QUANTITIES (optionnal) --&gt;</span>
+    <span class="c">&lt;!-- &lt;Output&gt; &lt;/Output&gt; --&gt;</span>
+
+    <span class="c">&lt;!-- Initialization of the temperature and the external parameters --&gt;</span>
+    <span class="nt">&lt;InitLoadExt&gt;</span>
+      <span class="nt">&lt;T</span> <span class="na">Value=</span><span class="s">&quot;20&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Param</span> <span class="na">Index =</span><span class="s">&quot;1&quot;</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Param</span> <span class="na">Index =</span><span class="s">&quot;2&quot;</span> <span class="na">Value=</span><span class="s">&quot;10&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/InitLoadExt&gt;</span>
+    <span class="c">&lt;!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES --&gt;</span>
+
+    <span class="c">&lt;!-- Partial loading 1 --&gt;</span>
+    <span class="nt">&lt;Loading</span> <span class="na">Tag=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;Time_Discretization</span> <span class="na">Discretization=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Nincr=</span><span class="s">&quot;40&quot;</span> <span class="na">Tfinal=</span><span class="s">&quot;40&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;xx</span> <span class="na">Driving=</span><span class="s">&quot;Strain&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;-5e-4&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;yy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;zz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;xy</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;xz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;yz</span> <span class="na">Driving=</span><span class="s">&quot;Stress&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- Temperature is constant, equal to the initial value --&gt;</span>
+        <span class="nt">&lt;T</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- External parameters 1 and 2 have a linear evolution --&gt;</span>
+        <span class="nt">&lt;Param</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value =</span><span class="s">&quot;50&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Param</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value =</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/Loading&gt;</span>
+
+<span class="nt">&lt;/Loading_Output&gt;</span>
+</pre></div>
+</div>
+<p>In order to be imposed during the loading the temperature and each external parameter <strong>must</strong> :</p>
+<ol class="arabic">
+<li><p class="first"><strong>be initialized</strong> inside the section <em>&lt;InitLoadExt&gt; … &lt;/InitLoadExt&gt;</em></p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;InitLoadExt&gt;</span>
+      <span class="nt">&lt;T</span> <span class="na">Value=</span><span class="s">&quot;20&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Param</span> <span class="na">Index =</span><span class="s">&quot;1&quot;</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Param</span> <span class="na">Index =</span><span class="s">&quot;2&quot;</span> <span class="na">Value=</span><span class="s">&quot;10&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/InitLoadExt&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">be described <strong>within each section</strong> <em>&lt;Loading Tag=”i”&gt;</em> as described in the example. The <em>Evolution</em> can be linear or constant as a function of time. In both cases, the initial value is the final value of the previous partial loading or equal to the value defined in the <em>InitLoadExt</em> tag for the first partial loading (<em>i.e.</em> Tag=”1”).</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Temperature is constant, equal to the initial value --&gt;</span>
+<span class="nt">&lt;T</span> <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+<span class="c">&lt;!-- External parameters 1 and 2 have a linear evolution --&gt;</span>
+<span class="nt">&lt;Param</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value =</span><span class="s">&quot;50&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Param</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value =</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="strain-gradient-loadings">
+<h2>STRAIN GRADIENT LOADINGS<a class="headerlink" href="#strain-gradient-loadings" title="Permalink to this headline">¶</a></h2>
+<p><strong>AMITEX_FFTP</strong> offers the possibility to apply strain gradient loadings. Up to now, it is limited to  ‘Small Strain’ simulations.
+It can be usefull for higher order numerical homogenization such as the homogenization of beams and plates (as proposed below).</p>
+<p>The additionnal loadings nodes (in addition to the average applied stress or strain components in <code class="docutils literal notranslate"><span class="pre">&lt;xx</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;yy</span></code>, etc… ) are the following:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;gradgradU_xy_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;xx&quot;</span> <span class="nt">/&gt;</span>
+<span class="c">&lt;!-- or --&gt;</span>
+<span class="nt">&lt;gradgradU_xy_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Constant&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Each loading is associated to prescribed the component <span class="math notranslate nohighlight">\(\nabla U_{xy,z}\)</span> of the gradient of the displacement gradient.
+As for stress or strain components, the <code class="docutils literal notranslate"><span class="pre">Evolution</span></code> can be linear or constant.
+By default, components which are not mentionned are assigned to 0.</p>
+<p>Note that, components <span class="math notranslate nohighlight">\(\nabla U_{ij,j}\)</span> can not be prescribed. It is intrinsically due to the periodic nature of the fluctuation displacement.
+Interested reader will find information in <em>JTCAM, L. Gélébart,</em> submitted 2020, available on <a class="reference external" href="https://hal.archives-ouvertes.fr/hal-0294220">https://hal.archives-ouvertes.fr/hal-0294220</a></p>
+<div class="section" id="beam-and-plates">
+<h3>Beam and plates<a class="headerlink" href="#beam-and-plates" title="Permalink to this headline">¶</a></h3>
+<p><strong>WARNING</strong> : when considering the homogenization of beams or plates, to account for traction-free boundary conditions :</p>
+<ul class="simple">
+<li>the unit-cell must consist of the beam/plate Volume Element embedded in an <strong>enlarged unit-cell</strong> with a <strong>buffer zone</strong>,</li>
+<li>the behavior of the <strong>buffer zone</strong> surrounding the VE must have <strong>null elastic propoerties</strong>,</li>
+<li>the beam/plate volume element must be <strong>centered</strong> within the enlarged unit-cell,</li>
+<li>for plane plates, the enlarged unit-cell consists of the plate VE with two aditionnal layers on each side.</li>
+</ul>
+<p>Note that, due to the <strong>buffer zone</strong> with null elastic properties, various strain and strain gradient components can not be prescribed to the beam/plate volume element.
+Interested reader will find information in <em>JTCAM, L. Gélébart,</em> submitted 2020, available on <a class="reference external" href="https://hal.archives-ouvertes.fr/hal-0294220">https://hal.archives-ouvertes.fr/hal-0294220</a></p>
+</div>
+<div class="section" id="loading-of-plates-example-with-normal-vector-e-z">
+<h3>Loading of plates (example with normal vector <span class="math notranslate nohighlight">\(e_z\)</span> )<a class="headerlink" href="#loading-of-plates-example-with-normal-vector-e-z" title="Permalink to this headline">¶</a></h3>
+<p>For a <strong>bending</strong> loading with ‘rotation’ axis <span class="math notranslate nohighlight">\(e_y\)</span>, we define :</p>
+<ul class="simple">
+<li>the ‘bending strain’ gradient <span class="math notranslate nohighlight">\(\varepsilon_{xx,z}\)</span>,</li>
+<li>the ‘transverse strain’ gradient <span class="math notranslate nohighlight">\(\varepsilon_{yy,z}\)</span>,</li>
+<li>the ‘through thickness strain’ gradient <span class="math notranslate nohighlight">\(\varepsilon_{zz,z}\)</span></li>
+</ul>
+<p>To apply the <strong>bending</strong> load, the ‘bending strain’ gradient is applied with</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;gradgradU_xx_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.001&quot;</span> <span class="nt">/&gt;</span>  <span class="c">&lt;!-- the applied &#39;bending strain&#39; gradient --&gt;</span>
+</pre></div>
+</div>
+<p>The ‘transverse strain’ gradient <span class="math notranslate nohighlight">\(\varepsilon_{yy,z}=\nabla U_{yy,z}=0\)</span>, is set to 0 by default.</p>
+<p>To improve the efficiency of the algorithm, the user can propose a realistic estimate of the ‘through thickness’ strain gradient with, for example</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;gradgradU_zz_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;-0.0005&quot;</span> <span class="nt">/&gt;</span>  <span class="c">&lt;!-- a realistic estimate of the &#39;through thickness strain&#39; gradient --&gt;</span>
+</pre></div>
+</div>
+<p>In the simulation :</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\varepsilon_{xx,z}\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_{yy,z}\)</span> are prescribed on the <strong>enlarged unit-cell</strong> but also to the plate volume element (without buffer).</li>
+<li><span class="math notranslate nohighlight">\(\varepsilon_{zz,z}\)</span> the ‘through thickness’ strain gradient are not prescribed to the plate volume element but introducing a realistic value offers a better initialization of the strain field and improves the algorithm convergence.</li>
+</ul>
+<p>For a <strong>torsion</strong> loading with ‘rotation’ axis <span class="math notranslate nohighlight">\(e_y\)</span>, the shear strain gradient <span class="math notranslate nohighlight">\(\varepsilon_{xy,z}\)</span>, is applied through <span class="math notranslate nohighlight">\(\nabla U_{xy,z}=2\varepsilon_{xy,z}\)</span> and <span class="math notranslate nohighlight">\(\nabla U_{yx,z}=0\)</span> as follows</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;gradgradU_xy_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.002&quot;</span> <span class="nt">/&gt;</span>  <span class="c">&lt;!-- the applied &#39;torsion&#39; gradient --&gt;</span>
+</pre></div>
+</div>
+<p>The component <span class="math notranslate nohighlight">\(\nabla U_{yx,z}\)</span> is set to zero by default.</p>
+<p>In the simulation, <span class="math notranslate nohighlight">\(\varepsilon_{xy,z}\)</span> is prescribed on the plate volume element.</p>
+</div>
+<div class="section" id="loading-of-beams-example-below-with-beam-axis-e-x">
+<h3>Loading of beams (example below with beam axis <span class="math notranslate nohighlight">\(e_x\)</span> )<a class="headerlink" href="#loading-of-beams-example-below-with-beam-axis-e-x" title="Permalink to this headline">¶</a></h3>
+<p>For a <strong>bending</strong> loading with ‘rotation’ axis <span class="math notranslate nohighlight">\(e_y\)</span>, we define :
+- the ‘bending strain’ gradient <span class="math notranslate nohighlight">\(\varepsilon_{xx,z}\)</span>,
+- the two ‘transverse strain’ gradients <span class="math notranslate nohighlight">\(\varepsilon_{yy,z}\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_{zz,z}\)</span></p>
+<p>To apply the <strong>bending</strong> load, the ‘bending strain’ gradient is applied with</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;gradgradU_xx_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.001&quot;</span> <span class="nt">/&gt;</span>  <span class="c">&lt;!-- the applied &#39;bending strain&#39; gradient --&gt;</span>
+</pre></div>
+</div>
+<p>To improve the efficiency of the algorithm, the user can propose a realistic estimate of the ‘tranverse strain’ gradients with, for example</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;gradgradU_yy_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;-0.0003&quot;</span> <span class="nt">/&gt;</span>  <span class="c">&lt;!-- realistic estimates of the &#39;transverse strain&#39; gradients--&gt;</span>
+<span class="nt">&lt;gradgradU_zz_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;-0.0003&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Realistic values are typically obtained from results on a homogeneous elastic isotropic material.
+Otherwise, these quantities can also be optimized to increase the algorithm convegence.</p>
+<p>In the simulation :</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(\varepsilon_{xx,z}\)</span> is prescribed to the beam volume element (without buffer).</li>
+<li><span class="math notranslate nohighlight">\(\varepsilon_{yy,z}\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_{yy,z}\)</span> are not prescribed to the plate volume element but introducing a realistic value offers a better initialization of the strain field and improves the algorithm convergence.</li>
+</ul>
+<p>For a <strong>torsion</strong> loading, with ‘rotation’ axis <span class="math notranslate nohighlight">\(e_x\)</span>, the ‘torsion strain’ gradient <span class="math notranslate nohighlight">\(\varepsilon_{xy,z}=-\varepsilon_{xz,y}\)</span>, is applied through <span class="math notranslate nohighlight">\(\nabla U_{yx,z}=-\nabla U_{zx,y}\)</span> and <span class="math notranslate nohighlight">\(\nabla U_{xy,z}=\nabla U_{xz,y}=0\)</span> as follows:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;gradgradU_yx_z</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.002&quot;</span> <span class="nt">/&gt;</span>   <span class="c">&lt;!-- the applied &#39;torsion&#39; gradient --&gt;</span>
+<span class="nt">&lt;gradgradU_zx_y</span>        <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;-0.002&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>The component <span class="math notranslate nohighlight">\(\nabla U_{xy,z}\)</span> and <span class="math notranslate nohighlight">\(\nabla U_{xz,y}\)</span> are set to zero by default.</p>
+<p>In the simulation, <span class="math notranslate nohighlight">\(\varepsilon_{xy,z}=-\varepsilon_{xz,y}\)</span> is prescribed on the beam volume element.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For <strong>beam cross-sections not aligned with the grid</strong> (for example a disk cross-section), using <strong>composite voxels</strong> with the Voigt homogenization rule is an efficient way to improve the quality of the simulation</p>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="diffusion">
+<span id="loading-diffusion"></span><h2>DIFFUSION<a class="headerlink" href="#diffusion" title="Permalink to this headline">¶</a></h2>
+<p>Since version 4.0.0, one variable stationnary diffusion problems, such as thermal diffusion, can be solved with <strong>amitex_fftp</strong>.</p>
+<p>As the concepts used to describe the inputs of the code in mechanics are similar for diffusion, we only explain below some typical <em>xml</em> files.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last"><strong>As the development of AMITEX_FFTP is focusing on ‘mechanics’, our feedback on ‘diffusion’ is less important.
+Contact us if you observe problems.</strong></p>
+</div>
+<div class="section" id="material-properties">
+<h3>Material properties<a class="headerlink" href="#material-properties" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Materials&gt;</span>
+
+<span class="c">&lt;!-- REFERENCE MATERIAL --&gt;</span>
+<span class="nt">&lt;Reference_MaterialD</span> <span class="na">K0=</span><span class="s">&quot;14&quot;</span><span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- MATERIAL 1 --&gt;</span>
+<span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span> <span class="na">LibK=</span><span class="s">&quot;/home/gelebart/amitex_fftp/libAmitex/src/materiauxK/libUmatAmitexK.so&quot;</span> <span class="na">LawK=</span><span class="s">&quot;Fourier_iso&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;CoeffK</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span> <span class="na">File=</span><span class="s">&quot;materiaux/coefficients/coeffK.txt&quot;</span> <span class="na">Format=</span><span class="s">&quot;ASCII&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Material&gt;</span>
+
+<span class="nt">&lt;/Materials&gt;</span>
+</pre></div>
+</div>
+<p>After defining the reference material property <code class="docutils literal notranslate"><span class="pre">&lt;Reference_MaterialD</span> <span class="pre">K0=&quot;14&quot;/&gt;</span></code>, the material behavior is given by the fields <code class="docutils literal notranslate"><span class="pre">LibK</span></code> and <code class="docutils literal notranslate"><span class="pre">LawK</span></code>.</p>
+<p>Here the simple isotropic Fourier behaviour is used and its coefficients are constant per zone, given in an ASCII file.</p>
+</div>
+<div class="section" id="algorithm-parameters">
+<h3>Algorithm parameters<a class="headerlink" href="#algorithm-parameters" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Algorithm_Parameters&gt;</span>
+
+<span class="c">&lt;!-- GENERAL CASE  --&gt;</span>
+<span class="nt">&lt;Algorithm</span> <span class="na">Type=</span><span class="s">&quot;Basic_Scheme&quot;</span><span class="nt">&gt;</span>                         <span class="c">&lt;!-- &quot;Default&quot; (Basic_Scheme) or &quot;user&quot; --&gt;</span>
+        <span class="nt">&lt;Convergence_Criterion</span> <span class="na">Value=</span><span class="s">&quot;Default&quot;</span><span class="nt">/&gt;</span>        <span class="c">&lt;!-- &quot;Default&quot; (1e-4) or positive value &lt;1e-3 --&gt;</span>
+        <span class="nt">&lt;Convergence_Acceleration</span> <span class="na">Value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>        <span class="c">&lt;!-- &quot;True&quot; ou &quot;False&quot; --&gt;</span>
+<span class="nt">&lt;/Algorithm&gt;</span>
+
+<span class="c">&lt;!-- DIFFUSION  --&gt;</span>
+<span class="nt">&lt;Diffusion&gt;</span>
+        <span class="nt">&lt;Filter</span> <span class="na">Type=</span><span class="s">&quot;Default&quot;</span><span class="nt">/&gt;</span>                         <span class="c">&lt;!-- &quot;Default&quot; (hexa) or &quot;no_filter&quot; or &quot;hexa&quot; or &quot;octa&quot; --&gt;</span>
+        <span class="nt">&lt;Stationary</span> <span class="na">Value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>                       <span class="c">&lt;!-- &quot;Tue&quot; (&quot;False&quot; not implemented yet) --&gt;</span>
+<span class="nt">&lt;/Diffusion&gt;</span>
+<span class="nt">&lt;/Algorithm_Parameters&gt;</span>
+</pre></div>
+</div>
+<p>No comment, reading is enough.</p>
+</div>
+<div class="section" id="loading-and-output">
+<h3>Loading and output<a class="headerlink" href="#loading-and-output" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Loading_Output&gt;</span>
+
+<span class="c">&lt;!-- OUPUT QUANTITIES --&gt;</span>
+<span class="nt">&lt;Output&gt;</span>
+    <span class="nt">&lt;vtk_FluxDGradD</span> <span class="na">FluxD =</span> <span class="s">&quot;1&quot;</span> <span class="na">GradD=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Zone</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/Zone&gt;</span>
+<span class="nt">&lt;/Output&gt;</span>
+
+<span class="c">&lt;!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES --&gt;</span>
+<span class="nt">&lt;Loading</span> <span class="na">Tag=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Time_Discretization</span> <span class="na">Discretization=</span><span class="s">&quot;User&quot;</span> <span class="na">Nincr=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Time_List&gt;</span>1<span class="nt">&lt;/Time_List&gt;</span>
+    <span class="nt">&lt;Output_vtkList&gt;</span>1<span class="nt">&lt;/Output_vtkList&gt;</span>
+    <span class="nt">&lt;Output_zone</span> <span class="na">Number=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;x0</span> <span class="na">Driving=</span><span class="s">&quot;GradD&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;y0</span> <span class="na">Driving=</span><span class="s">&quot;FluxD&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;2&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;z0</span> <span class="na">Driving=</span><span class="s">&quot;FluxD&quot;</span> <span class="na">Evolution=</span><span class="s">&quot;Linear&quot;</span> <span class="na">Value=</span><span class="s">&quot;3&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/Loading&gt;</span>
+
+<span class="nt">&lt;/Loading_Output&gt;</span>
+</pre></div>
+</div>
+<p>Here, the loading is made in one increment with a prescribed average temperature gradient in <em>x</em> direction and a prescribed average flux in <em>y</em> and <em>z</em> directions.</p>
+<p>The <strong>default output</strong> are the same as in Mechanics, replacing the stress and strain tensors by the flux and temperature gradient vectors.</p>
+<p>In addition, here, the <strong>specific outputs</strong> are : the flux and temperature gradient fields (vtk files), per zone statistical quantities for temperature gradient and flux.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, GELEBART Lionel.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

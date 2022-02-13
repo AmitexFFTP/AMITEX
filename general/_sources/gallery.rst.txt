@@ -1,0 +1,185 @@
+
+.. |copy|   unicode:: U+000A9 .. COPYRIGHT SIGN
+
+.. highlight:: bash
+
+.. _gallery:
+
+Gallery
+=========
+
+.. warning::
+
+   In the examples below, "Phase Fields" and "Non-local" are **EXTENDED** usages of **AMITEX_FFTP**. 
+   
+   If interested in an **EXTENDED** usage (for various couplings), please contact us (:ref:`contacts <contributors>`).
+
+
+------------------------------------------------------------------------------------------------
+
+.. _crystal_plasticity1:
+
+Crystal plasticity (1)
+-----------------------
+
+.. tableaux de 100 colonnes
+
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+|.. image:: _static/acta2019.jpg                  |.. image:: _static/IJSS2020_crop.jpg             |.. image:: _static/CRPhys2021.png                |
+|       :width: 95%                               |       :width: 95%                               |       :width: 95%                               |
+|       :align: left                              |       :align: left                              |       :align: left                              |
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+
+**(left) Intragranular localization induced by softening crystal plasticity**
+
+- *Acta Materialia 2019, A.Marano, L. Gélébart, S. Forest,* https://doi.org/10.1016/j.actamat.2019.06.010
+
+**(center) Non-linear composite voxels for explicit modeling of slip bands**
+
+- *IJSS 2020, A. Marano, L. Gélébart,* https://doi.org/10.1016/j.ijsolstr.2020.04.027
+
+**(right) Grain size effects and weakest link theory in 3D crystal plasticity simulations of polycrystals**
+
+- *Comptes Rendus Physique (submission 2020), L. Gélébart,* 
+
+------------------------------------------------------------------------------------------------
+
+.. _crystal_plasticity2:
+
+Crystal plasticity (2)
+-----------------------
+
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+|.. image:: _static/JMPS2019_hure.jpg             |.. image:: _static/ZHANG_composite.png           |.. image:: _static/JMPS2021_crop.png             |
+|       :width: 95%                               |       :width: 95%                               |       :width: 95%                               |
+|       :align: left                              |       :align: left                              |       :align: left                              |
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+
+**(left) Porous single crystals**
+
+- *JMPS 2019, J. Hure,* https://doi.org/10.1016/j.jmps.2018.10.018
+
+**(center) Polycrystal with inclusions**
+
+- |copy| *F. Zhang, Shanghai Jiao Tong University, 2020*
+
+**(right) Slip and kink bands formation : influence of strain gradient crystal plasticity (EXTENDED usage)**
+
+- *JMPS 2020, A. Marano, L. Gélébart, S. Forest,* (accepted, revision in progress)
+
+
+------------------------------------------------------------------------------------------------
+
+.. _composites1:
+
+Various composites (1)
+----------------------
+
+
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+|.. image:: _static/EurJMech2020_crop.jpg         |.. image:: _static/IJSS2019_yang_crop.jpg        |.. image:: _static/Snow_CNRM.jpg                 |
+|       :width: 95%                               |       :width: 95%                               |       :width: 95%                               |
+|       :align: left                              |       :align: left                              |       :align: left                              |
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+
+
+**(left) Finite strain behavior of random porous isotropic materials"**
+
+- *Eur. J. Mech. 2019, J. Hure,* https://doi.org/10.1016/j.euromechsol.2020.104143
+
+
+
+**(center) Large scale simulation of SiC/SiC composites from synchrotron X-ray tomography**
+
+- *IJSS 2019, Y. Chen, L. Gélébart, C. Chateau, M. Bornert, C. Sauder, A. King,*, https://doi.org/10.1016/j.ijsolstr.2018.11.009
+
+
+**(right) Simulation of snow**
+
+- |copy| *P. Hagenmuller (CNRM/CEN, Météo-France, CNRS)*
+
+
+-----------------
+
+
+.. _composites2:
+
+Various composites (2)
+----------------------
+
+
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+|.. image:: _static/IJSS2020_romain.jpg           |.. image:: _static/fiss_polyx.jpg                |.. image:: _static/lattice_cetim.png             |
+|       :width: 95%                               |       :width: 95%                               |       :width: 95%                               |
+|       :align: left                              |       :align: left                              |       :align: left                              |
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+
+
+**(left) Evaluation of interface stresses in hollow microspheres/polypropylene composites** 
+
+- *IJSS 2020, R. Charière, L. Gélébart, A. Marano,* https://doi.org/10.1016/j.ijsolstr.2019.08.002
+
+**(center) A crack in a polycrystal**
+
+- |copy| *L. Gélébart, 2015*
+
+**(left) Simulation on lattice architectures (for fun!)**
+
+- |copy| *L. Gélébart, 2019*
+
+
+------------------------------------------------------------------------------------------------
+
+.. _beams_plates:
+
+Beams and Plates
+--------------------
+
+
++-------------------------------------------------+-------------------------------------------------+
+|.. image:: _static/tors_contrast1_VC_sig13.png   |.. image:: _static/tors_contrast1000_VC_sig13.png|
+|       :width: 95%                               |       :width: 95%                               |
+|       :align: left                              |       :align: left                              |
++-------------------------------------------------+-------------------------------------------------+
+
+**Torsion of a homogeneous (left) and heterogeneous beam (right)**
+
+- |copy| *JTCAM, L. Gélébart,* submitted 2020, available on https://hal.archives-ouvertes.fr/hal-02942202
+
+
+------------------------------------------------------------------------------------------------
+
+.. _phase_field:
+
+Phase field (EXTENDED usage)
+-----------------------------
+
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+|.. image:: _static/CMAME2019_crop2.jpg           |.. image:: _static/BoissePF1.png                 |.. image:: _static/BoissePF2.png                 |
+|       :width: 90%                               |       :width: 80%                               |       :width: 80%                               |
+|       :align: left                              |       :align: left                              |       :align: left                              |
++-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+
+**(left) Phase field modelling of brittle fracture**
+
+- *CMAME 2019, Y. Chen, D. Vasiukov, L. Gélébart, C.H. Park,* https://doi.org/10.1016/j.cma.2019.02.017
+
+**(center) Phase field modelling of martensitic phase transformation**
+
+- |copy| *J. Boisse (LEMTA/Université de Lorraine),* 
+- model from *CMAME 2016, J. Kochman,* https://doi.org/10.1016/j.cma.2019.02.017
+
+
+**(right) Phase field modelling of spinodal decomposition**
+
+- |copy| *J. Boisse (LEMTA/Université de Lorraine)*
+
+
+------------------------------------------------------------------------------------------------
+
+.. _dislocation_dynamics:
+
+Dislocation Dynamics
+--------------------
+
+TO BE COMPLETED

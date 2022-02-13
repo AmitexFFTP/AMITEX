@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MATERIALS &#8212; AMITEX user guide  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LOADING&amp;OUTPUTS" href="loading_outputs.html" />
+    <link rel="prev" title="INPUT FILES" href="input_files.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+ <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="map-site-user.html"><span><img src="_static/amitex.png"></span>
+<!-- LG : SUPPRESSION titre et version 
+           -->
+		  </a>
+
+<!-- LG : suppression VERSION 
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+-->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="to_begin.html">TO BEGIN</a></li>
+                <li><a href="input_files.html">INPUT FILES</a></li>
+                <li><a href="#">MATERIALS</a></li>
+                <li><a href="loading_outputs.html">LOAD&OUT</a></li>
+                <li><a href="algorithm.html">ALGORITHM</a></li>
+                <li><a href="behaviors.html">BEHAVIORS</a></li>
+            
+			
+<!-- LG : SUPPRESSION menu deroulant SITE 
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="map-site-user.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="to_begin.html">TO BEGIN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="to_begin.html#geometry-unit-cell-description">GEOMETRY : UNIT-CELL DESCRIPTION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#definitions">Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#materialid-and-zoneid-integer-fields">MaterialID and ZoneID integer fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#example-of-a-non-unique-description">Example of a non-unique description</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="to_begin.html#how-to-launch-amitex-fftp">HOW TO LAUNCH AMITEX_FFTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">INPUT FILES</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#vtk-files">VTK files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#xml-files">XML files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#bin-files">BIN files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MATERIALS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#standard-description">STANDARD DESCRIPTION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin-and-end">Begin and End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-material">Reference Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#material-coefficients">Material Coefficients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initial-internal-variables">Initial Internal Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#composite-voxels-advanced-users">COMPOSITE VOXELS (ADVANCED USERS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-description">General Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#format-for-composite-voxels-description">Format for Composite Voxels description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#one-file">One file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#one-directory-per-composite-material">One directory per composite material</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interphase-definition">Interphase Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-1-a-voronoi-polycrystal-with-isotropic-grains">Example 1 : a voronoï polycrystal with isotropic grains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2-a-single-composite-voxel">Example 2 : a single composite voxel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loading_outputs.html">LOADING&amp;OUTPUTS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#mechanical-loading">MECHANICAL LOADING</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#example-1-creep-loading">Example 1 : creep loading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#example-2-loading-with-a-stress-direction">Example 2 : loading with a stress direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#begin-and-end">Begin and End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#default-output">Default Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#additional-outputs">Additional Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#id1">Loading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#external-loading">EXTERNAL LOADING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#strain-gradient-loadings">STRAIN GRADIENT LOADINGS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#beam-and-plates">Beam and plates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-plates-example-with-normal-vector-e-z">Loading of plates (example with normal vector <span class="math notranslate nohighlight">\(e_z\)</span> )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-beams-example-below-with-beam-axis-e-x">Loading of beams (example below with beam axis <span class="math notranslate nohighlight">\(e_x\)</span> )</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#diffusion">DIFFUSION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#material-properties">Material properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#algorithm-parameters">Algorithm parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-and-output">Loading and output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">ALGORITHM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#standard-parameters">Standard parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#additional-parameters">Additional Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors.html">BEHAVIORS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#umat-procedures">UMAT procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#native-behaviors">NATIVE behaviors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#umat-behaviors">UMAT behaviors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behaviors.html#mfront-behaviors">MFRONT behaviors</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+ -->
+
+<!-- LG : SUPPRESSION SEARCH
+            
+-->
+            
+            
+            
+          </ul>
+<!-- LG : SUPPRESSION SEARCH
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+-->
+        </div>
+    </div>
+
+	<!-- LG : AJOUT SECONDE PARTIE DE NAVBAR -->
+<!--	<div class="container"> -->
+    <div class="sous_navbar">
+		 <!-- LG <li class="dropdown" 	>-->
+<div class="dropdown" 	>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+	 style="color:#fff" 
+     href="#"> <span >MATERIALS</span><b class="caret" style="color:#fff"></b></a> <!-- LG : on met ici le titre de la page -->
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">MATERIALS</a><ul>
+<li><a class="reference internal" href="#standard-description">STANDARD DESCRIPTION</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#begin-and-end">Begin and End</a></li>
+<li><a class="reference internal" href="#reference-material">Reference Material</a></li>
+<li><a class="reference internal" href="#id2">Materials</a></li>
+<li><a class="reference internal" href="#material-coefficients">Material Coefficients</a></li>
+<li><a class="reference internal" href="#initial-internal-variables">Initial Internal Variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#composite-voxels-advanced-users">COMPOSITE VOXELS (ADVANCED USERS)</a><ul>
+<li><a class="reference internal" href="#general-description">General Description</a></li>
+<li><a class="reference internal" href="#format-for-composite-voxels-description">Format for Composite Voxels description</a><ul>
+<li><a class="reference internal" href="#one-file">One file</a></li>
+<li><a class="reference internal" href="#one-directory-per-composite-material">One directory per composite material</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#interphase-definition">Interphase Definition</a></li>
+<li><a class="reference internal" href="#example-1-a-voronoi-polycrystal-with-isotropic-grains">Example 1 : a voronoï polycrystal with isotropic grains</a></li>
+<li><a class="reference internal" href="#example-2-a-single-composite-voxel">Example 2 : a single composite voxel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</div>
+<!--</li>          class="hidden-sm hidden-tablet"  -->
+    </div>    
+<!--    </div>    -->
+
+  </div>
+  
+  
+
+
+  
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="materials">
+<span id="id1"></span><h1>MATERIALS<a class="headerlink" href="#materials" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="standard-description">
+<span id="materials-standard"></span><h2>STANDARD DESCRIPTION<a class="headerlink" href="#standard-description" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>The number of materials and the number of zones (per material), provided in the “material.xml” file, must be consistent with the description given by the vtk file(s).</strong></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">if <strong>ID</strong> in <em>materialID.vtk</em> starts to zero, the material number <strong>numM</strong> in the “material.xml” file corresponds to <strong>ID+1</strong></p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>This <em>material.xml</em> file below provides in a single (and dummy!) example different syntaxes to associate the geometry to material properties</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Materials&gt;</span>
+
+    <span class="c">&lt;!-- REFERENCE MATERIAL --&gt;</span>
+    <span class="nt">&lt;Reference_Material</span> <span class="na">Lambda0=</span><span class="s">&quot;2.0952e+10&quot;</span> <span class="na">Mu0=</span><span class="s">&quot;1.5014e+10&quot;</span><span class="nt">/&gt;</span>
+
+
+    <span class="c">&lt;!-- MATERIAL &quot;2&quot;, elastic isotropic behavior                                      --&gt;</span>
+    <span class="c">&lt;!--           prefer the syntax Lib=&quot;&quot; for native behavior Law (see Material &quot;1&quot;) --&gt;</span>
+    <span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;2&quot;</span> <span class="na">Lib=</span><span class="s">&quot;(amitex)/libAmitex/src/materiaux/libUmatAmitex.so&quot;</span> <span class="na">Law=</span><span class="s">&quot;elasiso&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Two constant coefficients (Lamé coefficients Lambda and Mu) --&gt;</span>
+        <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;4.0385e+10&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;2.6923e+10&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Material&gt;</span>
+
+
+    <span class="c">&lt;!-- MATERIAL &quot;1&quot;, linear viscoelastic behavior                                     --&gt;</span>
+    <span class="c">&lt;!--               Lib=&quot;&quot; possible for &#39;native&#39; behavior Law                        --&gt;</span>
+    <span class="c">&lt;!--               possible if AMITEX_PATH is defined (export AMITEX_PATH=(amitex)) --&gt;</span>
+    <span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span> <span class="na">Lib=</span><span class="s">&quot;&quot;</span> <span class="na">Law=</span><span class="s">&quot;viscoelas_maxwell&quot;</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- coefficient 1: constant per zone --&gt;</span>
+        <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- value within zone 1 --&gt;</span>
+            <span class="nt">&lt;Zone</span> <span class="na">numZ=</span><span class="s">&quot;1&quot;</span> <span class="na">Value=</span><span class="s">&quot;5.235e+10&quot;</span> <span class="nt">/&gt;</span>
+            <span class="c">&lt;!-- value within zone 2 --&gt;</span>
+            <span class="nt">&lt;Zone</span> <span class="na">numZ=</span><span class="s">&quot;2&quot;</span> <span class="na">Value=</span><span class="s">&quot;3.912e+10&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Coeff&gt;</span>
+
+        <span class="c">&lt;!-- coefficient 2: constant per zone, values defined in the ASCII file &quot;Coeff2&quot; --&gt;</span>
+        <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone &quot;</span> <span class="na">File=</span><span class="s">&quot;Coeff2&quot;</span> <span class="na">Format=</span><span class="s">&quot;ASCII&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- coefficient 3: constant per zone, values defined in the binary file &quot;Coeff3.bin&quot; --&gt;</span>
+        <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;3&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone &quot;</span> <span class="na">File=</span><span class="s">&quot;Coeff3.bin&quot;</span> <span class="na">Format=</span><span class="s">&quot;binary&quot;</span> <span class="nt">/&gt;</span>
+
+
+        <span class="c">&lt;!-- Internal variables are defined similarly--&gt;</span>
+        <span class="nt">&lt;IntVar</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;IntVar</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;Zone</span> <span class="na">numZ=</span><span class="s">&quot;1&quot;</span> <span class="na">Value=</span><span class="s">&quot;0.&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;Zone</span> <span class="na">numZ=</span><span class="s">&quot;2&quot;</span> <span class="na">Value=</span><span class="s">&quot;10.&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;/IntVar&gt;</span>
+
+        <span class="nt">&lt;IntVar</span> <span class="na">Index=</span><span class="s">&quot;3&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span> <span class="na">File=</span><span class="s">&quot;Var3&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;IntVar</span> <span class="na">Index=</span><span class="s">&quot;4&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">File=</span><span class="s">&quot;(rep_to_vtk)/coeff.vtk&quot;</span> <span class="na">Format=</span><span class="s">&quot;vtk&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/Material&gt;</span>
+
+<span class="nt">&lt;/Materials&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="begin-and-end">
+<h3>Begin and End<a class="headerlink" href="#begin-and-end" title="Permalink to this headline">¶</a></h3>
+<p>The file must begin and end with</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Materials&gt;</span>
+        .
+        .
+<span class="nt">&lt;/Materials&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reference-material">
+<h3>Reference Material<a class="headerlink" href="#reference-material" title="Permalink to this headline">¶</a></h3>
+<p>The reference material is defined by its Lamé coefficients, given by</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Reference_Material</span> <span class="na">Lambda0=</span><span class="s">&quot;2.0952e+10&quot;</span> <span class="na">Mu0=</span><span class="s">&quot;1.5014e+10&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>For an optimal choice with the basic scheme, Moulinec proposed to use <span class="math notranslate nohighlight">\(X_0=(min(X)+max(X))/2\)</span> (with <span class="math notranslate nohighlight">\(X=\lambda\)</span> or <span class="math notranslate nohighlight">\(\mu\)</span>).
+If convergence acceleration is used (see <a class="reference internal" href="algorithm.html#algorithm"><span class="std std-ref">ALGORITHM</span></a>), the same choice can be used but the influence on the convergence is much less <strong>significant</strong>.</p>
+</div>
+<div class="section" id="id2">
+<h3>Materials<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Each <em>material</em> is associated to the geometry by the material number <em>numM</em> which directly refers to a material domain in <em>materialID.vtk</em>.</p>
+<p>Materials numbers <em>numM</em> starts to one (if <em>ID</em> in <em>materialID.vtk</em> starts to zero : <em>ID</em> = 0 corresponds to <em>numM</em> = 1, <em>ID</em> = 1 to <em>numM</em> = 2 and so on)</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;2&quot;</span> <span class="na">Lib=</span><span class="s">&quot;(amitex)/libAmitex/src/materiaux/libUmatAmitex.so&quot;</span> <span class="na">Law=</span><span class="s">&quot;elasiso&quot;</span><span class="nt">&gt;</span>
+   .
+   .
+<span class="nt">&lt;/Material&gt;</span>
+<span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span> <span class="na">Lib=</span><span class="s">&quot;&quot;</span> <span class="na">Law=</span><span class="s">&quot;elasiso&quot;</span><span class="nt">&gt;</span>
+   .
+   .
+<span class="nt">&lt;/Material&gt;</span>
+</pre></div>
+</div>
+<p>One <code class="docutils literal notranslate"><span class="pre">&lt;Material..</span> <span class="pre">&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Material&gt;</span></code> section must be defined per <em>material</em> present in the <strong>materialID.vtk</strong>.
+If the file <strong>materialID.vtk</strong> is omitted when launching <strong>amitex_fftp</strong> (see <a class="reference internal" href="to_begin.html#to-begin-how-to-launch"><span class="std std-ref">HOW TO LAUNCH AMITEX_FFTP</span></a>), a unique material is assumed, and a unique section must be given.</p>
+<p>The material behaviour laws are implemented through <em>UMAT</em> compatible procedures gathered in a dynamic library (see <a class="reference internal" href="behaviors.html#behaviors-umat"><span class="std std-ref">UMAT behaviors</span></a>).</p>
+<p>The fields <code class="docutils literal notranslate"><span class="pre">Lib</span></code> and <code class="docutils literal notranslate"><span class="pre">Law</span></code> provide the complete path to the library and the name of the procedure, respectively.</p>
+<p><strong>NATIVE BEHAVIORS</strong></p>
+<p>In the standard version of <strong>AMITEX_FFTP</strong>, only a few native behavior laws are provided within the library <em>(amitex)/libAmitex/src/materiaux/libUmatAmitex.so</em>.</p>
+<p><strong>For native behaviors</strong>, if the environment variable <strong>AMITEX_PATH</strong> is defined, the <strong>complete path can be avoided</strong>, using <code class="docutils literal notranslate"><span class="pre">Lib=&quot;&quot;</span></code>.</p>
+<p>This is the recommended way to use native behaviors</p>
+<p>The available native behavior laws are</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>elasiso             : isotropic elasticity
+elasiso_eigs        : isotropic elasticity with eigenstrain
+elasiso_GD          : Lagrangian isotropic elasticity
+elasaniso           : orthotropic elasticity
+thermoelasiso       : isotropic thermoelasticity
+paramextelasiso     : isotropic &#39;thermo&#39;elasticity but with an external parameter governing the dilatation (instead of the temperature)
+contrainte_imposee  : imposed stress
+viscoelas_maxwell   : Maxwell linear visco-elasticity
+</pre></div>
+</div>
+<p>They are described in <a class="reference internal" href="behaviors.html#behaviors-native"><span class="std std-ref">NATIVE behaviors</span></a>.</p>
+<p><strong>USER-DEFINED BEHAVIORS</strong></p>
+<p>Introducing a new behaviour law is quite simple and discribed in <a class="reference internal" href="behaviors.html#behaviors-umat"><span class="std std-ref">UMAT behaviors</span></a>.
+In that case, filling <code class="docutils literal notranslate"><span class="pre">Lib=&quot;path_to_library&quot;</span></code> with the correct path towards the dynamic library is <strong>mandatory</strong>.</p>
+</div>
+<div class="section" id="material-coefficients">
+<span id="user-material-coefficients"></span><h3>Material Coefficients<a class="headerlink" href="#material-coefficients" title="Permalink to this headline">¶</a></h3>
+<p>The material coefficient’s index is the position of each coefficient within the vector COEFF used as an input of the <em>UMAT</em> compatible procedure for the behaviour law (see <a class="reference internal" href="behaviors.html#behaviors-umat"><span class="std std-ref">UMAT behaviors</span></a>).</p>
+<p>For an isotropic behavior (<code class="docutils literal notranslate"><span class="pre">Law=&quot;elasiso&quot;</span></code>), the coefficients COEFF(1) and COEFF(2) are the Lamé coefficients <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>, respectively.</p>
+<p>In the example above, four different ways are used to define these values</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>1. <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;4.0385e+10&quot;</span><span class="nt">/&gt;</span>
+
+2. <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;Zone</span> <span class="na">numZ=</span><span class="s">&quot;1&quot;</span> <span class="na">Value=</span><span class="s">&quot;5.235e+10&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Zone</span> <span class="na">numZ=</span><span class="s">&quot;2&quot;</span> <span class="na">Value=</span><span class="s">&quot;3.912e+10&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/Coeff&gt;</span>
+
+3. <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone &quot;</span> <span class="na">File=</span><span class="s">&quot;Coeff2&quot;</span> <span class="na">Format=</span><span class="s">&quot;ASCII&quot;</span><span class="nt">/&gt;</span>
+
+4. <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;3&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone &quot;</span> <span class="na">File=</span><span class="s">&quot;Coeff3.bin&quot;</span> <span class="na">Format=</span><span class="s">&quot;binary&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p class="first">is used if the coefficient is constant within the <em>Material</em></p>
+</li>
+<li><p class="first">and 3. and 4. are used if the coefficient is different from one <em>Zone</em> to another</p>
+</li>
+<li><p class="first">is used to import coefficients from a text file, which can be useful when considering a relatively large number of zones. To define a coefficient for two zones, the file must contain at least two lines (one value per line) see an example of the file Coeff2:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>1.429430417
+3.905850691
+</pre></div>
+</div>
+<p>If the <em>Format</em> tag is not specified, the program will assume that the file given is written in the ASCII format.</p>
+</li>
+</ol>
+<p>4. is used to import coefficients from a binary file. This is very useful when there is a very large number of zones.
+The file format is described in <a class="reference internal" href="input_files.html#input-bin"><span class="std std-ref">BIN files</span></a> and the precision must be <em>float</em> or <em>double</em>.</p>
+</div>
+<div class="section" id="initial-internal-variables">
+<span id="materials-initial-internal-variables"></span><h3>Initial Internal Variables<a class="headerlink" href="#initial-internal-variables" title="Permalink to this headline">¶</a></h3>
+<p>Initial internal variables are assigned according to the same procedure. Here, the index is the position of each internal variable within the vector STATEV (used as an input/output of the <em>UMAT</em> compatible procedure for the behaviour law, see <a class="reference internal" href="behaviors.html#behaviors-umat"><span class="std std-ref">UMAT behaviors</span></a>).</p>
+<p><strong>A fifth possibility</strong> is proposed to assign internal variables with binary <em>vtk</em> files (format <em>float</em> or <em>double</em>)</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>5. <span class="nt">&lt;IntVar</span> <span class="na">Index=</span><span class="s">&quot;4&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">File=</span><span class="s">&quot;(rep_to_vtk)/variable.vtk&quot;</span> <span class="na">Format=</span><span class="s">&quot;vtk&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>The <em>vtk</em> files definition is given in <a class="reference internal" href="input_files.html#input-vtk"><span class="std std-ref">VTK files</span></a> with precision <em>float</em> or <em>double</em>.</p>
+<p>This is especially interesting to assign a <strong>continuously variable field</strong> (a random field for example).</p>
+<p>If the <em>Material</em> do not cover the whole unit-cell (which occurs with more than one <em>Material</em> in the unit-cell), only the corresponding part of the complete field given in ‘variable.vtk’ is used. The rest of the field is not considered.</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="composite-voxels-advanced-users">
+<span id="materials-composite"></span><h2>COMPOSITE VOXELS (ADVANCED USERS)<a class="headerlink" href="#composite-voxels-advanced-users" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<ul class="last simple">
+<li>The important idea is that <strong>the same vtk files can be used with or without composite voxels</strong>.</li>
+<li>The introduction of composite voxels in the simulation is done by <strong>additionnal informations within the material.xml file</strong>.</li>
+<li>The definition of composite voxels requires a <strong>pre-treatment</strong> to precisely identify where they are located and what they consist of (which materials, which volume fractions…)</li>
+</ul>
+</div>
+<p>Introduced progressively since version 5.0.0, the final goal is to be able to account for:</p>
+<ol class="arabic simple">
+<li>different averaging rules (at least Voigt, Reuss and Laminate)</li>
+<li>any number of phases</li>
+<li>any linear or non-linear behavior</li>
+<li>Small Strains and Finite Srains frameworks</li>
+</ol>
+<p>In v8.17.1, Finite Strain extension is not yet available.
+The other points are fullfilled.</p>
+<div class="section" id="general-description">
+<h3>General Description<a class="headerlink" href="#general-description" title="Permalink to this headline">¶</a></h3>
+<p>The introduction of composite voxels in the file <em>material.xml</em> requires
+the modification or addition of the 3 following xml nodes :</p>
+<p><strong>1.</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Material..</span> <span class="pre">&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Material&gt;</span></code></p>
+<p>All the materials present in the unit-cell are defined as previously (see <a class="reference internal" href="#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>),
+whether they are present or not as homogeneous voxels.
+A node <code class="docutils literal notranslate"><span class="pre">&lt;Coeff_composite</span> <span class="pre">..</span> <span class="pre">/&gt;</span></code> must be added to provide an elastic isotropic behavior
+for the numerical integration of the average behavior (Laminate or Reuss).
+The two parameters are respectively the Lamé coefficients <span class="math notranslate nohighlight">\((\lambda,\mu)\)</span></p>
+<p><strong>2.</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Material_composite&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Material_composite&gt;</span></code></p>
+<p>The path of the directory were the complete description of composite voxels is given
+according to a precise format given below.</p>
+<p><strong>3.</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Interphase&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Interphase&gt;</span></code> (if required)</p>
+<p>List of the materials and/or zones which do not appear as homogeneous voxels.
+Actually, sometimes, a specific ID of <em>materialID.vtk</em> or a specific zone of <em>zoneID.vtk</em> can be completely
+overlaid by the composite voxels so that it doesn’t appear anymore as homogeneous voxels.
+This is especially the case when dealing with thin interphases.</p>
+</div>
+<div class="section" id="format-for-composite-voxels-description">
+<h3>Format for Composite Voxels description<a class="headerlink" href="#format-for-composite-voxels-description" title="Permalink to this headline">¶</a></h3>
+<p>The whole set of composite voxels is divided into <strong>composite materials</strong>.
+Each <strong>composite material</strong> is defined by:</p>
+<ul class="simple">
+<li>a set of material IDs (<code class="docutils literal notranslate"><span class="pre">numM</span></code> in <a class="reference internal" href="#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>)</li>
+<li>an averaging rule (<cite>voigt</cite>, <cite>reuss</cite> or <cite>laminate</cite>)</li>
+</ul>
+<p>The complete definition of composite voxels is given in <strong>a single directory containing</strong>:</p>
+<ul class="simple">
+<li>one file</li>
+<li>one directory per <strong>composite material</strong></li>
+</ul>
+<div class="section" id="one-file">
+<h4>One file<a class="headerlink" href="#one-file" title="Permalink to this headline">¶</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">list_composite_materials.txt</span></code> lists the different <strong>composite materials</strong>.
+Each line has the form <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">J</span> <span class="pre">K</span> <span class="pre">...</span> <span class="pre">P</span> <span class="pre">averaging_rule</span></code> where I, J, K … P are the material IDs
+present in the <strong>composite material</strong>.</p>
+<p>Example for <code class="docutils literal notranslate"><span class="pre">list_composite_materials.txt</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>1 2 4 6 laminate
+1 1 voigt
+</pre></div>
+</div>
+<p>In the example above, two <strong>composite materials</strong> are defined.</p>
+<p>The first one :</p>
+<ul class="simple">
+<li>contains 4 phases, associated to the material IDs 1, 2, 4 and 6 (corresponding to <code class="docutils literal notranslate"><span class="pre">numM</span></code> in <a class="reference internal" href="#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>). Here each phase has a different material behavior law.</li>
+<li>uses laminate averaging rule.</li>
+</ul>
+<p>The second one :</p>
+<ul class="simple">
+<li>contains two phases associated to the same material ID “1” (corresponding to <code class="docutils literal notranslate"><span class="pre">numM</span></code> in <a class="reference internal" href="#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>). In that case, the two phases have the same behavior law but may have different material coefficients associated to different zones (see <code class="docutils literal notranslate"><span class="pre">numZ</span></code> in <a class="reference internal" href="#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>)</li>
+<li>uses the voigt avering rule,</li>
+</ul>
+</div>
+<div class="section" id="one-directory-per-composite-material">
+<h4>One directory per composite material<a class="headerlink" href="#one-directory-per-composite-material" title="Permalink to this headline">¶</a></h4>
+<p>Each directory <code class="docutils literal notranslate"><span class="pre">rep_I_J_K..._P</span></code> describes the geometry of each <strong>composite material</strong>
+listed in <code class="docutils literal notranslate"><span class="pre">list_composite_materials.txt</span></code>.
+In the example above, two directories, <code class="docutils literal notranslate"><span class="pre">rep_1_1</span></code> and <code class="docutils literal notranslate"><span class="pre">rep_1_2_4_6</span></code> are required.
+Within each directory, a local phase renumbering is considered : I <span class="math notranslate nohighlight">\(\leftrightarrow\)</span> 1, J <span class="math notranslate nohighlight">\(\leftrightarrow\)</span> 2, K <span class="math notranslate nohighlight">\(\leftrightarrow\)</span> 3…
+and the following files are contained :</p>
+<ul class="simple">
+<li><em>pos.bin</em> (for <em>i</em> =1 .. number of phases) : the linearized positions of the composite voxels</li>
+<li><em>zonei.bin</em> (for <em>i</em> =1 .. number of phases) : their zone IDs for phase <em>i</em> (local phase number)</li>
+<li><em>fvi.bin</em>   (for <em>i</em> =1 .. number of phases) : their volume fractions of phase <em>i</em> (local phase number)</li>
+<li><em>Nijx.bin</em>, <em>Nijy.bin</em>, <em>Nijz.bin</em> (for <em>i</em>, <em>j</em> =1 .. number of phases and <em>i</em> <span class="math notranslate nohighlight">\(\ne\)</span> <em>j</em>) : their components of the normal vector to the interface between phases <em>i</em> and <em>j</em>.</li>
+<li><em>Sij.bin</em> (for <em>i</em>, <em>j</em> =  .. number of phases and <em>i</em> <span class="math notranslate nohighlight">\(\ne\)</span> <em>j</em>) : their surfaces of intersection between the voxel and the interface between phases <em>i</em> and <em>j</em>.</li>
+</ul>
+<p>Each file contains a list of binary values, one for each voxel composite of the family, respecting the format <a class="reference internal" href="input_files.html#input-bin"><span class="std std-ref">BIN files</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In practice, the mandatory files are:</p>
+<ul class="simple">
+<li>For all averaging rules : <em>pos.bin</em>, <em>zonei.bin</em> (for <em>i</em> =1 ..  number of phase), <em>fvi.bin</em> (for <em>i</em> =1 ..  number of phase -1)</li>
+<li>For laminate : <em>N12x.bin</em>, <em>N12y.bin</em>, <em>N12z.bin</em> (an arbitrary choice is made to keep the normal <em>N12</em> for the laminate model). In addition, the laminate rule requires the components of the tangent vectors given in files <em>Tx.bin</em>, <em>Ty.bin</em> and <em>Tz.bin</em>.</li>
+</ul>
+<p class="last">However, all the normals <em>Nij</em> and surfaces <em>Sij</em> could be used in the futur, and can be usefull for evaluating interfaces average quantities in post-treatment.</p>
+</div>
+</div>
+</div>
+<div class="section" id="interphase-definition">
+<h3>Interphase Definition<a class="headerlink" href="#interphase-definition" title="Permalink to this headline">¶</a></h3>
+<p>The section <code class="docutils literal notranslate"><span class="pre">&lt;Interphase&gt;</span> <span class="pre">..</span> <span class="pre">&lt;\Interphase&gt;</span></code> <strong>must be added</strong> to the file <em>material.xml</em> <strong>IF AND ONLY IF, after adding the composite voxel’s definition</strong>:</p>
+<p>1. At least one material ID, <em>matID</em>, (<code class="docutils literal notranslate"><span class="pre">numM</span></code> in <a class="reference internal" href="#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>) do not appear anymore as a homogeneous voxel.
+Such an “Interphase” material <strong>must be</strong> identified through:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Interphase_material</span>  <span class="na">numM=</span><span class="s">&quot;matID&quot;</span> <span class="na">Nzones=</span><span class="s">&quot;number_of_zones&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>As all the materials in <strong>amitex_fftp</strong>, its coefficients can be associated to different zones
+so that the number of zones <code class="docutils literal notranslate"><span class="pre">Nzones</span></code> <strong>must be specified</strong> (unlike the other materials,
+the number of zones can’t be deduced from the files <em>materialID.vtk</em> and <em>zoneID.vtk</em> associated to homogeneous voxels).</p>
+<p>2. At least one zone ID of a given material ID, <em>matID</em>, do not appear anymore as a homogeneous voxel.
+Such “Interphase” zones <strong>must be</strong> identified through:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Interphase_zone_list</span> <span class="na">numM=</span><span class="s">&quot;matID&quot;</span> <span class="na">Nzones=</span><span class="s">&quot;number_of_zones&quot;</span><span class="nt">&gt;</span>
+        zoneID1 zoneID2 ... zoneIDnumber_of_zones
+<span class="nt">&lt;/Interphase_zone_list&gt;</span>
+</pre></div>
+</div>
+<p>Below is an example where material 2, which consists of 4 zones (associated to different material coefficients)
+does not appear anywhere as a homogeneous voxel. In addition, material 1 appears as a homogeneous voxel but not its three zones 2, 4 and 6.:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Interphase&gt;</span>
+        <span class="nt">&lt;Interphase_material</span>  <span class="na">numM=</span><span class="s">&quot;2&quot;</span> <span class="na">Nzones=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Interphase_zone_list</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span> <span class="na">Nzones=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+                2 4 6
+        <span class="nt">&lt;/Interphase_zone_list&gt;</span>
+<span class="nt">&lt;/Interphase&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-1-a-voronoi-polycrystal-with-isotropic-grains">
+<h3>Example 1 : a voronoï polycrystal with isotropic grains<a class="headerlink" href="#example-1-a-voronoi-polycrystal-with-isotropic-grains" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In this exemple, and in any case where the definition of <strong>“interphase” is not required</strong>
+(all the material and material’s zones are present as homogeneous voxels), the simulation <strong>can be run</strong>
+without composite voxels by simply commenting the section       <code class="docutils literal notranslate"><span class="pre">&lt;Material_composite</span>&#160;&#160; <span class="pre">&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Material_composite&gt;</span></code>.</p>
+</div>
+<p>In this example, there is only one material and the file <em>zoneID.vtk</em> consists of a voronoï tessellation (one grain per zone):
+all the grains have an elastic isotropic behavior but different Lamé coefficients.
+In the <em>material.xml</em> file below, the unique material (<code class="docutils literal notranslate"><span class="pre">numM=1</span></code>) is defined with constant per zone Lamé coefficients
+and the Lamé coefficients for the numerical integration of the averaging rule are the same. The introduction
+of composite voxels is simply done by adding the section <code class="docutils literal notranslate"><span class="pre">&lt;Material_composite&gt;</span> <span class="pre">..</span> <span class="pre">&lt;\Material_composite&gt;</span></code> to specify the directory
+where the composite voxels are fully defined (see <span class="target" id="format-for-composite-voxels-definition">Format-for-composite-voxels-definition</span>)</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Materials&gt;</span>
+
+<span class="c">&lt;!-- REFERENCE MATERIAL --&gt;</span>
+<span class="nt">&lt;Reference_Material</span> <span class="na">Lambda0=</span><span class="s">&quot;5.76923076923077e8&quot;</span> <span class="na">Mu0=</span><span class="s">&quot;3.84615384615385e8&quot;</span><span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- MATERIAL 1  --&gt;</span>
+<span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span> <span class="na">Lib=</span><span class="s">&quot;/home/gelebart/amitex_fftp/libAmitex/src/materiaux/libUmatAmitex.so&quot;</span> <span class="na">Law=</span><span class="s">&quot;elasiso&quot;</span> <span class="nt">&gt;</span>
+
+                <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span> <span class="na">File=</span><span class="s">&quot;materiaux/coefficients/Lambda1_polyx27G_R21.bin&quot;</span> <span class="na">Format=</span><span class="s">&quot;binary&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span> <span class="na">File=</span><span class="s">&quot;materiaux/coefficients/Mu1_polyx27G_R21.bin&quot;</span> <span class="na">Format=</span><span class="s">&quot;binary&quot;</span><span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span> <span class="na">File=</span><span class="s">&quot;materiaux/coefficients/Lambda1_polyx27G_R21.bin&quot;</span> <span class="na">Format=</span><span class="s">&quot;binary&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span> <span class="na">File=</span><span class="s">&quot;materiaux/coefficients/Mu1_polyx27G_R21.bin&quot;</span> <span class="na">Format=</span><span class="s">&quot;binary&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Material&gt;</span>
+
+<span class="c">&lt;!-- DIRECTORY FOR THE DEFINITION OF COMPOSITE VOXELS --&gt;</span>
+<span class="nt">&lt;Material_composite&gt;</span>
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">directory=</span><span class="s">&quot;microstructures/voxcomp/polyX_27G_R21_reuss&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Material_composite&gt;</span>
+
+<span class="nt">&lt;/Materials&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-2-a-single-composite-voxel">
+<h3>Example 2 : a single composite voxel<a class="headerlink" href="#example-2-a-single-composite-voxel" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In this exemple, and in any case where the definition of <strong>“interphase” is required</strong>, the simulation <strong>can not be</strong> run
+without composite voxels by simply comenting the section <code class="docutils literal notranslate"><span class="pre">&lt;Material_composite</span>&#160;&#160; <span class="pre">&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Material_composite&gt;</span></code>.</p>
+</div>
+<p>In this example, the file <em>materialID.vtk</em> consists of a single voxel.
+The composite voxel definition (not described here) identifies this voxel as
+a composite voxel between two different material (1 and 2). Obviously,
+in this specific case, there is no homogeneous voxel at all and these two
+materials must be introduced as “interphase” materials.
+The corresponding <em>material.xml</em> file is given below:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Materials&gt;</span>
+
+        <span class="c">&lt;!-- REFERENCE MATERIAL --&gt;</span>
+    <span class="nt">&lt;Reference_Material</span> <span class="na">Lambda0=</span><span class="s">&quot;22.21175e+10&quot;</span> <span class="na">Mu0=</span><span class="s">&quot;14.80765e+10&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- MATERIAL 1 --&gt;</span>
+    <span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;1&quot;</span> <span class="na">Lib=</span><span class="s">&quot;(amitex)/libAmitex/src/materiaux/libUmatAmitex.so&quot;</span> <span class="na">Law=</span><span class="s">&quot;elasiso&quot;</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;4.0385e+10&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;2.6923e+10&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;4.0385e+10&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;2.6923e+10&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Material&gt;</span>
+
+    <span class="c">&lt;!-- MATERIAL 2 --&gt;</span>
+    <span class="nt">&lt;Material</span> <span class="na">numM=</span><span class="s">&quot;2&quot;</span> <span class="na">Lib=</span><span class="s">&quot;(amitex)/libAmitex/src/materiaux/libUmatAmitex.so&quot;</span> <span class="na">Law=</span><span class="s">&quot;elasiso&quot;</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;4.0385e+11&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;2.6923e+11&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;4.0385e+11&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">Index=</span><span class="s">&quot;2&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant&quot;</span> <span class="na">Value=</span><span class="s">&quot;2.6923e+11&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Material&gt;</span>
+
+    <span class="c">&lt;!-- DIRECTORY FOR THE DEFINITION OF COMPOSITE VOXELS --&gt;</span>
+    <span class="nt">&lt;Material_composite&gt;</span>
+                <span class="nt">&lt;Coeff_composite</span> <span class="na">directory=</span><span class="s">&quot;microstructures/VoxComp&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Material_composite&gt;</span>
+
+    <span class="c">&lt;!-- IDENTIFICATION OF MATERIALS WHICH ARE NOT PRESENT AS &quot;HOMOGENEOUS&quot; VOXELS --&gt;</span>
+    <span class="nt">&lt;Interphase&gt;</span>
+                <span class="nt">&lt;Interphase_material</span>  <span class="na">numM=</span><span class="s">&quot;1&quot;</span> <span class="na">Nzones=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Interphase_material</span>  <span class="na">numM=</span><span class="s">&quot;2&quot;</span> <span class="na">Nzones=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Interphase&gt;</span>
+
+<span class="nt">&lt;/Materials&gt;</span>
+</pre></div>
+</div>
+<p>The two materials are desribed in the two sections <code class="docutils literal notranslate"><span class="pre">&lt;Material..</span> <span class="pre">&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Material&gt;</span></code>.
+Note that Lamé coefficients are given, if necessary, for the numerical integration of the averaging rule
+(<code class="docutils literal notranslate"><span class="pre">&lt;Coeff_composite</span> <span class="pre">../&gt;</span></code>).</p>
+<p>As already mentionned, the two materials do not appear as homogeneous voxels and they are
+identified as “interphase” <code class="docutils literal notranslate"><span class="pre">&lt;Interphase&gt;</span> <span class="pre">..</span> <span class="pre">&lt;/Interphase&gt;</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, GELEBART Lionel.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

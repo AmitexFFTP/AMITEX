@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gallery &#8212; AMITEX general  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="PERFORMANCE" href="performance.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+ <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="map-site.html"><span><img src="_static/amitex.png"></span>
+<!-- LG : SUPPRESSION titre et version 
+           -->
+		  </a>
+
+<!-- LG : suppression VERSION 
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+-->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../user_guide/to_begin.html">USER</a></li>
+                <li><a href="index.html">OVERVIEW</a></li>
+                <li><a href="install.html">INSTALL</a></li>
+                <li><a href="performance.html">PERF</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="tools.html">TOOLS</a></li>
+                <li><a href="download.html">DOWNLOAD</a></li>
+            
+			
+<!-- LG : SUPPRESSION menu deroulant SITE 
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="map-site.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="download.html">DOWNLOAD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-8-17-x-training-session-validation-tests">VERSION 8.17.x + TRAINING SESSION + VALIDATION TESTS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-9"><strong>AMITEX_FFTP v8.17.9</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-2"><strong>AMITEX_FFTP v8.17.2</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="download.html#training-session"><strong>TRAINING SESSION</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="download.html#validation-tests"><strong>VALIDATION TESTS</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-4-0-0">VERSION 4.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-2-3-5">VERSION 2.3.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-2-3-4">VERSION 2.3.4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installation-guide">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#gcc-openmpi-fftw-mfront">GCC, openMPI, fftw, mfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#macos-specificity">macOS specificity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#windows10-wsl-specificity">Windows10-WSL specificity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#matlab-octave">Matlab - Octave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#gnuplot">GNUPLOT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">OVERVIEW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#contributors">Contributors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#collaborations">Collaborations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#general-description">General description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#code-informations">Code informations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#distribution">Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">PERFORMANCE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-heavy-behaviors-e-g-cristalline-plasticity">Scalability with “numerically heavy” behaviors (<em>e.g.</em> cristalline plasticity)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-light-behaviors-e-g-linear-elasticity">Scalability with “numerically light” behaviors (<em>e.g.</em> linear elasticity)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crystal-plasticity-1">Crystal plasticity (1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#crystal-plasticity-2">Crystal plasticity (2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#various-composites-1">Various composites (1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#various-composites-2">Various composites (2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beams-and-plates">Beams and Plates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phase-field-extended-usage">Phase field (EXTENDED usage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dislocation-dynamics">Dislocation Dynamics</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+ -->
+
+<!-- LG : SUPPRESSION SEARCH
+            
+-->
+            
+            
+            
+          </ul>
+<!-- LG : SUPPRESSION SEARCH
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+-->
+        </div>
+    </div>
+
+	<!-- LG : AJOUT SECONDE PARTIE DE NAVBAR -->
+<!--	<div class="container"> -->
+    <div class="sous_navbar">
+		 <!-- LG <li class="dropdown" 	>-->
+<div class="dropdown" 	>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+	 style="color:#fff" 
+     href="#"> <span >Gallery</span><b class="caret" style="color:#fff"></b></a> <!-- LG : on met ici le titre de la page -->
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Gallery</a><ul>
+<li><a class="reference internal" href="#crystal-plasticity-1">Crystal plasticity (1)</a></li>
+<li><a class="reference internal" href="#crystal-plasticity-2">Crystal plasticity (2)</a></li>
+<li><a class="reference internal" href="#various-composites-1">Various composites (1)</a></li>
+<li><a class="reference internal" href="#various-composites-2">Various composites (2)</a></li>
+<li><a class="reference internal" href="#beams-and-plates">Beams and Plates</a></li>
+<li><a class="reference internal" href="#phase-field-extended-usage">Phase field (EXTENDED usage)</a></li>
+<li><a class="reference internal" href="#dislocation-dynamics">Dislocation Dynamics</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</div>
+<!--</li>          class="hidden-sm hidden-tablet"  -->
+    </div>    
+<!--    </div>    -->
+
+  </div>
+  
+  
+
+
+  
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="gallery">
+<span id="id1"></span><h1>Gallery<a class="headerlink" href="#gallery" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>In the examples below, “Phase Fields” and “Non-local” are <strong>EXTENDED</strong> usages of <strong>AMITEX_FFTP</strong>.</p>
+<p class="last">If interested in an <strong>EXTENDED</strong> usage (for various couplings), please contact us (<a class="reference internal" href="index.html#contributors"><span class="std std-ref">contacts</span></a>).</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="crystal-plasticity-1">
+<span id="crystal-plasticity1"></span><h2>Crystal plasticity (1)<a class="headerlink" href="#crystal-plasticity-1" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="_images/acta2019.jpg"><img alt="_images/acta2019.jpg" class="align-left" src="_images/acta2019.jpg" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/IJSS2020_crop.jpg"><img alt="_images/IJSS2020_crop.jpg" class="align-left" src="_images/IJSS2020_crop.jpg" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/CRPhys2021.png"><img alt="_images/CRPhys2021.png" class="align-left" src="_images/CRPhys2021.png" style="width: 95%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(left) Intragranular localization induced by softening crystal plasticity</strong></p>
+<ul class="simple">
+<li><em>Acta Materialia 2019, A.Marano, L. Gélébart, S. Forest,</em> <a class="reference external" href="https://doi.org/10.1016/j.actamat.2019.06.010">https://doi.org/10.1016/j.actamat.2019.06.010</a></li>
+</ul>
+<p><strong>(center) Non-linear composite voxels for explicit modeling of slip bands</strong></p>
+<ul class="simple">
+<li><em>IJSS 2020, A. Marano, L. Gélébart,</em> <a class="reference external" href="https://doi.org/10.1016/j.ijsolstr.2020.04.027">https://doi.org/10.1016/j.ijsolstr.2020.04.027</a></li>
+</ul>
+<p><strong>(right) Grain size effects and weakest link theory in 3D crystal plasticity simulations of polycrystals</strong></p>
+<ul class="simple">
+<li><em>Comptes Rendus Physique (submission 2020), L. Gélébart,</em></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="crystal-plasticity-2">
+<span id="crystal-plasticity2"></span><h2>Crystal plasticity (2)<a class="headerlink" href="#crystal-plasticity-2" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="_images/JMPS2019_hure.jpg"><img alt="_images/JMPS2019_hure.jpg" class="align-left" src="_images/JMPS2019_hure.jpg" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/ZHANG_composite.png"><img alt="_images/ZHANG_composite.png" class="align-left" src="_images/ZHANG_composite.png" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/JMPS2021_crop.png"><img alt="_images/JMPS2021_crop.png" class="align-left" src="_images/JMPS2021_crop.png" style="width: 95%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(left) Porous single crystals</strong></p>
+<ul class="simple">
+<li><em>JMPS 2019, J. Hure,</em> <a class="reference external" href="https://doi.org/10.1016/j.jmps.2018.10.018">https://doi.org/10.1016/j.jmps.2018.10.018</a></li>
+</ul>
+<p><strong>(center) Polycrystal with inclusions</strong></p>
+<ul class="simple">
+<li>© <em>F. Zhang, Shanghai Jiao Tong University, 2020</em></li>
+</ul>
+<p><strong>(right) Slip and kink bands formation : influence of strain gradient crystal plasticity (EXTENDED usage)</strong></p>
+<ul class="simple">
+<li><em>JMPS 2020, A. Marano, L. Gélébart, S. Forest,</em> (accepted, revision in progress)</li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="various-composites-1">
+<span id="composites1"></span><h2>Various composites (1)<a class="headerlink" href="#various-composites-1" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="_images/EurJMech2020_crop.jpg"><img alt="_images/EurJMech2020_crop.jpg" class="align-left" src="_images/EurJMech2020_crop.jpg" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/IJSS2019_yang_crop.jpg"><img alt="_images/IJSS2019_yang_crop.jpg" class="align-left" src="_images/IJSS2019_yang_crop.jpg" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/Snow_CNRM.jpg"><img alt="_images/Snow_CNRM.jpg" class="align-left" src="_images/Snow_CNRM.jpg" style="width: 95%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(left) Finite strain behavior of random porous isotropic materials”</strong></p>
+<ul class="simple">
+<li><em>Eur. J. Mech. 2019, J. Hure,</em> <a class="reference external" href="https://doi.org/10.1016/j.euromechsol.2020.104143">https://doi.org/10.1016/j.euromechsol.2020.104143</a></li>
+</ul>
+<p><strong>(center) Large scale simulation of SiC/SiC composites from synchrotron X-ray tomography</strong></p>
+<ul class="simple">
+<li><em>IJSS 2019, Y. Chen, L. Gélébart, C. Chateau, M. Bornert, C. Sauder, A. King,</em>, <a class="reference external" href="https://doi.org/10.1016/j.ijsolstr.2018.11.009">https://doi.org/10.1016/j.ijsolstr.2018.11.009</a></li>
+</ul>
+<p><strong>(right) Simulation of snow</strong></p>
+<ul class="simple">
+<li>© <em>P. Hagenmuller (CNRM/CEN, Météo-France, CNRS)</em></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="various-composites-2">
+<span id="composites2"></span><h2>Various composites (2)<a class="headerlink" href="#various-composites-2" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="_images/IJSS2020_romain.jpg"><img alt="_images/IJSS2020_romain.jpg" class="align-left" src="_images/IJSS2020_romain.jpg" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/fiss_polyx.jpg"><img alt="_images/fiss_polyx.jpg" class="align-left" src="_images/fiss_polyx.jpg" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/lattice_cetim.png"><img alt="_images/lattice_cetim.png" class="align-left" src="_images/lattice_cetim.png" style="width: 95%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(left) Evaluation of interface stresses in hollow microspheres/polypropylene composites</strong></p>
+<ul class="simple">
+<li><em>IJSS 2020, R. Charière, L. Gélébart, A. Marano,</em> <a class="reference external" href="https://doi.org/10.1016/j.ijsolstr.2019.08.002">https://doi.org/10.1016/j.ijsolstr.2019.08.002</a></li>
+</ul>
+<p><strong>(center) A crack in a polycrystal</strong></p>
+<ul class="simple">
+<li>© <em>L. Gélébart, 2015</em></li>
+</ul>
+<p><strong>(left) Simulation on lattice architectures (for fun!)</strong></p>
+<ul class="simple">
+<li>© <em>L. Gélébart, 2019</em></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="beams-and-plates">
+<span id="beams-plates"></span><h2>Beams and Plates<a class="headerlink" href="#beams-and-plates" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="_images/tors_contrast1_VC_sig13.png"><img alt="_images/tors_contrast1_VC_sig13.png" class="align-left" src="_images/tors_contrast1_VC_sig13.png" style="width: 95%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/tors_contrast1000_VC_sig13.png"><img alt="_images/tors_contrast1000_VC_sig13.png" class="align-left" src="_images/tors_contrast1000_VC_sig13.png" style="width: 95%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Torsion of a homogeneous (left) and heterogeneous beam (right)</strong></p>
+<ul class="simple">
+<li>© <em>JTCAM, L. Gélébart,</em> submitted 2020, available on <a class="reference external" href="https://hal.archives-ouvertes.fr/hal-02942202">https://hal.archives-ouvertes.fr/hal-02942202</a></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="phase-field-extended-usage">
+<span id="phase-field"></span><h2>Phase field (EXTENDED usage)<a class="headerlink" href="#phase-field-extended-usage" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="_images/CMAME2019_crop2.jpg"><img alt="_images/CMAME2019_crop2.jpg" class="align-left" src="_images/CMAME2019_crop2.jpg" style="width: 90%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/BoissePF1.png"><img alt="_images/BoissePF1.png" class="align-left" src="_images/BoissePF1.png" style="width: 80%;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/BoissePF2.png"><img alt="_images/BoissePF2.png" class="align-left" src="_images/BoissePF2.png" style="width: 80%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(left) Phase field modelling of brittle fracture</strong></p>
+<ul class="simple">
+<li><em>CMAME 2019, Y. Chen, D. Vasiukov, L. Gélébart, C.H. Park,</em> <a class="reference external" href="https://doi.org/10.1016/j.cma.2019.02.017">https://doi.org/10.1016/j.cma.2019.02.017</a></li>
+</ul>
+<p><strong>(center) Phase field modelling of martensitic phase transformation</strong></p>
+<ul class="simple">
+<li>© <em>J. Boisse (LEMTA/Université de Lorraine),</em></li>
+<li>model from <em>CMAME 2016, J. Kochman,</em> <a class="reference external" href="https://doi.org/10.1016/j.cma.2019.02.017">https://doi.org/10.1016/j.cma.2019.02.017</a></li>
+</ul>
+<p><strong>(right) Phase field modelling of spinodal decomposition</strong></p>
+<ul class="simple">
+<li>© <em>J. Boisse (LEMTA/Université de Lorraine)</em></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="dislocation-dynamics">
+<span id="id2"></span><h2>Dislocation Dynamics<a class="headerlink" href="#dislocation-dynamics" title="Permalink to this headline">¶</a></h2>
+<p>TO BE COMPLETED</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, GELEBART Lionel.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

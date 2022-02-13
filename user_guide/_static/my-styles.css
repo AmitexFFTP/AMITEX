@@ -1,0 +1,130 @@
+/* On ne montre pas les titre h1 */
+h1
+{
+	visibility:hidden;
+} 
+
+/*------------------------------on reduit la police des titres h2 */
+h2
+{
+	font-size:24px;
+} 
+
+/*------------------------------on ajoute un style pour udl (underline) */
+.udl {
+  text-decoration: underline;
+}
+
+
+/* ----------------------------------------------ligne horizontal*/
+hr {
+        margin-top:3em;
+        margin-bottom:-1em;
+        border-color: #589300;
+}
+
+/* --------------------------------------------titres h couleur et font-weight*/
+/* Color for titles  : marron ou bleu ou rouge ok*/
+h1, h2, h3, h4, h5, h6 {
+        color: #589300;
+        font-weight:bold !important;
+}
+
+
+/* on justifie le texte dans les section */
+.section
+{
+    text-align: justify;
+    text-justify: inter-word;	
+}
+
+/* sous navbar */
+.sous_navbar
+{
+	/*background-color:#93c54b;*/
+	background-color:#3D85C6;
+	color:#fff;
+	height:40px;
+	width:100%;
+	font-size:large;
+	color:#fff;
+	text-align:left;
+	padding-left:20px;
+	padding-top:10px;
+}
+
+/*-----------------------------------------------------gestion des sidebar sphinx */
+
+div.sidebar
+{
+    background-color: #e8ffc6;
+	font-size:small;
+	text-align:center;
+	width:300px;
+}
+p.sidebar-title {
+    display:none;
+}
+
+/*-----------------------------------------------------gestion du logo */
+.navbar-brand img {
+    width: auto;
+    height: 40px;
+}
+.navbar-brand {
+    float: left;
+    padding: 10px 0px;
+    line-height: 40px;
+    height: 60px;
+}
+
+/*-----------------------------------------------------taille de police navbar */
+
+.navbar .nav>li>a {
+    font-size: 12px;
+}
+
+/* ---------------------------------------------------seealso sphinx pour creer des lignes blanches*/
+.admonition.seealso
+{
+	visibility:hidden;
+}
+
+/* ---------------------------------------------------note, warning, caution etc...*/
+
+
+p.admonition-title 
+{
+	font-size: 20px
+}
+
+.admonition.note
+{
+	background-color: #3D85C6
+}
+
+.admonition.important
+{
+	background-color: #3D85C6
+}
+
+.admonition.warning
+{
+	background-color: #E33939
+}
+
+
+/* ---------------------------------------------------*/
+
+/* COULEURS SANDSTONE
+marron	navbar	#3e3f3a
+bleu 	note 	#29abe0
+vert	lien	#93c54b
+orange	warning	#f47c3c
+rouge 	danger	#d9534f
+
+autres couleurs
+bleu 'terne' #3D85C6
+rouge #C12B2B
+
+*/

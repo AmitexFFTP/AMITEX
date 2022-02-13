@@ -1,0 +1,46 @@
+
+
+.. highlight:: bash
+
+.. _tools:
+
+Tools
+=========
+
+
+------------------------------------------------------------------------------------------------
+
+.. _matlab-octave:
+
+Matlab - Octave 
+----------------
+
+The following scripts used for the pre/post-treatment of **AMITEX_FFTP** input/output can be **downloaded** :
+
+- :download:`savefieldvtk.m <matlab_octave/savefieldvtk.m>`  to write *.vtk* file for **AMITEX_FFTP** input (material ID, zone ID or initial internal variables, see :ref:`input-vtk`)
+- :download:`readfieldvtk.m <matlab_octave/readfieldvtk.m>`  to read *.vtk* file from **AMITEX_FFTP** output (stress, strain or internal variable fields, see :ref:`user-output`)
+- :download:`savebin.m <matlab_octave/savebin.m>` to write *.bin* file for **AMITEX_FFTP** input (per zone coefficients or initial internal variables, composite voxels etc..., see :ref:`input-bin`)
+- :download:`readbin.m <matlab_octave/readbin.m>` to read *.bin* file (see :ref:`input-bin`)
+
+
+------------------------------------------------------------------------------------------------
+
+.. _gnuplot:
+
+GNUPLOT 
+----------------
+
+GNUPLOT provides a very convenient way to rapidly plot and check results output from **AMITEX_FFTP**.
+
+Example for unit-cell average quantities :
+
+TODO
+
+Example for per material average quantities :
+
+TODO
+
+Example for per zone average quantities :
+
+TODO
+

@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BEHAVIORS &#8212; AMITEX user guide  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="ALGORITHM" href="algorithm.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+ <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="map-site-user.html"><span><img src="_static/amitex.png"></span>
+<!-- LG : SUPPRESSION titre et version 
+           -->
+		  </a>
+
+<!-- LG : suppression VERSION 
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+-->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="to_begin.html">TO BEGIN</a></li>
+                <li><a href="input_files.html">INPUT FILES</a></li>
+                <li><a href="materials.html">MATERIALS</a></li>
+                <li><a href="loading_outputs.html">LOAD&OUT</a></li>
+                <li><a href="algorithm.html">ALGORITHM</a></li>
+                <li><a href="#">BEHAVIORS</a></li>
+            
+			
+<!-- LG : SUPPRESSION menu deroulant SITE 
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="map-site-user.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="to_begin.html">TO BEGIN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="to_begin.html#geometry-unit-cell-description">GEOMETRY : UNIT-CELL DESCRIPTION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#definitions">Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#materialid-and-zoneid-integer-fields">MaterialID and ZoneID integer fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="to_begin.html#example-of-a-non-unique-description">Example of a non-unique description</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="to_begin.html#how-to-launch-amitex-fftp">HOW TO LAUNCH AMITEX_FFTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">INPUT FILES</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#vtk-files">VTK files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#xml-files">XML files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#bin-files">BIN files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">MATERIALS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#standard-description">STANDARD DESCRIPTION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#begin-and-end">Begin and End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#reference-material">Reference Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#id2">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#material-coefficients">Material Coefficients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#initial-internal-variables">Initial Internal Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#composite-voxels-advanced-users">COMPOSITE VOXELS (ADVANCED USERS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#general-description">General Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#format-for-composite-voxels-description">Format for Composite Voxels description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="materials.html#one-file">One file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="materials.html#one-directory-per-composite-material">One directory per composite material</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#interphase-definition">Interphase Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#example-1-a-voronoi-polycrystal-with-isotropic-grains">Example 1 : a voronoï polycrystal with isotropic grains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html#example-2-a-single-composite-voxel">Example 2 : a single composite voxel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loading_outputs.html">LOADING&amp;OUTPUTS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#mechanical-loading">MECHANICAL LOADING</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#example-1-creep-loading">Example 1 : creep loading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#example-2-loading-with-a-stress-direction">Example 2 : loading with a stress direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#begin-and-end">Begin and End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#default-output">Default Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#additional-outputs">Additional Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#id1">Loading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#external-loading">EXTERNAL LOADING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#strain-gradient-loadings">STRAIN GRADIENT LOADINGS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#beam-and-plates">Beam and plates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-plates-example-with-normal-vector-e-z">Loading of plates (example with normal vector <span class="math notranslate nohighlight">\(e_z\)</span> )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-beams-example-below-with-beam-axis-e-x">Loading of beams (example below with beam axis <span class="math notranslate nohighlight">\(e_x\)</span> )</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#diffusion">DIFFUSION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#material-properties">Material properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#algorithm-parameters">Algorithm parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-and-output">Loading and output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">ALGORITHM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#standard-parameters">Standard parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#additional-parameters">Additional Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BEHAVIORS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#umat-procedures">UMAT procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#native-behaviors">NATIVE behaviors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#umat-behaviors">UMAT behaviors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mfront-behaviors">MFRONT behaviors</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+ -->
+
+<!-- LG : SUPPRESSION SEARCH
+            
+-->
+            
+            
+            
+          </ul>
+<!-- LG : SUPPRESSION SEARCH
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+-->
+        </div>
+    </div>
+
+	<!-- LG : AJOUT SECONDE PARTIE DE NAVBAR -->
+<!--	<div class="container"> -->
+    <div class="sous_navbar">
+		 <!-- LG <li class="dropdown" 	>-->
+<div class="dropdown" 	>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+	 style="color:#fff" 
+     href="#"> <span >BEHAVIORS</span><b class="caret" style="color:#fff"></b></a> <!-- LG : on met ici le titre de la page -->
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">BEHAVIORS</a><ul>
+<li><a class="reference internal" href="#umat-procedures">UMAT procedures</a></li>
+<li><a class="reference internal" href="#native-behaviors">NATIVE behaviors</a></li>
+<li><a class="reference internal" href="#umat-behaviors">UMAT behaviors</a></li>
+<li><a class="reference internal" href="#mfront-behaviors">MFRONT behaviors</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</div>
+<!--</li>          class="hidden-sm hidden-tablet"  -->
+    </div>    
+<!--    </div>    -->
+
+  </div>
+  
+  
+
+
+  
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="behaviors">
+<span id="id1"></span><h1>BEHAVIORS<a class="headerlink" href="#behaviors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="umat-procedures">
+<span id="behaviors-umat-procedures"></span><h2>UMAT procedures<a class="headerlink" href="#umat-procedures" title="Permalink to this headline">¶</a></h2>
+<p><strong>UMAT</strong> procedures implement the behaviors used in the simulation.
+They are a corner stone of the code as they are called at every iteration, on every voxels.
+They allow for compatibility with :</p>
+<ul class="simple">
+<li>Finite Element codes such as <strong>CAST3M</strong> (<a class="reference external" href="http://www-cast3m.cea.fr/">http://www-cast3m.cea.fr/</a>) or ABAQUS</li>
+<li>The <strong>MFront</strong> (<a class="reference external" href="http://tfel.sourceforge.net/index.html">http://tfel.sourceforge.net/index.html</a>) code generator, whic simplifies the process of behavior law implementation.</li>
+</ul>
+<p>The <strong>UMAT</strong> signature of the procdure reads</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SUBROUTINE umat_my_behavior<span class="o">(</span> STRESS, STATEV, DDSDDE, SSE, SPD, SCD,<span class="p">&amp;</span>
+                    RPL, DDSDDT, DRPLDE, DRPLDT,<span class="p">&amp;</span>
+                    STRAN, DSTRAN, TIME, DTIME,<span class="p">&amp;</span>
+                    TEMP, DTEMP, PREDEF, DPRED,<span class="p">&amp;</span>
+                    CMNAME, NDI, NSHR, NTENS, NSTATV,<span class="p">&amp;</span>
+                    PROPS, NPROPS, COORDS,<span class="p">&amp;</span>
+                    DROT, PNEWDT, CELENT, DFGRD0, DFGRD1,<span class="p">&amp;</span>
+                    NOEL, NPT, LAYER, KSPT, KSTEP, KINC <span class="o">)</span>
+</pre></div>
+</div>
+<p>Among the different variables usefull for <strong>ABAQUS</strong>, <strong>AMITEX_FFTP</strong> uses :</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><cite>TIME</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double, array(2)</span></dt>
+<dd>time(2) = <span class="math notranslate nohighlight">\(t\)</span>, time at the begining of the load increment,
+time(1) = 0 (unused here)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>DTIME</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double</span></dt>
+<dd>time increment <span class="math notranslate nohighlight">\(dt\)</span></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>STRAN</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double, array(6)</span></dt>
+<dd>Strain components at <span class="math notranslate nohighlight">\(t\)</span> (11,22,33,12,13,23, Voigt notation).
+For Small Strain Simulations.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>DSTRAN</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in],double, array(6)</span></dt>
+<dd>Strain increment components  during <span class="math notranslate nohighlight">\(dt\)</span> (11,22,33,12,13,23, Voigt notation).
+For Small Strain Simulations.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>DFGRD0</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double, array(3,3)</span></dt>
+<dd>Transformation gradient (<span class="math notranslate nohighlight">\(F=1+grad(U)\)</span>) at <span class="math notranslate nohighlight">\(t\)</span>.
+For Finite Strains Simulations.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>DFGRD1</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double, array(3,3)</span></dt>
+<dd>Transformation gradient (<span class="math notranslate nohighlight">\(F=1+grad(U)\)</span>) at <span class="math notranslate nohighlight">\(t+dt\)</span>.
+For Finite Strains simulations.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>TEMP</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double</span></dt>
+<dd>Temperature at <span class="math notranslate nohighlight">\(t\)</span>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>DTEMP</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double</span></dt>
+<dd>Temperature increment during <span class="math notranslate nohighlight">\(dt\)</span>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>PREDEF</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double, array(*)</span></dt>
+<dd>External parameters at <span class="math notranslate nohighlight">\(dt\)</span>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>DPRED</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double, array(*)</span></dt>
+<dd>External parameters increment during <span class="math notranslate nohighlight">\(dt\)</span></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>STRESS</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in/out], double, array(6)</span></dt>
+<dd>Cauchy stress components (11,22,33,12,13,23).
+[in]  : value at <span class="math notranslate nohighlight">\(t\)</span>.
+[out] : value at <span class="math notranslate nohighlight">\(t+dt\)</span>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>STATEV</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in/out], double, array(NSTATEV)</span></dt>
+<dd>Internal Variables.
+[in]  : value at <span class="math notranslate nohighlight">\(t\)</span>.
+[out] : value at <span class="math notranslate nohighlight">\(t+dt\)</span>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>PROPS</cite> <span class="classifier-delimiter">:</span> <span class="classifier">[in], double, array(NPROPS)</span></dt>
+<dd>Material coefficients</dd>
+</dl>
+</li>
+</ul>
+<p>These <strong>UMAT</strong> procedure are used in <strong>AMITEX_FFTP</strong> to implement <strong>native</strong> behaviors.
+In addition, with these definitions in mind, users can implement their own behavior whether directly (see <a class="reference internal" href="#behaviors-umat"><span class="std std-ref">UMAT behaviors</span></a>) or with the <strong>MFRONT</strong> code generator.</p>
+<p>The links between these procedures with XML files are :</p>
+<ul>
+<li><dl class="first docutils">
+<dt><cite>PROPS</cite> <span class="classifier-delimiter">:</span> <span class="classifier">in <em>material.xml</em> (see <a class="reference internal" href="materials.html#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>)</span></dt>
+<dd><p class="first last">the coefficients <code class="docutils literal notranslate"><span class="pre">&lt;Coeff</span> <span class="pre">Index=&quot;i&quot;</span></code> assigns PROPS(i)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>STATEV</cite> <span class="classifier-delimiter">:</span> <span class="classifier">in <em>material.xml</em> (see <a class="reference internal" href="materials.html#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>)</span></dt>
+<dd><p class="first last">the initial internal variable <code class="docutils literal notranslate"><span class="pre">&lt;IntVar</span> <span class="pre">Index=&quot;i&quot;</span></code> assigns to STATEV(i)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>TEMP</cite> <span class="classifier-delimiter">:</span> <span class="classifier">in <em>loading.xml</em> (see <a class="reference internal" href="loading_outputs.html#loading-external"><span class="std std-ref">EXTERNAL LOADING</span></a>)</span></dt>
+<dd><p class="first last">the temperatue <code class="docutils literal notranslate"><span class="pre">&lt;T</span></code> assigns TEMP and DTEMP</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>PREDEF</cite> <span class="classifier-delimiter">:</span> <span class="classifier">in <em>loading.xml</em> (see <a class="reference internal" href="loading_outputs.html#loading-external"><span class="std std-ref">EXTERNAL LOADING</span></a>)</span></dt>
+<dd><p class="first last">the external parameters <code class="docutils literal notranslate"><span class="pre">&lt;Param</span> <span class="pre">Index=&quot;i&quot;</span></code> assigns PREDEF(i) and DPRED(i)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="native-behaviors">
+<span id="behaviors-native"></span><h2>NATIVE behaviors<a class="headerlink" href="#native-behaviors" title="Permalink to this headline">¶</a></h2>
+<p>Only a few native behavior laws are provided with <strong>AMITEX_FFTP</strong>.</p>
+<p>Their implementation can be found in the files <code class="docutils literal notranslate"><span class="pre">(amitex)/libAmitex/src/materiaux/*.f90</span></code>.</p>
+<p>Each file gives a description of the coefficients and internal variables.</p>
+<p>The available native behavior laws are</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>elasiso             : isotropic elasticity
+elasiso_eigs        : isotropic elasticity with eigenstrain
+elasiso_GD          : Lagrangian isotropic elasticity
+elasaniso           : orthotropic elasticity
+thermoelasiso       : isotropic thermoelasticity
+paramextelasiso     : isotropic &#39;thermo&#39;elasticity but with an external parameter governing the dilatation (instead of the temperature)
+contrainte_imposee  : imposed stress
+viscoelas_maxwell   : Maxwell linear visco-elasticity
+</pre></div>
+</div>
+<hr class="docutils" />
+</div>
+<div class="section" id="umat-behaviors">
+<span id="behaviors-umat"></span><h2>UMAT behaviors<a class="headerlink" href="#umat-behaviors" title="Permalink to this headline">¶</a></h2>
+<p><strong>amitex_fftp</strong> offers the possibility to introduce user material behaviors through a <em>UMAT</em> compatible procedure.</p>
+<p>An example is available in <em>(amitex_fftp)/cas_tests/comportements/polyxCC/comportement_umat</em>. The user can copy-paste this folder on his home directory (denoted here as <em>home</em>) and follow the procedure below.</p>
+<p>The folder contains user material files and an additionnal <em>Makefile</em>. The name of the <em>umat</em> compatible procedure used for the integration of the behaviour law corresponds to the field <code class="docutils literal notranslate"><span class="pre">Law</span></code> to be filled in the <em>material.xml</em> file (see <a class="reference internal" href="materials.html#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>).</p>
+<p>The <em>Makefile</em> launch the compilation and create in the current folder a dynamic library <em>libUmatAmitex.so</em>.
+The full path towards this library must be used to fill the <code class="docutils literal notranslate"><span class="pre">Lib</span></code> field in the <em>material.xml</em> file (see <a class="reference internal" href="materials.html#materials-standard"><span class="std std-ref">STANDARD DESCRIPTION</span></a>).</p>
+<ol class="arabic">
+<li><p class="first">Adjust the following first lines of the Makefile</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span># Compiler (ifort or gfortran)
+FC=ifort
+
+# Path to the librairie 2decomp_fft, (amitex)/lib_extern/2decomp_fft-1.5.847, for example:
+lDecomp=/home/gelebart/amitex_fftp/lib_extern/2decomp_fft-1.5.847
+</pre></div>
+</div>
+</li>
+<li><p class="first">Launch the compilation to create the dynamic library</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>make clean
+make
+</pre></div>
+</div>
+</li>
+<li><p class="first">Adjust the <code class="docutils literal notranslate"><span class="pre">Law</span></code> and <code class="docutils literal notranslate"><span class="pre">Lib</span></code> fields of the desired <em>material.xml</em> files.</p>
+</li>
+</ol>
+<hr class="docutils" />
+</div>
+<div class="section" id="mfront-behaviors">
+<span id="behaviors-mfront"></span><h2>MFRONT behaviors<a class="headerlink" href="#mfront-behaviors" title="Permalink to this headline">¶</a></h2>
+<p><strong>Interfacing AMITEX_FFTP with MFront libraries is straightforward.</strong></p>
+<p>Of course, it assumes that you have installed MFront on your machine and that the LD_LIBRARY_PATH contains the MFront library path.</p>
+<p>An example with a dynamic library created by MFront, specifying the <em>umat</em> interface , is given in <em>(amitex_fftp)/cas_tests/mazars</em>.</p>
+<p>The dynamic library <em>(amitex_fftp)/cas_tests/mazars/src/libUmatBehaviour.so</em> is an output of MFront using the command:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>mfront --obuild --interface=umat mazars.mfront
+</pre></div>
+</div>
+<p>where <em>mazars.mfront</em> is the Mazars damage behavior law delivered with MFront (see <a class="reference external" href="http://tfel.sourceforge.net/documentations.html">http://tfel.sourceforge.net/documentations.html</a> for more information).</p>
+<p>The new behaviour law can be used by filling correctly the <code class="docutils literal notranslate"><span class="pre">Law</span></code> and <code class="docutils literal notranslate"><span class="pre">Lib</span></code> fields of the desired <em>material.xml</em> files.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The ordering of the coefficients and internal variables in the <em>material.xml</em> file corresponds to their ordering in the <em>.dgibi</em> file (CAST3M finite element code input) located in the local <em>castem</em> folder generated together with the <em>src</em> folder when launching <code class="docutils literal notranslate"><span class="pre">mfront</span> <span class="pre">--obuild</span> <span class="pre">--interface=umat</span> <span class="pre">file.mfront</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, GELEBART Lionel.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

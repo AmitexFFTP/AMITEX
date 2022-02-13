@@ -1,0 +1,159 @@
+
+.. highlight:: bash
+
+.. role:: udl
+	:class: udl
+
+.. _to_begin:
+
+TO BEGIN 
+===============
+
+
+.. _to_begin-geometry:
+
+GEOMETRY : UNIT-CELL DESCRIPTION
+----------------------------------
+
+Definitions
+^^^^^^^^^^^^^^
+
+A heterogeneous **Unit-cell** consists of one (or more) **Material**, and each **Material** consists of one (or more) **Zone**.
+They are defined as follows:
+
+* All the voxels of the 3D uniform grid define the **Unit-cell**.
+* Within a **Material**, all the voxels have :udl:`the same behaviour` law.
+* Within a **Zone** of a **Material**, all the voxels have the same material properties (coefficients of the behavior law).
+
+.. Note::
+
+	The description of a unit-cell is :udl:`often not unique` (see example below).
+	If so: 
+	
+	- avoid large number of **Materials**
+	- looking at :udl:`outputs` proposed by **AMITEX_FFTP** may help you to choose an appropriate description
+
+MaterialID and ZoneID integer fields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++-------------------------------------------------------+------------------------------------------------+
+|                                                       |                                                |
+|**AMITEX_FFTP** needs two integer fields (or one if    |                                                |
+|the other is a homogeneous field of 'ones') as inputs, |.. image:: _static/materialID_zoneID.png        |
+|each one representing the spatial distribution of      |           :width: 80%                          |
+|**materials** and **zones within materials**.          |           :align: right                        |
+|                                                       |                                                |
+|This example considers a unit-cell with two            |                                                |
+|materials, and one material is devided into two zones  |                                                |
+|(same behavior law but with different coefficients).   |                                                |
+|The corresponding MaterialID and ZoneID fields are     |                                                |
+|represented here:                                      |                                                |
+|                                                       |                                                |
++-------------------------------------------------------+------------------------------------------------+
+
+Example of a non-unique description
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	
++---------------------------------------------------------------------------+---------------------------------------+
+|                                                                           |                                       |
+|Assuming a composite material with elastic isotropic matrix and            |                                       |
+|inclusions, the **N** inclusions having the same elastic coefficients,     |                                       |
+|**AMITEX_FFTP** is able to take into account the **FIVE**                  |                                       |
+|following descriptions:                                                    |                                       |
+|                                                                           |                                       |
+|1. **1 material** with **2 zones**                                         |                                       |
+|                                                                           |                                       |
+|2. **1 Material** with **N+1 zones**                                       |.. image:: _static/composite_Nincl.png |
+|                                                                           |           :width: 80%                 |
+|3. **2 materials** with **1 zone per material**                            |           :align: right               |
+|                                                                           |                                       |
+|4. **2 materials** with **1 zone for the 'matrix' material**               |                                       |
+|   and **N zones for the 'inclusions' material** (one per inclusion)       |                                       |
+|                                                                           |                                       |
+|5. **N+1 materials** with **1 zone per material**                          |                                       |
+|                                                                           |                                       |
++---------------------------------------------------------------------------+---------------------------------------+
+
+Depending on the required outputs, the recommanded descriptions are:
+
+- Description 1 will be the :udl:`most efficient` with very few outputs
+- Description 4 will provide :udl:`per material` ('matrix' and 'inclusions') statistical quantities and, 
+  on demand at given times, :udl:`per inclusion` statistical quantities
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+.. _to_begin-how-to-launch:
+
+HOW TO LAUNCH AMITEX_FFTP
+-------------------------
+
+Once installed (see :ref:`install`), to use **AMITEX_FFTP**, you must set the environment variable AMITEX_PATH, PATH (and LD_LIBRARY_PATH since v8.18.x). 
+
+For example in a file ``env_amitex.sh``::
+
+	#!/bin/bash
+	export AMITEX_PATH=(amitex)
+	export PATH=$AMITEX_PATH/libAmitex/bin:$PATH
+	export LD_LIBRARY_PATH=$AMITEX_PATH/libAmitex/lib:$LD_LIBRARY_PATH
+	
+
+And then ::
+	
+	$ source env_amitex.sh
+
+If you have compiled GCC and/or openMPI and/or fftw3, and used them for compiling **AMITEX_FFTP** (see :ref:`gcc_openmpi_fftw_mfront`), be sure that their respectives *bin* and *lib* (or *lib64*) folders are added to the PATH and LD_LIBRARY_PATH variables in the env_amitex.sh 
+
+
+Interactively or within a batch script (for the job manager available on your machine), a simulation is launched with one of the following command lines ::
+	
+	MATEVTK="path_to/materialID.vtk"
+	ZONEVTK="path_to/zoneID.vtk"
+	MATEXML="path_to/material.xml"
+	LOADXML="path_to/loading.xml"
+	ALGOXML="path_to/algorithm.xml"
+	RESDIR="path_to/results/
+
+	#WARNING : you must create the folder "results" before launching amitex_fftp
+
+	0. help 
+	mpirun amitex_fftp -help  ! OR SIMPLY :  amitex_fftp -help
+
+	1. General case
+	mpirun amitex_fftp  -nm $MATEVTK -nz $ZONEVTK -m $MATEXML -c $LOADXML -a $ALGOXML -s $RESDIR/output_file
+ 
+	2. One material (assumes materialID.vtk full of 1)
+	mpirun amitex_fftp  -nz $ZONEVTK -m $MATEXML -c $LOADXML -a $ALGOXML -s $RESDIR/output_file
+
+	3. One zone per material (assumes zoneID.vtk full of 1)
+	mpirun amitex_fftp  -nm $MATEVTK -m $MATEXML -c $LOADXML -a $ALGOXML -s $RESDIR/output_file
+
+	4. One material with one zone per voxel (assumes zoneID.vtk varying from 1 to the number of voxels) with dx=dy=dz=1.
+	mpirun amitex_fftp    -m $MATEXML -c $LOADXML -a $ALGOXML -NX nx -NY ny -NZ nz -s $RESDIR/output_file
+
+	5. One material with one zone per voxel (assumes zoneID.vtk varying from 1 to the number of voxels)
+	mpirun amitex_fftp  -m $MATEXML -c $LOADXML -a $ALGOXML -NX nx -NY ny -NZ nz -DX dx -DY dy -DZ dz -s $RESDIR/output_file
+
+
+Depending on your MPI version and/or installation, you may have to specify explicitely the number of processes
+and replace ``mpirun`` by ``mpirun -np number_of_processes``. 
+
+The five possible command lines listed above correspond to the five following cases :
+ 	
+1. The **materials** and their corresponding **zones** are defined by *materialID.vtk* and *zoneID.vtk*.
+
+2. The unit-cell consists of a **unique material** with **different zones** defined in *zoneID.vtk*.
+
+3. The **different materials** defined by *materialID.vtk* have a **unique zone** (all the voxel within a material have the same properties).
+
+4. The unit-cell consists of a **unique material** with **one zone** per voxel (the voxel dimensions are set to 1x1x1).
+
+5. Same as 4. but the user provides the voxel dimensions
+
+In the example above :
+
+- the material properties, the loading & outputs and the algorithm parameters are defined in the xml files :
+  ``material.xml``, ``loading.xml`` and  ``algorithm.xml`` (see respectively :ref:`materials`, :ref:`loading`, :ref:`algorithm`).
+
+- the rootname of the output files is ``output_file``
+
+ 

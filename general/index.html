@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OVERVIEW &#8212; AMITEX general  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PERFORMANCE" href="performance.html" />
+    <link rel="prev" title="Tools" href="tools.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+ <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="map-site.html"><span><img src="_static/amitex.png"></span>
+<!-- LG : SUPPRESSION titre et version 
+           -->
+		  </a>
+
+<!-- LG : suppression VERSION 
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+-->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../user_guide/to_begin.html">USER</a></li>
+                <li><a href="#">OVERVIEW</a></li>
+                <li><a href="install.html">INSTALL</a></li>
+                <li><a href="performance.html">PERF</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="tools.html">TOOLS</a></li>
+                <li><a href="download.html">DOWNLOAD</a></li>
+            
+			
+<!-- LG : SUPPRESSION menu deroulant SITE 
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="map-site.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="download.html">DOWNLOAD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-8-17-x-training-session-validation-tests">VERSION 8.17.x + TRAINING SESSION + VALIDATION TESTS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-9"><strong>AMITEX_FFTP v8.17.9</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-2"><strong>AMITEX_FFTP v8.17.2</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="download.html#training-session"><strong>TRAINING SESSION</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="download.html#validation-tests"><strong>VALIDATION TESTS</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-4-0-0">VERSION 4.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-2-3-5">VERSION 2.3.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#version-2-3-4">VERSION 2.3.4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installation-guide">Installation guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#gcc-openmpi-fftw-mfront">GCC, openMPI, fftw, mfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#macos-specificity">macOS specificity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#windows10-wsl-specificity">Windows10-WSL specificity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#matlab-octave">Matlab - Octave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#gnuplot">GNUPLOT</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OVERVIEW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contributors">Contributors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#collaborations">Collaborations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#general-description">General description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-informations">Code informations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distribution">Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">PERFORMANCE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-heavy-behaviors-e-g-cristalline-plasticity">Scalability with “numerically heavy” behaviors (<em>e.g.</em> cristalline plasticity)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-light-behaviors-e-g-linear-elasticity">Scalability with “numerically light” behaviors (<em>e.g.</em> linear elasticity)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gallery.html#crystal-plasticity-1">Crystal plasticity (1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery.html#crystal-plasticity-2">Crystal plasticity (2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery.html#various-composites-1">Various composites (1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery.html#various-composites-2">Various composites (2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery.html#beams-and-plates">Beams and Plates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery.html#phase-field-extended-usage">Phase field (EXTENDED usage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery.html#dislocation-dynamics">Dislocation Dynamics</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+ -->
+
+<!-- LG : SUPPRESSION SEARCH
+            
+-->
+            
+            
+            
+          </ul>
+<!-- LG : SUPPRESSION SEARCH
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+-->
+        </div>
+    </div>
+
+	<!-- LG : AJOUT SECONDE PARTIE DE NAVBAR -->
+<!--	<div class="container"> -->
+    <div class="sous_navbar">
+		 <!-- LG <li class="dropdown" 	>-->
+<div class="dropdown" 	>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+	 style="color:#fff" 
+     href="#"> <span >OVERVIEW</span><b class="caret" style="color:#fff"></b></a> <!-- LG : on met ici le titre de la page -->
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">OVERVIEW</a><ul>
+<li><a class="reference internal" href="#contributors">Contributors</a><ul>
+<li><a class="reference internal" href="#collaborations">Collaborations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#general-description">General description</a></li>
+<li><a class="reference internal" href="#code-informations">Code informations</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#distribution">Distribution</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</div>
+<!--</li>          class="hidden-sm hidden-tablet"  -->
+    </div>    
+<!--    </div>    -->
+
+  </div>
+  
+  
+
+
+  
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="overview">
+<span id="id1"></span><h1>OVERVIEW<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-center" style="width: 50%">
+<img alt="_images/Ex3.png" src="_images/Ex3.png" />
+</div>
+<hr class="docutils" />
+<div class="section" id="contributors">
+<span id="id2"></span><h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>GELEBART Lionel</strong>, Engineer - Researcher, CEA Saclay/DEN/DMN/SRMA : <code class="docutils literal notranslate"><span class="pre">lionel.gelebart</span> <span class="pre">at</span> <span class="pre">cea.fr</span></code></p>
+<p><em>Development and organization</em></p>
+</li>
+<li><p class="first"><strong>DEROUILLAT Julien</strong>, Engineer - Researcher, Maison de la Simulation : <code class="docutils literal notranslate"><span class="pre">julien.derouillat</span> <span class="pre">at</span> <span class="pre">cea.fr</span></code></p>
+<p><em>HPC support</em></p>
+</li>
+<li><p class="first"><strong>DOUCET Nicolas</strong> Internship (12 months) at CEA Saclay/DEN/DMN/SRMA :</p>
+<p><em>The first version of the code!</em></p>
+</li>
+<li><p class="first"><strong>OUAKI Franck</strong>, Post-doctoral (19 months) at CEA Saclay/DEN/DMN/SRMA :</p>
+<p><em>Extension to Finite Strains</em></p>
+</li>
+<li><p class="first"><strong>MARANO Aldo</strong>, PhD (36 months) at CEA Saclay/DEN/DMN/SRMA and Mines-ParisTech :</p>
+<p><em>Introduction of composite voxels</em></p>
+<p><em>Definition of a general framework for couplings (application to strain gradient plasticity)</em></p>
+</li>
+<li><p class="first"><strong>DUVERGE Jérémy</strong>, Internship (6months) at CEA Saclay/DEN/DMN/SRMA :</p>
+<p><em>Additional work on composite voxels (focus on I/O)</em></p>
+</li>
+</ul>
+<div class="section" id="collaborations">
+<h3>Collaborations<a class="headerlink" href="#collaborations" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><strong>CHEN Yang</strong>, as a post-doc at IMT Lille-Douai (France), then at Oxford University (UK)</p>
+<p><em>Implementation of the phase field model for damage (from Miehe’s work)</em></p>
+</li>
+<li><p class="first"><strong>BOIOLI Francesca</strong>, as a post-doc at LEM-ONERA (France)</p>
+<p><em>Coupling between</em> <strong>AMITEX</strong> <em>and the DD code microMegas</em> <a class="reference external" href="http://zig.onera.fr/mm_home_page/">http://zig.onera.fr/mm_home_page/</a></p>
+</li>
+<li><p class="first"><strong>BOISSE Julien</strong>, reseracher at Université de Lorraine (France)</p>
+<p><em>Preliminar implementation of various metallurgical phase field models (proofs of concept)</em></p>
+</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="general-description">
+<h2>General description<a class="headerlink" href="#general-description" title="Permalink to this headline">¶</a></h2>
+<p><strong>AMITEX_FFTP</strong> is a <strong>distributed</strong> solver based on <strong>FFTs</strong> for <strong>non-linear</strong> mechanical simulations on <strong>heterogeneous unit-cells</strong> (described by regular 3D images).
+<strong>AMITEX_FFTP</strong> can be run either on individual PC, local clusters or on large High Performance Computing platforms to perform large scale simulations such as
+the example given in the figure below.</p>
+<p>Since recent developments, the usage of <strong>AMITEX_FFTP</strong> can now be divided into two parts :</p>
+<ul class="simple">
+<li>The <strong>Standard</strong> usage is based on a user interface described in <a class="reference external" href="../user_guide/to_begin.html#to-begin" title="(in AMITEX user guide)"><span class="xref std std-ref">USER</span></a>. It doesn’t require any code development.</li>
+<li>The <strong>Extended</strong> usage is mainly devoted to the implementation of various “couplings” (different physics, different codes). It requires code development. <strong>If interested, feel free to contact us.</strong></li>
+</ul>
+<p>The purpose of the further developments are now to :</p>
+<ul class="simple">
+<li>stabilize and add new functionalities for the <strong>AMITEX_FFTP-Standard</strong> usage</li>
+<li>facilitate and promote the developments of new “couplings” through the <strong>AMITEX_FFTP-Extended</strong> usage</li>
+</ul>
+</div>
+<div class="section" id="code-informations">
+<h2>Code informations<a class="headerlink" href="#code-informations" title="Permalink to this headline">¶</a></h2>
+<p>AMITEX_FFTP is written in modern <strong>FORTRAN</strong> and relies on the <strong>2DECOMP&amp;FFT</strong> library (<a class="reference external" href="http://www.2decomp.org">http://www.2decomp.org</a>) that provides:</p>
+<ul class="simple">
+<li>a user-friendly programming interface to work with a 2D pencil decomposition for data distribution on distributed-memory platforms,</li>
+<li>an interface with most popular external FFT libraries,</li>
+<li>parallel I/O.</li>
+</ul>
+<p>For the user interface, the reading of XML files in <strong>AMITEX_FFTP</strong> relies on <strong>FoX</strong> (<a class="reference external" href="http://www1.gly.bris.ac.uk/~walker/FoX/">http://www1.gly.bris.ac.uk/~walker/FoX/</a>) a Fortran library for XML.</p>
+<p><strong>FoX</strong> and <strong>2DECOMP&amp;FFT</strong> have been added to the source files of <strong>AMITEX_FFTP</strong>, external libraries are required:</p>
+<ul class="simple">
+<li>MPI library : <strong>openMPI</strong> and <strong>intelMPI</strong> implementations are regularly used</li>
+<li>FFT library : <strong>fftw3</strong> is the only library used during developments</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>The user interface of AMITEX_FFTP allows to:</p>
+<ul class="simple">
+<li>“read” the heterogeneous microstructure from VTK files (legacy file format),</li>
+<li>“assign” and “distribute” material behaviors and their corresponding properties over the 2D pencil decomposition proposed by 2decomp.</li>
+</ul>
+<p>The mechanical FFT-based solver within AMITEX_FFTP allows to:</p>
+<ul class="simple">
+<li>Solve non-linear mechanical problems on unit-cells with prescribed average stress or strain components,</li>
+<li>Solve the problems with the classical fixed-point algorithm (see Moulinec 1994) combined with an acceleration convergence algorithm,</li>
+<li>Choose between a small perturbation or a finite strain framework (mechanics),</li>
+<li>Choose between classical or finite difference based discrete Green operators (better than the classical),</li>
+<li>Use composite voxels for voxels crossed by an interface</li>
+</ul>
+<p>The mechanical behavior law is evaluated within a standard <strong>UMAT</strong> procedure which ensures compatibility with both:</p>
+<ul class="simple">
+<li>The <strong>CAST3M</strong> (<a class="reference external" href="http://www-cast3m.cea.fr">http://www-cast3m.cea.fr</a>) Finite Element software, simplifying the cross comparison between the two codes,</li>
+<li>The <strong>MFront</strong> (<a class="reference external" href="http://tfel.sourceforge.net/index.html">http://tfel.sourceforge.net/index.html</a>) code generator, simplifying the process of behavior law implementation.</li>
+</ul>
+<p>Of course, the <strong>UMAT</strong> procedure coming from <strong>ABAQUS</strong>, a good compatibility is also expected with this FE code.</p>
+<p>Finally, if the code mainly focuses on mechanics, stationary <strong>diffusion</strong> problems can be solved on unit-cells with prescribed average flux or gradient.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="distribution">
+<h2>Distribution<a class="headerlink" href="#distribution" title="Permalink to this headline">¶</a></h2>
+<p>For a <strong>Standard</strong> usage, <strong>AMITEX_FFTP</strong> is freely available for research and education purposes <a class="reference internal" href="download.html#download"><span class="std std-ref">here</span></a>.</p>
+<p>For an <strong>Extended</strong> usage or for new developments, please contact us (lionel.gelebart at cea.fr or julien.derouillat at cea.fr).</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, GELEBART Lionel.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

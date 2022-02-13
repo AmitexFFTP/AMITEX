@@ -1,0 +1,129 @@
+
+.. highlight:: xml
+
+.. _algorithm:
+
+ALGORITHM
+==========
+
+----------------------------------------------------------------------
+
+.. _algorithm-standard:
+
+Standard parameters
+---------------------
+
+This section describes the algorithm parameters given in the file *algorithm.xml* (see :ref:`to_begin-how-to-launch` ).
+
+The **default algorithm** file given below should be used first and modified if needed  ::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Algorithm_Parameters>
+
+   	<Algorithm Type="Basic_Scheme">                     <!-- "Default" (Basic_Scheme) -->
+            <Convergence_Criterion Value="Default"/>        <!-- "Default" (1e-4) or positive value <1e-3 -->
+            <Convergence_Acceleration Value="true"/>        <!-- "True" or "False" -->
+    	</Algorithm>
+
+    	<Mechanics>
+            <Filter Type="Default"/>                        <!-- "Default" (hexa) ou "no_filter" ou "hexa" ou "octa" -->
+            <Small_Perturbations Value="true"/>             <!-- "True" ou "False" -->
+    	</Mechanics>
+
+	</Algorithm_Parameters>
+
+
+
+**Filter** - Different discrete Green operators are implemented in the code :
+	
+- the classical one :ref:`[Moulinec1998] <references>`
+- the hexaedral and octaedral filtered Green operators, which are Finite Difference based operators
+
+The hexaedral filtered Green Operator is the "Default", it is :
+
+- equivalent to hexaedral finite elements with reduced integration (and also to the so-called "rotated" Green operator proposed by :ref:`[Willot2015] <references>`,
+- very efficient to reduce the sensitivity to the mechanical contrast,
+- efficient to reduce spurious oscillations
+
+
+
+**Small_Perturbation** - The user can choose to perform the simulation with or without the small perturbation assumption. Of course, the loading file must be consistent with this choice (see :ref:`Warning <warning-HPP>`).
+
+
+**Algorithm** - Here, the basic scheme :ref:`[Moulinec1998] <references>`, a fixed-point algorithm, is implemented with an additionnal convergence acceleration procedure which can be used or not. 
+The acceleration procedure stores the last 4 couples of (solution, residual) and proposes every *modACV* (=3 by default) iterations a solution different from the one proposed by the fixed-point algorithm.
+This convergence acceleration procedure (see procedure *ACT3* in the finite element code CAST3M), described in :ref:`[Chen2019] <references>`, is :
+
+- very efficient to reduce the sensitivity to the mechanical contrast,
+- very efficient to reduce the sensitivity to the reference material choice,
+- more memory consuming.
+
+The convergence criterion is given by an equilibrium condition (*i.e.* :math:`div(\sigma) = 0`) together with an average condition on the applied load. The default value is :math:`10^{-4}` (a maximum value is set to :math:`10^{-3}`).
+
+**If memory is not a problem, do not hesitate and use the convergence acceleration!** 
+
+
+------------------------------------------------------------------------
+
+.. _algorithm-additional:
+
+Additional Parameters
+-------------------------
+
+By default, choice is made in **AMITEX_FFTP** to perform at least one iteration (even if the initial guess satisfies convergence criteria), and at least one iteration after a convergence acceleration. This is not mandatory, and it can be overcome this by setting **Nitermin** and **Nitermin_acv** to 0 as follows ::  
+
+   	<Algorithm Type="Basic_Scheme">                     
+             <Convergence_Criterion Value="Default"/>
+             <Convergence_Acceleration Value="true"/>
+             <Nitermin Value="0"/>            <!-- "0" or "1" : 1 = at least one iteration per loading increment-->
+             <Nitermin_acv Value="0"/>        <!-- "0" or "1" : 1 = at least one iteration after each accelerated solution-->
+    	</Algorithm>
+
+Nitermin=Nitermin_acv=0 will probably become the default behavior in the future.
+
+**In case of convergence issue or bad convergence**, and only in that case, the following parameters can be added ::
+
+   	<Algorithm Type="Basic_Scheme">                     
+             <Convergence_Criterion Value="Default"/>
+             <Convergence_Acceleration Value="true" modACV="2"/>  <!-- default modACV=3 -->
+             <Convergence_Criterion_Smacro Value="1e-3"/>      <!--  positive value <1e-1 -->
+                                                               <!--  default = value used for Convergence_Criterion -->
+             <Convergence_Criterion_Compatibility Value="1e-9"/>    <!-- "Default" (1e-10) or positive value <1e-3 -->
+             <Nitermax Value="2000"/>                               <!-- Default is 1000 -->
+             <Initialize Value="previous"/>     <!-- "default" or "previous" -->
+                                                <!-- if previous : uses the solution field for the previous step 
+                                                                   as the initial guess for the current step -->
+    	</Algorithm>
+
+**modACV**, the number of iterations between two convergence accelerations can be optimized from numerical experiments on a given simulation. Typical values can be 2,3,4,5... and 3 is the default.
+
+**Convergence_Criterion_Smacro**, the convergence criterion on the macroscropic applied stresses can be relaxed (it can be usefull when applying a loading with a loading with an applied stress direction).
+
+**Convergence_Criterion_Compatibility**, the compatibility criterion fixed at :math:`10^{-10}`, can be relaxed. 
+Note that this value **must remain very small** because the strain field being an output of the Green operator 
+it is naturally compatible. However, it has been observed in specific cases slightly higher values, resulting in convergence issue.
+As an example, it has been necessary, in the case of a coating crack simulation, to reduce this value to :math:`10^{-9}`.
+
+**Nitermax**, the maximum number of iterations can be modified if necessary.
+
+**Initialize** can be set to "previous" so that the strain field initial guess at the begining of a new step is the strainfield obtained at the end of the previous step. Instead, the initial guess is by default a linear extrapolation of the two previous strain fields. 
+
+**Finite Strains with non-symmetric reference material behavior**
+
+In the finite strain frameworks, the reference material behavior (relating the first Piola Kirchoff stress tensor  to the displacement gradient) can be symmetrized or not. By default in **AMITEX_FFTP**, it is symmetrized. This choice results from simulations with small strain values, leading to identical convergence properties for the finite strains and the small strain frameworks (this is no more the case when using a non-symmetrized behavior). However, non-symmetrized reference behavior can be used as follows ::
+
+	<Mechanics>
+	    <Filter Type="Default"/>                                         
+	    <C0sym Value="false"/>      <!-- default is true -->
+	</Mechanics>
+
+**Small strain simulation with non symmetrized displacement gradients**
+
+It is possible with **AMITEX_FFTP**, to perform simulations with the small strains assumption but taking into account the complete displacement gradient (and not only the symmetric part). This allows to use behaviors that depend on the non symmetric part of the displacement gradient through the variables DFGRD0 and DGRD1 of the *umat* procedure. This option can be used as follows ::
+
+	<Mechanics>
+	    <Filter Type="Default"/>                                         
+	    <Small_Perturbations Value="true" Displacement_Gradient="nsym"/> 
+	</Mechanics>
+
+Note that up to now, the average applied displacement gradient is assumed symmetric with the strain components given in the *loading.xml* file.

@@ -1,0 +1,525 @@
+
+.. highlight:: xml
+
+.. _loading:
+
+LOADING&OUTPUTS
+================
+
+
+.. _loading-mechanical:
+
+MECHANICAL LOADING
+-------------------
+
+Example 1 : creep loading
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here is an example of a *loading.xml* file where the loading and the stress-strain fields output are defined. 
+This loading reproduces an **experimental creep procedure** : at first the load is applied proportionnaly (tensile test) and then the macroscopic stress is kept constant (creep test)::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Loading_Output>
+
+	    <!-- ADDITIONNAL OUPUT QUANTITIES         -->
+	    <!-- specify the quantities of interest   -->
+	    <Output> 
+
+	        <!-- Stress output (stress= "1") -->
+		<vtk_StressStrain Strain = "0" Stress = "1"/>
+		<vtk_IntVarList numM="1">
+		  1
+		</vtk_IntVarList>
+		<Zone numM="1">
+		    <VarIntList>  1  </VarIntList>
+		</Zone>
+
+	    </Output>
+
+	    <!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES -->
+
+            <!-- Partial loading 1 -->
+	    <Loading Tag="1">
+
+		<!-- User defined time discretization, 10 increments -->
+		<Time_Discretization Discretization="User" Nincr="10" />
+		<!-- Increment times (user definition) -->
+		<Time_List>
+		32832 83808 143424 211680 289440 380160 483840 604800 738720 898560 
+		</Time_List>
+		<Output_zone Number ="10"/>
+		<!--  No field output required --> 
+		<!-- Strain driven on xx component --> 
+		<xx Driving="Strain" Evolution="Linear" Value="-5e-4"/>
+		<yy Driving="Stress" Evolution="Constant"  />
+		<zz Driving="Stress" Evolution="Constant"  />
+		<xy Driving="Stress" Evolution="Constant"  />
+		<xz Driving="Stress" Evolution="Constant"  />
+		<yz Driving="Stress" Evolution="Constant"  />
+                <!-- For finite strains simulations       -->
+		<yx Driving="Strain" Evolution="Constant"  />
+		<zx Driving="Strain" Evolution="Constant"  />
+		<zy Driving="Strain" Evolution="Constant"  />
+	    </Loading>
+
+            <!-- Partial loading 2 -->
+	    <Loading Tag="2">
+
+		<!-- Linear time discretization -->
+		<Time_Discretization Discretization="Linear" Nincr="22" Tfinal="25920000" />
+		<Output_zone Number ="5"/>
+		<Output_cell Number="10"/> <!-- usefull for very high number of increments --> 
+		<!-- Field output for the last increment (22)  -->
+		<Output_vtkList>
+		  22
+		</Output_vtkList>
+	        <!-- Full stress driving -->
+		<xx Driving="Stress" Evolution="Constant" />
+		<yy Driving="Stress" Evolution="Constant" />
+		<zz Driving="Stress" Evolution="Constant" />
+		<xy Driving="Stress" Evolution="Constant" />
+		<xz Driving="Stress" Evolution="Constant" />
+		<yz Driving="Stress" Evolution="Constant" />
+                <!-- For finite strains simulations      -->
+		<yx Driving="Strain" Evolution="Constant" />
+		<zx Driving="Strain" Evolution="Constant" />
+		<zy Driving="Strain" Evolution="Constant" />
+
+	    </Loading>
+
+	</Loading_Output>
+
+
+.. Note::
+
+	This *loading.xml* file example is designed for a finite strain simulation and must be consistent with :ref:`algorithm-standard`.
+
+	In case of a Small Perturbation assumption, discard the ``yx``, ``zx`` and ``zy`` components.  
+ 
+
+Example 2 : loading with a stress direction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This second example imposes a ``xx`` strain loading while maintaining a constant stress direction given by DirStress. 
+Here it corresponds to a constant triaxiality ratio of 2.5. ::
+   
+	<!-- OUPUT QUANTITIES -->
+	<Output>
+	    <vtk_StressStrain Strain = "0" Stress = "0"/>
+	</Output>
+
+	<!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES -->
+	<Loading Tag="1">
+	    <Time_Discretization Discretization="Linear" Nincr="40" Tfinal="40"/>
+	    <xx Driving="Stress" DirStress="1." />
+	    <yy Driving="Stress" DirStress="1.3" />
+	    <zz Driving="Strain" Evolution="Linear" Value="0.004" DirStress="1.6" />
+	    <xy Driving="Stress" DirStress="0" />
+	    <xz Driving="Stress" DirStress="0" />
+	    <yz Driving="Stress" DirStress="0" />
+	    <!-- below : Finite Strain specific -->     
+	    <yx Driving="Stress" DirStress="0" />
+	    <zx Driving="Stress" DirStress="0" />
+	    <zy Driving="Stress" DirStress="0" />
+	    <DirStress Type="cauchy" />  <!-- Cauchy or PK1 -->
+	</Loading>
+
+
+
+Begin and End
+^^^^^^^^^^^^^^
+
+The file must begin and end with ::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Loading_Output>
+	.
+	.
+	</Loading_Output>
+
+
+.. _user-output:
+
+Default Output  
+^^^^^^^^^^^^^^^^^^
+
+The section *<output> ... </Output>* should be optionnal. Up to now, the minimum requested is ::
+
+	    <Output> 
+		<vtk_StressStrain Strain = "0" Stress = "0"/>
+	    </Output>
+
+In that context, the **default output reduces to three ouput files** : 
+
+- *.std* file : stress and strains average and standard deviations within the whole unit-cell. 
+- *.mstd* file : per material stress and strains average and standard deviations. 
+- *.log* file : informations on the simulation (number of iterations, criterion values, computation times etc...).
+ 
+These quantities are output for each loading increment (= time step).
+
+
+Additional Outputs
+^^^^^^^^^^^^^^^^^^^^
+
+The section *<output> ... </Output>* allows to specify two types of additionnal output : fields (*vtk* files) and per zone statistical quantities (*zstd*). Because these files can be very heavy (and their writing time consuming), the times to write these outputs files must be limited and chosen carefully. This is done in the section *<Loading> ... </Loading>*.
+
+- *.vtk files* - Strain and/or stress fields (VTK files) can be chosen through the ``<vtk_StressStrain>`` node. If no field are required, simply complete "0" and "0" for *Strain* and *Stress*. Similarly, the ``<vtk_IntVarList>`` node, gives the possibility to write in VTK files different fields of internal variables for each material *numM*. One ``<vtk_IntVarList>`` node per *material* node can be added, if necessary. The example below asks for *.vtk* output fields for the internal variables "1" and "5" of material "1" ::
+
+		<vtk_IntVarList numM="1">
+		  1 5
+		</vtk_IntVarList>
+
+- *.zstd files* - If the *Zone* node is present, per zone average and standard deviations of the stress, strain and requested internal variables, are printed for the material associated to the *numM* value. **If nothing else is precised, only the means and standard deviations of the stress and strain tensors will be printed**. However, a ``<VarIntList>`` node can be added to choose the list of internal variables to be output. One ``<Zone>`` node per *material* can be added, if necessary. The example below asks for per zone output *.zstd* files for the stress, strain and internal variable "3" of material "2", and only for the stress and strain of material "1" ::  
+
+		<Zone numM="1">
+		</Zone>
+		<Zone numM="2">
+		    <VarIntList>  3  </VarIntList>
+		</Zone>
+
+The *.std*, *.mstd* and *.zstd* files are written so that the value of each variable is given in column. Comments at the beginning of these files describe the variable associated to each column.  More details about how to plot these results are given in the :ref:`tools` section.
+
+
+Loading 
+^^^^^^^^ 
+
+
+The loading is defined by successive partial loadings, tagged 1, 2, 3, etc...
+
+**Time_Discretization** within each partial loading can be chosen:
+
+- linear (loading 1 in the example): the user gives the final time and the number of increments, 
+- user defined (loading 2): the user gives a time list, excluding the initial time.
+
+In both cases, the initial time is the final time of the previous loading or equal to 0 for the first partial loading (*i.e.* Tag="1").
+
+**Output_vtkList** is the list of increment numbers, within the partial loading, for which stress, strain and/or internal variable fields (*.vtk* files) will be output (see the choice in the node ``<output>``).
+
+**Output_zone** gives the number of loading steps in the partial loading for which per zone quantities (*.zstd* files) will be output. For each loading, the output increments are equally distributed among the increasing increments, including the final increment.
+		
+**Output_cell** gives the number of loading steps in the partial loading for which per unit-cell and per material quantities (*.std* and *.mstd* files) will be output. This is especially useful if the number of increment is very large.
+
+**xx, yy, zz, xy, xz, yz** (and yx, zx, yz in finite strain) allows to define the loading, for each partial loading, and each component  :
+
+- Driving="Stress" or "Strain" if average stress or strain component is applied
+- Evolution="Linear" Value="val": the component evolves linearly as a function of the time from the initial value until "val". Voigt notation is assumed **for small strains : the shear components of the strain tensor are multiplied by 2**.
+- Evolution="Constant": the component is constant and equal to its initial value 
+- DirStress="val"(optional): if present must be present on all the components to impose a constant stress direction. At finite strains, an additional node must be given to specify wether the Cauchy or PK1 stress tensor is considered ::
+	
+		<DirStress Type="cauchy" />  <!-- Cauchy or PK1 -->
+
+For "Constant" and "Linear" evolutions, the initial value is the final value of the previous partial loading, or equal to 0 for the first partial loading *i.e. Tag="1"*.
+
+
+.. _warning-HPP:
+.. warning::
+	**With the small perturbation hypothesis** (see :ref:`algorithm-standard`), the "Strain" and "Stress" components are related to the component of :
+
+	* the average **linearized strain tensor**, 
+
+	* the average **Cauchy stress tensor**. 
+
+	Since the **Voigt notation** is used (in the inputs, the outputs and within the code itself), the value given for xy, xz or yz must be the double of the xy, xz or yz strain components.
+
+
+	**Without the small perturbation hypothesis** (see :ref:`algorithm-standard`), corresponding to the finite strain framework, the "Strain" and "Stress" components are related to the components of :
+
+	* the average **first Piola-Kirchoff stress tensor**,
+
+	* the average **displacement gradient** (which is not strictly speaking a measure of the strain).
+
+--------------------------------------------------------------------------------------------------------------------
+
+.. _loading-external:
+
+EXTERNAL LOADING
+-------------------------------
+
+If the user wishes to use a material behaviour law depending on the temperature and/or external parameters, he has to implement it in the **UMAT** compatible procedure (see :ref:`behaviors`). Then, it is possible to impose the evolution of the temperature and external parameters (assumed constants on the whole unit-cell) during the loading. The temperature corresponds to the scalar **UMAT** variable *TEMP*. The other external parameters are gathered within the vector **UMAT** variable *PREDEF*. **These external parameters must be indexed continuously starting from 1.**
+
+Here is an example of a *loading.xml* file where the temperature and two other external parameters are imposed::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Loading_Output>
+
+	    <!-- ADDITIONNAL OUPUT QUANTITIES (optionnal) -->
+	    <!-- <Output> </Output> -->
+
+            <!-- Initialization of the temperature and the external parameters -->
+            <InitLoadExt>
+              <T Value="20" /> 
+	      <Param Index ="1" Value="0" />
+	      <Param Index ="2" Value="10" />
+            </InitLoadExt>
+	    <!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES -->
+
+            <!-- Partial loading 1 -->
+	    <Loading Tag="1">
+
+	        <Time_Discretization Discretization="Linear" Nincr="40" Tfinal="40"/>
+		<xx Driving="Strain" Evolution="Linear" Value="-5e-4"/>
+		<yy Driving="Stress" Evolution="Linear" Value="0." />
+		<zz Driving="Stress" Evolution="Linear" Value="0." />
+		<xy Driving="Stress" Evolution="Linear" Value="0" />
+		<xz Driving="Stress" Evolution="Linear" Value="0" />
+		<yz Driving="Stress" Evolution="Linear" Value="0" />
+
+		<!-- Temperature is constant, equal to the initial value -->
+		<T Evolution="Constant" />
+		<!-- External parameters 1 and 2 have a linear evolution -->	
+		<Param Index="1" Evolution="Linear" Value ="50"/>
+		<Param Index="2" Evolution="Linear" Value ="0"/>
+
+	    </Loading>
+
+	</Loading_Output>
+
+
+In order to be imposed during the loading the temperature and each external parameter **must** :
+
+1. **be initialized** inside the section *<InitLoadExt> ... </InitLoadExt>* ::
+
+	<InitLoadExt>
+              <T Value="20" />
+	      <Param Index ="1" Value="0" />
+	      <Param Index ="2" Value="10" />
+	</InitLoadExt>
+
+
+2. be described **within each section** *<Loading Tag="i">* as described in the example. The *Evolution* can be linear or constant as a function of time. In both cases, the initial value is the final value of the previous partial loading or equal to the value defined in the *InitLoadExt* tag for the first partial loading (*i.e.* Tag="1"). ::
+
+	<!-- Temperature is constant, equal to the initial value -->
+	<T Evolution="Constant" />
+	<!-- External parameters 1 and 2 have a linear evolution -->	
+	<Param Index="1" Evolution="Linear" Value ="50"/>
+	<Param Index="2" Evolution="Linear" Value ="0"/>
+		
+--------------------------------------------------------------------------------------------------------------------
+
+STRAIN GRADIENT LOADINGS
+-------------------------------
+
+ 
+**AMITEX_FFTP** offers the possibility to apply strain gradient loadings. Up to now, it is limited to  'Small Strain' simulations.
+It can be usefull for higher order numerical homogenization such as the homogenization of beams and plates (as proposed below).
+
+The additionnal loadings nodes (in addition to the average applied stress or strain components in ``<xx``, ``<yy``, etc... ) are the following::
+             
+         <gradgradU_xy_z        Evolution="Linear" Value="xx" />
+         <!-- or -->
+         <gradgradU_xy_z        Evolution="Constant" />
+
+Each loading is associated to prescribed the component :math:`\nabla U_{xy,z}` of the gradient of the displacement gradient.
+As for stress or strain components, the ``Evolution`` can be linear or constant. 
+By default, components which are not mentionned are assigned to 0.
+
+Note that, components :math:`\nabla U_{ij,j}` can not be prescribed. It is intrinsically due to the periodic nature of the fluctuation displacement.
+Interested reader will find information in *JTCAM, L. Gélébart,* submitted 2020, available on https://hal.archives-ouvertes.fr/hal-0294220
+
+Beam and plates
+^^^^^^^^^^^^^^^
+
+**WARNING** : when considering the homogenization of beams or plates, to account for traction-free boundary conditions :
+
+- the unit-cell must consist of the beam/plate Volume Element embedded in an **enlarged unit-cell** with a **buffer zone**,
+- the behavior of the **buffer zone** surrounding the VE must have **null elastic propoerties**,
+- the beam/plate volume element must be **centered** within the enlarged unit-cell,
+- for plane plates, the enlarged unit-cell consists of the plate VE with two aditionnal layers on each side.
+
+Note that, due to the **buffer zone** with null elastic properties, various strain and strain gradient components can not be prescribed to the beam/plate volume element.
+Interested reader will find information in *JTCAM, L. Gélébart,* submitted 2020, available on https://hal.archives-ouvertes.fr/hal-0294220
+
+
+Loading of plates (example with normal vector :math:`e_z` )
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For a **bending** loading with 'rotation' axis :math:`e_y`, we define :
+
+- the 'bending strain' gradient :math:`\varepsilon_{xx,z}`, 
+- the 'transverse strain' gradient :math:`\varepsilon_{yy,z}`,
+- the 'through thickness strain' gradient :math:`\varepsilon_{zz,z}`
+
+To apply the **bending** load, the 'bending strain' gradient is applied with ::
+
+         <gradgradU_xx_z        Evolution="Linear" Value="0.001" />  <!-- the applied 'bending strain' gradient -->
+
+The 'transverse strain' gradient :math:`\varepsilon_{yy,z}=\nabla U_{yy,z}=0`, is set to 0 by default.        
+
+To improve the efficiency of the algorithm, the user can propose a realistic estimate of the 'through thickness' strain gradient with, for example ::
+         
+         <gradgradU_zz_z        Evolution="Linear" Value="-0.0005" />  <!-- a realistic estimate of the 'through thickness strain' gradient -->
+         
+In the simulation :
+
+- :math:`\varepsilon_{xx,z}` and :math:`\varepsilon_{yy,z}` are prescribed on the **enlarged unit-cell** but also to the plate volume element (without buffer).
+- :math:`\varepsilon_{zz,z}` the 'through thickness' strain gradient are not prescribed to the plate volume element but introducing a realistic value offers a better initialization of the strain field and improves the algorithm convergence.
+
+
+For a **torsion** loading with 'rotation' axis :math:`e_y`, the shear strain gradient :math:`\varepsilon_{xy,z}`, is applied through :math:`\nabla U_{xy,z}=2\varepsilon_{xy,z}` and :math:`\nabla U_{yx,z}=0` as follows ::
+
+         <gradgradU_xy_z        Evolution="Linear" Value="0.002" />  <!-- the applied 'torsion' gradient -->
+
+The component :math:`\nabla U_{yx,z}` is set to zero by default.
+
+In the simulation, :math:`\varepsilon_{xy,z}` is prescribed on the plate volume element.
+
+Loading of beams (example below with beam axis :math:`e_x` )
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For a **bending** loading with 'rotation' axis :math:`e_y`, we define :
+- the 'bending strain' gradient :math:`\varepsilon_{xx,z}`, 
+- the two 'transverse strain' gradients :math:`\varepsilon_{yy,z}` and :math:`\varepsilon_{zz,z}`
+
+To apply the **bending** load, the 'bending strain' gradient is applied with ::
+
+         <gradgradU_xx_z        Evolution="Linear" Value="0.001" />  <!-- the applied 'bending strain' gradient -->
+
+To improve the efficiency of the algorithm, the user can propose a realistic estimate of the 'tranverse strain' gradients with, for example ::
+
+         <gradgradU_yy_z        Evolution="Linear" Value="-0.0003" />  <!-- realistic estimates of the 'transverse strain' gradients-->
+         <gradgradU_zz_z        Evolution="Linear" Value="-0.0003" />   
+
+Realistic values are typically obtained from results on a homogeneous elastic isotropic material. 
+Otherwise, these quantities can also be optimized to increase the algorithm convegence.
+
+In the simulation :
+
+- :math:`\varepsilon_{xx,z}` is prescribed to the beam volume element (without buffer).
+- :math:`\varepsilon_{yy,z}` and :math:`\varepsilon_{yy,z}` are not prescribed to the plate volume element but introducing a realistic value offers a better initialization of the strain field and improves the algorithm convergence.
+
+
+For a **torsion** loading, with 'rotation' axis :math:`e_x`, the 'torsion strain' gradient :math:`\varepsilon_{xy,z}=-\varepsilon_{xz,y}`, is applied through :math:`\nabla U_{yx,z}=-\nabla U_{zx,y}` and :math:`\nabla U_{xy,z}=\nabla U_{xz,y}=0` as follows::
+
+         <gradgradU_yx_z        Evolution="Linear" Value="0.002" />   <!-- the applied 'torsion' gradient -->
+         <gradgradU_zx_y        Evolution="Linear" Value="-0.002" />  
+
+The component :math:`\nabla U_{xy,z}` and :math:`\nabla U_{xz,y}` are set to zero by default.
+
+In the simulation, :math:`\varepsilon_{xy,z}=-\varepsilon_{xz,y}` is prescribed on the beam volume element.
+
+
+.. Note::
+
+   For **beam cross-sections not aligned with the grid** (for example a disk cross-section), using **composite voxels** with the Voigt homogenization rule is an efficient way to improve the quality of the simulation   
+
+--------------------------------------------------------------------------------------------------------------------
+
+.. _loading-diffusion:
+
+DIFFUSION 
+----------
+
+Since version 4.0.0, one variable stationnary diffusion problems, such as thermal diffusion, can be solved with **amitex_fftp**.
+
+As the concepts used to describe the inputs of the code in mechanics are similar for diffusion, we only explain below some typical *xml* files.  
+
+
+.. Important::
+
+	**As the development of AMITEX_FFTP is focusing on 'mechanics', our feedback on 'diffusion' is less important.
+	Contact us if you observe problems.**
+
+
+Material properties 
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Materials>
+
+	<!-- REFERENCE MATERIAL -->
+	<Reference_MaterialD K0="14"/>
+
+	<!-- MATERIAL 1 -->
+	<Material numM="1" LibK="/home/gelebart/amitex_fftp/libAmitex/src/materiauxK/libUmatAmitexK.so" LawK="Fourier_iso">
+                <CoeffK Index="1" Type="Constant_Zone" File="materiaux/coefficients/coeffK.txt" Format="ASCII"/>
+	</Material>
+
+	</Materials>
+
+After defining the reference material property ``<Reference_MaterialD K0="14"/>``, the material behavior is given by the fields ``LibK`` and ``LawK``.
+
+Here the simple isotropic Fourier behaviour is used and its coefficients are constant per zone, given in an ASCII file.
+
+
+Algorithm parameters
+^^^^^^^^^^^^^^^^^^^^
+
+::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Algorithm_Parameters>
+
+	<!-- GENERAL CASE  --> 
+   	<Algorithm Type="Basic_Scheme">                         <!-- "Default" (Basic_Scheme) or "user" -->
+       		<Convergence_Criterion Value="Default"/>        <!-- "Default" (1e-4) or positive value <1e-3 -->
+       		<Convergence_Acceleration Value="True"/>        <!-- "True" ou "False" -->
+   	</Algorithm>
+
+	<!-- DIFFUSION  --> 
+   	<Diffusion>    
+       		<Filter Type="Default"/>                         <!-- "Default" (hexa) or "no_filter" or "hexa" or "octa" -->
+       		<Stationary Value="true"/>                       <!-- "Tue" ("False" not implemented yet) -->
+   	</Diffusion>
+	</Algorithm_Parameters>
+
+
+No comment, reading is enough.
+
+
+Loading and output
+^^^^^^^^^^^^^^^^^^
+
+::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Loading_Output>
+
+	<!-- OUPUT QUANTITIES -->
+	<Output>
+	    <vtk_FluxDGradD FluxD = "1" GradD="1"/>  
+	    <Zone numM="1">
+	    </Zone>
+	</Output>
+	
+	<!-- SUCCESSIVE LOADINGS AND OUTPUT TIMES -->
+	<Loading Tag="1">
+	    <Time_Discretization Discretization="User" Nincr="1" />
+	    <Time_List>1</Time_List>
+	    <Output_vtkList>1</Output_vtkList>
+	    <Output_zone Number="1"/>
+	    
+	    <x0 Driving="GradD" Evolution="Linear" Value="0.1"/>
+	    <y0 Driving="FluxD" Evolution="Linear" Value="2" />
+	    <z0 Driving="FluxD" Evolution="Linear" Value="3" />
+	
+	</Loading>
+
+	</Loading_Output>
+ 
+
+Here, the loading is made in one increment with a prescribed average temperature gradient in *x* direction and a prescribed average flux in *y* and *z* directions.
+
+The **default output** are the same as in Mechanics, replacing the stress and strain tensors by the flux and temperature gradient vectors.
+
+In addition, here, the **specific outputs** are : the flux and temperature gradient fields (vtk files), per zone statistical quantities for temperature gradient and flux.   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

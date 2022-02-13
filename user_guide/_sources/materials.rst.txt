@@ -1,0 +1,472 @@
+
+.. highlight:: xml
+
+.. _materials:
+
+MATERIALS
+==========
+
+------------------------------------------------------------------------
+
+.. _materials-standard: 
+
+STANDARD DESCRIPTION
+---------------------
+
+.. Warning::
+
+	**The number of materials and the number of zones (per material), provided in the "material.xml" file, must be consistent with the description given by the vtk file(s).**
+
+
+.. Warning ::
+
+	if **ID** in *materialID.vtk* starts to zero, the material number **numM** in the "material.xml" file corresponds to **ID+1** 
+
+
+Example
+^^^^^^^^^
+
+This *material.xml* file below provides in a single (and dummy!) example different syntaxes to associate the geometry to material properties ::
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Materials>
+
+	    <!-- REFERENCE MATERIAL -->
+	    <Reference_Material Lambda0="2.0952e+10" Mu0="1.5014e+10"/>
+
+
+	    <!-- MATERIAL "2", elastic isotropic behavior                                      -->
+	    <!--           prefer the syntax Lib="" for native behavior Law (see Material "1") -->
+	    <Material numM="2" Lib="(amitex)/libAmitex/src/materiaux/libUmatAmitex.so" Law="elasiso">
+	        <!-- Two constant coefficients (Lamé coefficients Lambda and Mu) -->
+	        <Coeff Index="1" Type="Constant" Value="4.0385e+10"/>
+	        <Coeff Index="2" Type="Constant" Value="2.6923e+10"/>
+	    </Material>
+
+
+	    <!-- MATERIAL "1", linear viscoelastic behavior                                     -->
+            <!--               Lib="" possible for 'native' behavior Law                        -->
+            <!--               possible if AMITEX_PATH is defined (export AMITEX_PATH=(amitex)) -->
+	    <Material numM="1" Lib="" Law="viscoelas_maxwell">  
+
+	    	<!-- coefficient 1: constant per zone -->
+	        <Coeff Index="1" Type="Constant_Zone">
+	            <!-- value within zone 1 -->
+	            <Zone numZ="1" Value="5.235e+10" />
+	            <!-- value within zone 2 -->
+	            <Zone numZ="2" Value="3.912e+10" />
+	        </Coeff>
+
+	    	<!-- coefficient 2: constant per zone, values defined in the ASCII file "Coeff2" -->
+	        <Coeff Index="2" Type="Constant_Zone " File="Coeff2" Format="ASCII" />
+
+	    	<!-- coefficient 3: constant per zone, values defined in the binary file "Coeff3.bin" -->
+	        <Coeff Index="3" Type="Constant_Zone " File="Coeff3.bin" Format="binary" />
+
+
+	        <!-- Internal variables are defined similarly-->
+	        <IntVar Index="1" Type="Constant" Value="0."/>
+
+	        <IntVar Index="2" Type="Constant_Zone">
+
+	            <Zone numZ="1" Value="0." />
+	            <Zone numZ="2" Value="10." />
+
+	        </IntVar>
+
+	        <IntVar Index="3" Type="Constant_Zone" File="Var3"/>
+
+	        <IntVar Index="4" Type="Variable" File="(rep_to_vtk)/coeff.vtk" Format="vtk"/> 
+
+	    </Material>
+
+	</Materials>
+
+
+Begin and End
+^^^^^^^^^^^^^^
+
+The file must begin and end with ::
+	
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Materials>
+		.
+		.
+	</Materials>
+
+
+Reference Material 
+^^^^^^^^^^^^^^^^^^^^^
+
+The reference material is defined by its Lamé coefficients, given by :: 
+
+	<Reference_Material Lambda0="2.0952e+10" Mu0="1.5014e+10"/>
+
+For an optimal choice with the basic scheme, Moulinec proposed to use :math:`X_0=(min(X)+max(X))/2` (with :math:`X=\lambda` or :math:`\mu`). 
+If convergence acceleration is used (see :ref:`algorithm`), the same choice can be used but the influence on the convergence is much less **significant**.
+
+
+Materials
+^^^^^^^^^^^^
+
+Each *material* is associated to the geometry by the material number *numM* which directly refers to a material domain in *materialID.vtk*. 
+
+Materials numbers *numM* starts to one (if *ID* in *materialID.vtk* starts to zero : *ID* = 0 corresponds to *numM* = 1, *ID* = 1 to *numM* = 2 and so on) ::
+
+	<Material numM="2" Lib="(amitex)/libAmitex/src/materiaux/libUmatAmitex.so" Law="elasiso">
+	   .
+	   .
+	</Material>
+	<Material numM="1" Lib="" Law="elasiso">
+	   .
+	   .
+	</Material>
+
+
+One ``<Material.. > .. </Material>`` section must be defined per *material* present in the **materialID.vtk**. 
+If the file **materialID.vtk** is omitted when launching **amitex_fftp** (see :ref:`to_begin-how-to-launch`), a unique material is assumed, and a unique section must be given.
+ 
+
+The material behaviour laws are implemented through *UMAT* compatible procedures gathered in a dynamic library (see :ref:`behaviors-umat`).
+
+The fields ``Lib`` and ``Law`` provide the complete path to the library and the name of the procedure, respectively. 
+
+**NATIVE BEHAVIORS**
+
+In the standard version of **AMITEX_FFTP**, only a few native behavior laws are provided within the library *(amitex)/libAmitex/src/materiaux/libUmatAmitex.so*.
+
+**For native behaviors**, if the environment variable **AMITEX_PATH** is defined, the **complete path can be avoided**, using ``Lib=""``.
+
+This is the recommended way to use native behaviors
+
+The available native behavior laws are :: 
+
+    elasiso             : isotropic elasticity 
+    elasiso_eigs        : isotropic elasticity with eigenstrain
+    elasiso_GD          : Lagrangian isotropic elasticity 
+    elasaniso           : orthotropic elasticity 
+    thermoelasiso       : isotropic thermoelasticity
+    paramextelasiso     : isotropic 'thermo'elasticity but with an external parameter governing the dilatation (instead of the temperature)	
+    contrainte_imposee  : imposed stress
+    viscoelas_maxwell   : Maxwell linear visco-elasticity
+
+They are described in :ref:`behaviors-native`.
+
+**USER-DEFINED BEHAVIORS**
+
+Introducing a new behaviour law is quite simple and discribed in :ref:`behaviors-umat`.  
+In that case, filling ``Lib="path_to_library"`` with the correct path towards the dynamic library is **mandatory**.
+
+.. _user-material-coefficients:
+
+Material Coefficients
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The material coefficient's index is the position of each coefficient within the vector COEFF used as an input of the *UMAT* compatible procedure for the behaviour law (see :ref:`behaviors-umat`). 
+
+For an isotropic behavior (``Law="elasiso"``), the coefficients COEFF(1) and COEFF(2) are the Lamé coefficients :math:`\lambda` and :math:`\mu`, respectively.
+
+
+In the example above, four different ways are used to define these values ::
+
+	1. <Coeff Index="1" Type="Constant" Value="4.0385e+10"/>
+
+	2. <Coeff Index="1" Type="Constant_Zone">
+	          <Zone numZ="1" Value="5.235e+10" />
+	          <Zone numZ="2" Value="3.912e+10" />
+	   </Coeff>
+
+	3. <Coeff Index="2" Type="Constant_Zone " File="Coeff2" Format="ASCII"/>
+
+	4. <Coeff Index="3" Type="Constant_Zone " File="Coeff3.bin" Format="binary"/>
+
+
+1. is used if the coefficient is constant within the *Material*
+2. and 3. and 4. are used if the coefficient is different from one *Zone* to another
+3. is used to import coefficients from a text file, which can be useful when considering a relatively large number of zones. To define a coefficient for two zones, the file must contain at least two lines (one value per line) see an example of the file Coeff2: ::
+
+		1.429430417
+		3.905850691
+
+   If the *Format* tag is not specified, the program will assume that the file given is written in the ASCII format.
+
+4. is used to import coefficients from a binary file. This is very useful when there is a very large number of zones. 
+The file format is described in :ref:`input-bin` and the precision must be *float* or *double*.
+
+
+.. _materials-initial-internal-variables:
+
+Initial Internal Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Initial internal variables are assigned according to the same procedure. Here, the index is the position of each internal variable within the vector STATEV (used as an input/output of the *UMAT* compatible procedure for the behaviour law, see :ref:`behaviors-umat`).
+
+**A fifth possibility** is proposed to assign internal variables with binary *vtk* files (format *float* or *double*) ::
+
+	5. <IntVar Index="4" Type="Variable" File="(rep_to_vtk)/variable.vtk" Format="vtk"/> 
+
+The *vtk* files definition is given in :ref:`input-vtk` with precision *float* or *double*.
+
+This is especially interesting to assign a **continuously variable field** (a random field for example).
+
+If the *Material* do not cover the whole unit-cell (which occurs with more than one *Material* in the unit-cell), only the corresponding part of the complete field given in 'variable.vtk' is used. The rest of the field is not considered.
+
+
+-----------------------------------------------------------------------------------------------
+
+.. _materials-composite:
+
+COMPOSITE VOXELS (ADVANCED USERS)
+----------------------------------
+
+.. Important::
+
+	- The important idea is that **the same vtk files can be used with or without composite voxels**. 
+	
+	- The introduction of composite voxels in the simulation is done by **additionnal informations within the material.xml file**.  
+
+	- The definition of composite voxels requires a **pre-treatment** to precisely identify where they are located and what they consist of (which materials, which volume fractions...)
+
+Introduced progressively since version 5.0.0, the final goal is to be able to account for:
+
+1. different averaging rules (at least Voigt, Reuss and Laminate)
+2. any number of phases
+3. any linear or non-linear behavior
+4. Small Strains and Finite Srains frameworks 
+
+In v8.17.1, Finite Strain extension is not yet available.
+The other points are fullfilled.
+
+General Description
+^^^^^^^^^^^^^^^^^^^^
+
+The introduction of composite voxels in the file *material.xml* requires
+the modification or addition of the 3 following xml nodes : 
+
+**1.** ``<Material.. > .. </Material>``
+
+All the materials present in the unit-cell are defined as previously (see :ref:`materials-standard`), 
+whether they are present or not as homogeneous voxels. 
+A node ``<Coeff_composite .. />`` must be added to provide an elastic isotropic behavior
+for the numerical integration of the average behavior (Laminate or Reuss).
+The two parameters are respectively the Lamé coefficients :math:`(\lambda,\mu)`
+	
+**2.** ``<Material_composite> .. </Material_composite>``
+
+The path of the directory were the complete description of composite voxels is given 
+according to a precise format given below.
+	
+**3.** ``<Interphase> .. </Interphase>`` (if required)
+
+List of the materials and/or zones which do not appear as homogeneous voxels.    
+Actually, sometimes, a specific ID of *materialID.vtk* or a specific zone of *zoneID.vtk* can be completely 
+overlaid by the composite voxels so that it doesn't appear anymore as homogeneous voxels.
+This is especially the case when dealing with thin interphases.
+
+	
+.. `Format-for-composite-voxels-definition`_:
+	
+Format for Composite Voxels description
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+The whole set of composite voxels is divided into **composite materials**.
+Each **composite material** is defined by:
+
+- a set of material IDs (``numM`` in :ref:`materials-standard`)  
+- an averaging rule (`voigt`, `reuss` or `laminate`)
+
+
+The complete definition of composite voxels is given in **a single directory containing**:
+
+- one file
+- one directory per **composite material**
+
+
+One file
+~~~~~~~~~~
+
+The file ``list_composite_materials.txt`` lists the different **composite materials**.
+Each line has the form ``I J K ... P averaging_rule`` where I, J, K ... P are the material IDs 
+present in the **composite material**.
+
+Example for ``list_composite_materials.txt``::	
+
+		1 2 4 6 laminate
+		1 1 voigt
+
+
+In the example above, two **composite materials** are defined.
+
+The first one : 
+
+- contains 4 phases, associated to the material IDs 1, 2, 4 and 6 (corresponding to ``numM`` in :ref:`materials-standard`). Here each phase has a different material behavior law.
+- uses laminate averaging rule.
+
+The second one :
+
+- contains two phases associated to the same material ID "1" (corresponding to ``numM`` in :ref:`materials-standard`). In that case, the two phases have the same behavior law but may have different material coefficients associated to different zones (see ``numZ`` in :ref:`materials-standard`)
+- uses the voigt avering rule,
+		
+		
+One directory per composite material
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each directory ``rep_I_J_K..._P`` describes the geometry of each **composite material** 
+listed in ``list_composite_materials.txt``.
+In the example above, two directories, ``rep_1_1`` and ``rep_1_2_4_6`` are required.
+Within each directory, a local phase renumbering is considered : I :math:`\leftrightarrow` 1, J :math:`\leftrightarrow` 2, K :math:`\leftrightarrow` 3...
+and the following files are contained :
+	
+* *pos.bin* (for *i* =1 .. number of phases) : the linearized positions of the composite voxels  
+* *zonei.bin* (for *i* =1 .. number of phases) : their zone IDs for phase *i* (local phase number)  
+* *fvi.bin*   (for *i* =1 .. number of phases) : their volume fractions of phase *i* (local phase number)
+* *Nijx.bin*, *Nijy.bin*, *Nijz.bin* (for *i*, *j* =1 .. number of phases and *i* :math:`\ne` *j*) : their components of the normal vector to the interface between phases *i* and *j*.
+* *Sij.bin* (for *i*, *j* =  .. number of phases and *i* :math:`\ne` *j*) : their surfaces of intersection between the voxel and the interface between phases *i* and *j*.
+		
+Each file contains a list of binary values, one for each voxel composite of the family, respecting the format :ref:`input-bin`.
+
+.. Note ::
+
+	In practice, the mandatory files are:
+		
+	- For all averaging rules : *pos.bin*, *zonei.bin* (for *i* =1 ..  number of phase), *fvi.bin* (for *i* =1 ..  number of phase -1)
+	- For laminate : *N12x.bin*, *N12y.bin*, *N12z.bin* (an arbitrary choice is made to keep the normal *N12* for the laminate model). In addition, the laminate rule requires the components of the tangent vectors given in files *Tx.bin*, *Ty.bin* and *Tz.bin*. 
+		
+	However, all the normals *Nij* and surfaces *Sij* could be used in the futur, and can be usefull for evaluating interfaces average quantities in post-treatment.
+
+		
+
+Interphase Definition
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The section ``<Interphase> .. <\Interphase>`` **must be added** to the file *material.xml* **IF AND ONLY IF, after adding the composite voxel's definition**:
+
+1. At least one material ID, *matID*, (``numM`` in :ref:`materials-standard`) do not appear anymore as a homogeneous voxel.
+Such an "Interphase" material **must be** identified through::
+	
+		<Interphase_material  numM="matID" Nzones="number_of_zones"/>
+	
+As all the materials in **amitex_fftp**, its coefficients can be associated to different zones 
+so that the number of zones ``Nzones`` **must be specified** (unlike the other materials, 
+the number of zones can't be deduced from the files *materialID.vtk* and *zoneID.vtk* associated to homogeneous voxels).
+	
+2. At least one zone ID of a given material ID, *matID*, do not appear anymore as a homogeneous voxel.
+Such "Interphase" zones **must be** identified through::
+	
+		<Interphase_zone_list numM="matID" Nzones="number_of_zones">
+			zoneID1 zoneID2 ... zoneIDnumber_of_zones
+		</Interphase_zone_list>  
+	
+	
+
+Below is an example where material 2, which consists of 4 zones (associated to different material coefficients) 
+does not appear anywhere as a homogeneous voxel. In addition, material 1 appears as a homogeneous voxel but not its three zones 2, 4 and 6.::
+
+	<Interphase>
+		<Interphase_material  numM="2" Nzones="4">  
+		<Interphase_zone_list numM="1" Nzones="3">
+			2 4 6
+		</Interphase_zone_list>  
+	</Interphase>
+
+
+Example 1 : a voronoï polycrystal with isotropic grains
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Note::
+
+	In this exemple, and in any case where the definition of **"interphase" is not required**
+	(all the material and material's zones are present as homogeneous voxels), the simulation **can be run** 
+	without composite voxels by simply commenting the section 	``<Material_composite   > .. </Material_composite>``.
+
+
+In this example, there is only one material and the file *zoneID.vtk* consists of a voronoï tessellation (one grain per zone):
+all the grains have an elastic isotropic behavior but different Lamé coefficients.  
+In the *material.xml* file below, the unique material (``numM=1``) is defined with constant per zone Lamé coefficients 
+and the Lamé coefficients for the numerical integration of the averaging rule are the same. The introduction
+of composite voxels is simply done by adding the section ``<Material_composite> .. <\Material_composite>`` to specify the directory
+where the composite voxels are fully defined (see _`Format-for-composite-voxels-definition`)  :: 
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Materials>
+	
+	<!-- REFERENCE MATERIAL -->
+	<Reference_Material Lambda0="5.76923076923077e8" Mu0="3.84615384615385e8"/>
+	
+	<!-- MATERIAL 1  -->
+	<Material numM="1" Lib="/home/gelebart/amitex_fftp/libAmitex/src/materiaux/libUmatAmitex.so" Law="elasiso" > 
+
+			<Coeff Index="1" Type="Constant_Zone" File="materiaux/coefficients/Lambda1_polyx27G_R21.bin" Format="binary"/>
+			<Coeff Index="2" Type="Constant_Zone" File="materiaux/coefficients/Mu1_polyx27G_R21.bin" Format="binary"/>
+
+			<Coeff_composite Index="1" Type="Constant_Zone" File="materiaux/coefficients/Lambda1_polyx27G_R21.bin" Format="binary" />  
+			<Coeff_composite Index="2" Type="Constant_Zone" File="materiaux/coefficients/Mu1_polyx27G_R21.bin" Format="binary"/>  
+	</Material>
+
+	<!-- DIRECTORY FOR THE DEFINITION OF COMPOSITE VOXELS -->
+	<Material_composite> 
+			<Coeff_composite directory="microstructures/voxcomp/polyX_27G_R21_reuss"/> 
+	</Material_composite>
+
+	</Materials>
+
+
+Example 2 : a single composite voxel
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Note::
+
+	In this exemple, and in any case where the definition of **"interphase" is required**, the simulation **can not be** run 
+	without composite voxels by simply comenting the section ``<Material_composite   > .. </Material_composite>``.
+
+
+In this example, the file *materialID.vtk* consists of a single voxel. 
+The composite voxel definition (not described here) identifies this voxel as
+a composite voxel between two different material (1 and 2). Obviously, 
+in this specific case, there is no homogeneous voxel at all and these two
+materials must be introduced as "interphase" materials.
+The corresponding *material.xml* file is given below::  
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Materials>
+	
+		<!-- REFERENCE MATERIAL -->
+	    <Reference_Material Lambda0="22.21175e+10" Mu0="14.80765e+10"/>
+
+	    <!-- MATERIAL 1 -->
+	    <Material numM="1" Lib="(amitex)/libAmitex/src/materiaux/libUmatAmitex.so" Law="elasiso" >
+			<Coeff Index="1" Type="Constant" Value="4.0385e+10"/>
+			<Coeff Index="2" Type="Constant" Value="2.6923e+10"/>
+			<Coeff_composite Index="1" Type="Constant" Value="4.0385e+10"/>
+			<Coeff_composite Index="2" Type="Constant" Value="2.6923e+10"/>
+	    </Material>
+	    
+	    <!-- MATERIAL 2 -->
+	    <Material numM="2" Lib="(amitex)/libAmitex/src/materiaux/libUmatAmitex.so" Law="elasiso" >
+			<Coeff Index="1" Type="Constant" Value="4.0385e+11"/>
+			<Coeff Index="2" Type="Constant" Value="2.6923e+11"/>
+			<Coeff_composite Index="1" Type="Constant" Value="4.0385e+11"/>
+			<Coeff_composite Index="2" Type="Constant" Value="2.6923e+11"/>
+	    </Material>
+
+	    <!-- DIRECTORY FOR THE DEFINITION OF COMPOSITE VOXELS -->
+	    <Material_composite>
+			<Coeff_composite directory="microstructures/VoxComp"/> 
+	    </Material_composite>
+
+	    <!-- IDENTIFICATION OF MATERIALS WHICH ARE NOT PRESENT AS "HOMOGENEOUS" VOXELS -->
+	    <Interphase>
+			<Interphase_material  numM="1" Nzones="1"/>    
+			<Interphase_material  numM="2" Nzones="1"/>
+	    </Interphase>
+
+	</Materials>
+
+The two materials are desribed in the two sections ``<Material.. > .. </Material>``.
+Note that Lamé coefficients are given, if necessary, for the numerical integration of the averaging rule
+(``<Coeff_composite ../>``). 
+
+As already mentionned, the two materials do not appear as homogeneous voxels and they are
+identified as "interphase" ``<Interphase> .. </Interphase>``.
+
