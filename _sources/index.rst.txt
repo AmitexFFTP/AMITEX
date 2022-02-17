@@ -1,7 +1,7 @@
 .. _accueil:
 
-AMITEX_FFTP HOMEPAGE
-=====================
+AMITEX_FFTP ( AMITEX  FFT )  HOMEPAGE
+======================================
 
 
 
