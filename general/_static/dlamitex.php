@@ -59,7 +59,7 @@
 		// Envoi des mails
 		
 		$email = $_POST['email'];
-		$destinatairescea = array('julien.derouillat@cea.fr','lionel.gelebart@cea.fr');
+		$destinatairescea = array('mathieu.lobet@cea.fr','yushan.wang@cea.fr','lionel.gelebart@cea.fr');
 		//$destinatairescea = array('julien.derouillat@cea.fr');
 		
 		$objetclient = 'Telechargement de AMITEX';
@@ -350,7 +350,7 @@ echo $versionchoisie;
 		*/
 	}
         else {
-            ?> <a href="_download/amitex_fftp-v8.17.9.tar">Telecharger AMITEX_FFTP </a> <?php;
+            ?> <a href="_download/amitex_fftp-v8.17.11.tar">Telecharger AMITEX_FFTP </a> <?php;
         }
 	
 ?>

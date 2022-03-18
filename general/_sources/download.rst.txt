@@ -24,11 +24,20 @@ The version 8.17.2 is now quite stable with a quite broad scope, the next 8.17.x
 
 However the development branch is still in progress !  Contact us if interested !
 
-**AMITEX_FFTP v8.17.9**
+**AMITEX_FFTP v8.17.11**
 ---------------------------
 
-:download: `v8.17.9 <Download: http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html>`_
+`Download v8.17.11 <Download: http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html>`_
 
+Date : March 2022 (8.17.11)
+
+- small bug corrections
+
+- compatibility with intel-oneapi compiler (version tested 2021.1)
+
+
+**AMITEX_FFTP v8.17.9**
+---------------------------
 
 Date : May 2021 (8.17.9)
 
