@@ -27,7 +27,7 @@ However the development branch is still in progress !  Contact us if interested 
 **AMITEX_FFTP v8.17.11**
 ---------------------------
 
-`Download v8.17.11 <Download: http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html>`_
+`Download v8.17.11 <http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html>`_
 
 Date : March 2022 (8.17.11)
 
