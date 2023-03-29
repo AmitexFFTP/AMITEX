@@ -3,12 +3,12 @@
 	$soumis=false;
 	$versionchoisie="";
      
-    // clé aléatoire de limite
+    // clÃ© alÃ©atoire de limite
     $boundary = md5(uniqid(microtime(), TRUE));
 ?>
 
 <h1 class="titretab"><b><?php echo $phraseLicence;?></b></h1>
-
+ 
 <?php
 	// Formulaire soumis & champs obligatoires correctement remplis
 	if(
@@ -49,69 +49,79 @@
 		/* JDT foreach($version as $cle=>$valeur) {
 			if(isset($_POST[$cle]) and $_POST[$cle] == 'on') {
                 
-				echo "<li style=\"padding-bottom: 5px;\">" . $version[$cle]['nom'] . ": " . "<a href=\"" . $version[$cle]['url']  . "\">" . "Télécharger"  . "</a></li>";	
+				echo "<li style=\"padding-bottom: 5px;\">" . $version[$cle]['nom'] . ": " . "<a href=\"" . $version[$cle]['url']  . "\">" . "TÃ©lÃ©charger"  . "</a></li>";	
 			}
 		}		*/
 		?>
 		</ul>
-		<?php
+
+
+
+    <?php
 		
-		// Envoi des mails
-		
-		$email = $_POST['email'];
-		$destinatairescea = array('mathieu.lobet@cea.fr','yushan.wang@cea.fr','lionel.gelebart@cea.fr');
-		//$destinatairescea = array('julien.derouillat@cea.fr');
-		
-		$objetclient = 'Telechargement de AMITEX';
-		$objetcea = 'Notification de telechargement AMITEX';
-		
-		$headers ='From: "Site web AMITEX"<pasdereponse@noreply.fr>'."\n";
+	// Envoi des mails
+	$email = $_POST['email'];
+	$destinatairescea = array('yushan.wang@cea.fr','lionel.gelebart@cea.fr','mathieu.lobet@cea.fr');	
+        //$destinatairescea = array('yushan.wang@cea.fr');	
+
+        $totoheaders = 'From: amitex@noreply.fr' . "\r\n" .
+                       'Reply-To: amitex@mdls.fr' . "\r\n" .
+                       'X-Mailer: PHP/' . phpversion();	
+	
+        $objetclient = 'Telechargement de AMITEX';
+	$objetcea = 'Notification de telechargement AMITEX';
+	
+	//$headers ='From: Site web AMITEX<pasdereponse@noreply.fr>'."\n";
+        $headers ='From: amitex@noreply.fr'."\n";
         $headers .= 'Content-Type: multipart/mixed;boundary='.$boundary."\r\n";
         $headers .= "\r\n";
 
 
-// Début avec changement pour pièce jointe : 
+        // DÃ©but avec changement pour piÃ¨ce jointe : 
         $messagecea = '--'.$boundary."\r\n";
         $messagecea .= 'Content-type:text/plain;charset=utf-8'."\r\n";
         $messagecea .= 'Content-transfer-encoding:8bit'."\r\n";
-// Pièce jointe
+
+        // PiÃ¨ce jointe
         $file_name = 'piecejointe.txt';
 
-		$messagecea = "Notification de telechargement de AMITEX";
-		$messagecea .= "\r\n\r\n\r\n\r\n";
-		$messagecea .= "Nom : " . $_POST['nom'] . "\r\n" . "Prenom : " . $_POST['prenom'] .  "\r\n";
-		$messagecea .= "Adresse e-mail : " . $email . "\r\n" . "\r\n";
-		$messagecea .= "Lieu : " . $_POST['lieu'] . "\r\n" . "Ville : " . $_POST['ville'] . "\r\n" . "\r\n";
-		$messagecea .= "Domaine d'utilisation : " . $_POST['domaine'] . "\r\r\n" ;
-		$messagecea .= "Autre domaine d'utilisation : " . $_POST['autredomaine'] . "\r\r\n";		
-		$messagecea .= "Type d'organisme : " . $_POST['organisme'] . "\r\r\n";
-		$messagecea .= "Autre type d'organisme : " . $_POST['autreorganisme'] . "\r\r\n";
-		$messagecea .= "Pole CEA : " . $_POST['pole'] . "\r\n" . "\r\n";
-		$messagecea .= "Cadre d'utilisation : " . $_POST['cadre'] . "\r\n" . "\r\n";
-		/*if (isset($_POST['accmail'])){
-			$_POST['accmail']="o";
-			$messagecea .= "Désire recevoir les mails Cast3M : oui"  . "\r\n";
-		}		
-		else {
-			$_POST['accmail']="n";
-			$messagecea .= "Désire recevoir les mails Cast3M : non"  . "\r\n";
-		}	*/
+	$messagecea = "Notification de telechargement de AMITEX";
+	$messagecea .= "\r\n\r\n\r\n\r\n";
+	$messagecea .= "Nom : " . $_POST['nom'] . "\r\n" . "Prenom : " . $_POST['prenom'] .  "\r\n";
+	$messagecea .= "Adresse e-mail : " . $email . "\r\n" . "\r\n";
+	$messagecea .= "Lieu : " . $_POST['lieu'] . "\r\n" . "Ville : " . $_POST['ville'] . "\r\n" . "\r\n";
+	$messagecea .= "Domaine d'utilisation : " . $_POST['domaine'] . "\r\r\n" ;
+	$messagecea .= "Autre domaine d'utilisation : " . $_POST['autredomaine'] . "\r\r\n";		
+	$messagecea .= "Type d'organisme : " . $_POST['organisme'] . "\r\r\n";
+	$messagecea .= "Autre type d'organisme : " . $_POST['autreorganisme'] . "\r\r\n";
+	$messagecea .= "Pole CEA : " . $_POST['pole'] . "\r\n" . "\r\n";
+	$messagecea .= "Cadre d'utilisation : " . $_POST['cadre'] . "\r\n" . "\r\n";
+	
+        /*if (isset($_POST['accmail'])){
+		$_POST['accmail']="o";
+		$messagecea .= "Dï¿½sire recevoir les mails Cast3M : oui"  . "\r\n";
+	}		
+	else {
+		$_POST['accmail']="n";
+		$messagecea .= "Dï¿½sire recevoir les mails Cast3M : non"  . "\r\n";
+	}*/
 
-		$messagecea .= "\r\n\r\n";
-		$messagecea .= "Versions telechargees : \r\n";
+	$messagecea .= "\r\n\r\n";
+	$messagecea .= "Versions telechargees : \r\n";
 		
-		/* JDT foreach($version as $cle=>$valeur) {
-			if(isset($_POST[$cle]) and $_POST[$cle] == 'on') {
-				$messagecea .= $version[$cle]['nom'] . "\r\n";
-				$versionchoisie .= $cle . " " ;	
-			}
-		} */
-		$messagecea .= "\r\n\r\nLicence acceptee le " . $_POST['date'] . "\r\n";
+	
+	/* JDT foreach($version as $cle=>$valeur) {
+		if(isset($_POST[$cle]) and $_POST[$cle] == 'on') {
+			$messagecea .= $version[$cle]['nom'] . "\r\n";
+			$versionchoisie .= $cle . " " ;	
+		}
+	} */
+	$messagecea .= "\r\n\r\nLicence acceptee le " . $_POST['date'] . "\r\n";
 
-		$messageclient .= "\r\n\r\nMerci d'avoir telecharge AMITEX_FFTP. le " . $_POST['date'] . "\r\n";
+	$messageclient .= "\r\n\r\nMerci d'avoir telecharge AMITEX_FFTP. le " . $_POST['date'] . "\r\n";
 
         if (file_exists($file_name))
-            {
+        {
                 $file_type = filetype($file_name);
                 $file_size = filesize($file_name);
              
@@ -128,20 +138,25 @@
  
         //$messagecea .= '--'.$boundary."\r\n";
 		
-		mail($email, $objetclient, $messageclient, $headers);
+		//mail($email, $objetclient, $messageclient, $totoheaders);
+                mail($email, $objetclient, $messageclient);
 		
 		foreach($destinatairescea as $destinataire) {
-			mail($destinataire, $objetcea, $messagecea, $headers);
+			//mail($destinataire, $objetcea, $messagecea, $headers);
+			mail($destinataire, $objetcea, $messagecea);
+
+                
+
             //echo "Envoi du message" . "<br />";
             //echo $messagecea;
 		}
-
+                
 		
 
-// 	    Connexion à la base de données Cast3M
+// 	    Connexion ï¿½ la base de donnï¿½es Cast3M
 		// JDT mysql_connect("localhost", "root", "") or die ("Connexion impossible");
 		// JDT mysql_select_db("cast3m") or die ("BDD inaccessible");
-//		Envoi des requêtes de remplissage de la bdd
+//		Envoi des requï¿½tes de remplissage de la bdd
 echo $versionchoisie;
 		/*$Req = "INSERT INTO client(NomClient,PrenomClient,MailClient,DomaineClient,AutreDomaineClient,OrganismeClient,AutreOrganismeClient,LieuClient,VilleClient,PoleClient,CadreClient,VersionClient,AccMailClient,DateClient)
 		VALUES('$_POST[nom]','$_POST[prenom]','$_POST[email]','$_POST[domaine]','$_POST[autredomaine]','$_POST[organisme]','$_POST[autreorganisme]','$_POST[lieu]','$_POST[ville]','$_POST[pole]','$_POST[cadre]','$versionchoisie','$_POST[accmail]','$_POST[date]')";*/
@@ -163,12 +178,13 @@ echo $versionchoisie;
 	
 	}
 	
-	// Affichage du formulaire ; Si la variable $soumis est à true, on vérifie également que certains champs sont correctement remplis
+	// Affichage du formulaire ; Si la variable $soumis est ï¿½ true, on vï¿½rifie ï¿½galement que certains champs sont correctement remplis
 	// et on leur applique la classe css "invalide" si ce n'est pas le cas
 	if($form) {
 		//$_SESSION['Captcha'] = random_str(5);
-		echo "Some data ara missing :" . "<br />";
-                ?> <a href="http://www.maisondelasimulation.fr/projects/amitex/download_test/html/_static/download_amitex_fftp.html">Fill the AMITEX_FFTP form </a> <?php;
+		echo "Some data are missing :" . "<br />";
+
+                ?> <a href="http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html">Fill the AMITEX_FFTP form </a> <?php;
 /*
 		?>
 		
@@ -270,10 +286,10 @@ echo $versionchoisie;
 						<td colspan="1" style="padding-top: 20px;"><?php echo $phraseCadre; ?> </td>
 						<td colspan="2" style="padding-top: 20px;">
 							<select name="cadre"><?php
-							// Affichage du menu déroulant : on boucle à l'intérieur du tableau $choixUtilisation (fichiers local_fr et local_en dans le répertoire inc)
+							// Affichage du menu dï¿½roulant : on boucle ï¿½ l'intï¿½rieur du tableau $choixUtilisation (fichiers local_fr et local_en dans le rï¿½pertoire inc)
 							// pour afficher une option du menu pour chaque valeur
-							// On regarde aussi quelle valeur du menu a été sélectionnée précédemment (si formulaire soumis au moins une fois)
-							// pour la resélectionner automatiquement dans le cas où certaines valeurs manquaient dans d'autres champs
+							// On regarde aussi quelle valeur du menu a ï¿½tï¿½ sï¿½lectionnï¿½e prï¿½cï¿½demment (si formulaire soumis au moins une fois)
+							// pour la resï¿½lectionner automatiquement dans le cas oï¿½ certaines valeurs manquaient dans d'autres champs
 							foreach($choixUtilisation as $value) {
 								echo "<option value=\"$value\"";
 								if(isset($_POST['cadre']) and $_POST['cadre'] == $value) echo " selected=\"selected\"";
@@ -351,6 +367,8 @@ echo $versionchoisie;
 	}
         else {
             ?> <a href="_download/amitex_fftp-v8.17.11.tar">Telecharger AMITEX_FFTP </a> <?php;
+
         }
 	
 ?>
+				
