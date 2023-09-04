@@ -144,6 +144,7 @@ The available native behavior laws are ::
     elasiso             : isotropic elasticity 
     elasiso_eigs        : isotropic elasticity with eigenstrain
     elasiso_GD          : Lagrangian isotropic elasticity 
+    elasaniso_GD        : Lagrangian anisotropic elasticity 
     elasaniso           : orthotropic elasticity 
     thermoelasiso       : isotropic thermoelasticity
     paramextelasiso     : isotropic 'thermo'elasticity but with an external parameter governing the dilatation (instead of the temperature)	
