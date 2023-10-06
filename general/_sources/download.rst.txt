@@ -78,7 +78,7 @@ The most important are :
 **TRAINING SESSION**
 ---------------------
 
-:download:`Download  <_static/amitex_formation_1.0.2.tar>` the last training session (30/03/2023) 
+:download:`Download  <_static/amitex_formation_1.0.3.tar>` the last training session (10/10/2023) 
 
 The purpose of the training session is to help users to :
 
@@ -89,18 +89,21 @@ The purpose of the training session is to help users to :
 - become familiar with the different xml files (material, loading, algorithm)
 
 
-Then, uncompressing the archive will give you one file and two directories::
+Then, uncompressing the archive will give you one directory::
 
-   tar xvf amitex_formation_v1.0.1.tar
+   tar xvf amitex_formation_v1.0.3.tar
+   cd amitex_training 
    ls
-   amitex_formation_1.0.1.tar  amitex_training  amitex_training_pdf  env_amitex.sh
+   Algorithms           Behaviors               Loadings_outputs  matlab_octave    Scripts
+   amitex_training_pdf  env_amitex_training.sh  Materials         Microstructures  update_solution
+   
 
 The document ``amitex_training_pdf/FORMATION_AMITEX_general_xxx.pdf`` will give you a general description of **AMITEX_FFTP** and  its **Standard** usage.
 
 Then follow the guide in ``amitex_training_pdf/FORMATION_AMITEX_practice_xxx.pdf``.
-Note that the directories contained in ``amitex_training`` contain a ``solutions`` directory from wich you can copy-paste the files in their parent directories to run the simulations proposed in ``Scripts``.
+Note that the directories in ``amitex_training`` contain a ``solutions`` directory from wich you can copy-paste the files in their parent directories to run the simulations proposed in ``Scripts``.
 
-Of course, prerequisites (see :ref:`install`) have to be fullfilled and the environment variables  in ``env_amitex.sh`` have to be adjusted to you configuration (see :ref:`to_begin-how-to-launch`). 
+Of course, prerequisites (see :ref:`install`) have to be fullfilled and the environment variables  in ``env_amitex_training.sh`` have to be adjusted to you configuration (see :ref:`to_begin-how-to-launch`). 
 This will be the first part of the training session.
 
 Note that this WEB SITE is the REFERENCE guide. If you observe any anomaly please contact us (:ref:`contacts <contributors>`).
