@@ -1,34 +1,47 @@
 
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>INPUT FILES &#8212; AMITEX user guide  documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <title>INPUT FILES &mdash; AMITEX user guide  documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/my-styles.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/sandstone/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="AMITEX user guide  documentation" href="index.html" />
     <link rel="next" title="MATERIALS" href="materials.html" />
     <link rel="prev" title="TO BEGIN" href="to_begin.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
 
-  </head><body>
+  </head>
+  <body>
 
  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -83,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="to_begin.html#how-to-launch-amitex-fftp">HOW TO LAUNCH AMITEX_FFTP</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">INPUT FILES</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">INPUT FILES</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#vtk-files">VTK files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#xml-files">XML files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bin-files">BIN files</a></li>
@@ -126,8 +139,8 @@
 <li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#external-loading">EXTERNAL LOADING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#strain-gradient-loadings">STRAIN GRADIENT LOADINGS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#beam-and-plates">Beam and plates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-plates-example-with-normal-vector-e-z">Loading of plates (example with normal vector <span class="math notranslate nohighlight">\(e_z\)</span> )</a></li>
-<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-beams-example-below-with-beam-axis-e-x">Loading of beams (example below with beam axis <span class="math notranslate nohighlight">\(e_x\)</span> )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-plates-example-with-normal-vector">Loading of plates (example with normal vector <span class="math">\(e_z\)</span> )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-beams-example-below-with-beam-axis">Loading of beams (example below with beam axis <span class="math">\(e_x\)</span> )</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#diffusion">DIFFUSION</a><ul>
@@ -215,17 +228,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+    <div class="col-md-12 content">
       
   <div class="section" id="input-files">
 <span id="input"></span><h1>INPUT FILES<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="vtk-files">
 <span id="input-vtk"></span><h2>VTK files<a class="headerlink" href="#vtk-files" title="Permalink to this headline">¶</a></h2>
 <p>The input file(s) <em>materialID.vtk</em> and/or <em>zoneID.vtk</em> are integer fields defined on a uniform grid according to the <em>vtk simple legacy format</em> (<a class="reference external" href="http://www.vtk.org/VTK/img/file-formats.pdf">http://www.vtk.org/VTK/img/file-formats.pdf</a>).</p>
-<p>As described in <a class="reference internal" href="to_begin.html#to-begin-geometry"><span class="std std-ref">GEOMETRY : UNIT-CELL DESCRIPTION</span></a>, all the voxels with a common materialID value define a <em>material</em> domain.
+<p>As described in <a class="reference internal" href="to_begin.html#to-begin-geometry"><em>GEOMETRY : UNIT-CELL DESCRIPTION</em></a>, all the voxels with a common materialID value define a <em>material</em> domain.
 Within a given <em>material</em>, all the voxels with a common zoneID value define a <em>zone</em>.</p>
-<p>VTK files, with <em>float</em> or <em>double</em> precision can also be used to define <a class="reference internal" href="materials.html#materials-initial-internal-variables"><span class="std std-ref">Initial Internal Variables</span></a>.</p>
-<p>Finally, the same VTK file format is used by <strong>AMITEX_FFTP</strong> to output fields (stress, strain, internal variables…) with the <em>float</em> precision.</p>
+<p>VTK files, with <em>float</em> or <em>double</em> precision can also be used to define <a class="reference internal" href="materials.html#materials-initial-internal-variables"><em>Initial Internal Variables</em></a>.</p>
+<p>Finally, the same VTK file format is used by <strong>AMITEX_FFTP</strong> to output fields (stress, strain, internal variables...) with the <em>float</em> precision.</p>
 <p><strong>CONSTRAINTS FOR THE GENERATION OF VTK FILES</strong></p>
 <p><strong>Data definition</strong></p>
 <p>The materialID field must contain integers starting from 1 to N (N=number of <em>materials</em>), increasing without any skipping value.</p>
@@ -233,7 +246,7 @@ Within a given <em>material</em>, all the voxels with a common zoneID value defi
 <p>In both cases, definitions starting from 0 to N-1 are accepted but not encouraged.</p>
 <p><strong>VTK file headers</strong></p>
 <p>The VTK file header must <strong>strictly contain the following 10 lines</strong>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span># vtk DataFile Version 4.5
+<div class="highlight-xml"><div class="highlight"><pre># vtk DataFile Version 4.5
 Materiau
 BINARY
 DATASET STRUCTURED_POINTS
@@ -256,7 +269,7 @@ LOOKUP_TABLE default
 <li>the data type when writing binaries must be consistent with the data type given in the header</li>
 <li>the maximum field value (especially for zoneID) must be less than the limit value corresponding to the data type</li>
 </ul>
-<p>MATLAB/OCTAVE functions can be found in <a class="reference external" href="../general/tools.html#tools" title="(in AMITEX general)"><span>Tools</span></a> to generate VTK files compatible with <strong>AMITEX_FFTP</strong>.</p>
+<p>MATLAB/OCTAVE functions can be found in <a class="reference external" href="../general/tools.html#tools" title="(in AMITEX general v)"><em>Tools</em></a> to generate VTK files compatible with <strong>AMITEX_FFTP</strong>.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
 <p>In case of <strong>unsigned</strong> data types, the limit value used by AMITEX_FFTP is the limit value for corresponding <strong>signed</strong> data types (<strong>~ 0.5 x limit value for unsigned</strong>).</p>
@@ -265,8 +278,8 @@ LOOKUP_TABLE default
 <div class="admonition-tips admonition">
 <p class="first admonition-title">TIPS</p>
 <ol class="last arabic simple">
-<li>You can use specific <a class="reference external" href="../general/tools.html#tools" title="(in AMITEX general)"><span>Tools</span></a> to generate vtk files for AMITEX_FFTP</li>
-<li><strong>if PARAVIEW can’t read your vtk file don’t go further with AMITEX_FFTP.</strong></li>
+<li>You can use specific <a class="reference external" href="../general/tools.html#tools" title="(in AMITEX general v)"><em>Tools</em></a> to generate vtk files for AMITEX_FFTP</li>
+<li><strong>if PARAVIEW can&#8217;t read your vtk file don&#8217;t go further with AMITEX_FFTP.</strong></li>
 </ol>
 </div>
 <hr class="docutils" />
@@ -275,7 +288,7 @@ LOOKUP_TABLE default
 <span id="input-xml"></span><h2>XML files<a class="headerlink" href="#xml-files" title="Permalink to this headline">¶</a></h2>
 <p>Of course, XML files must follow the XML syntax (use a XML editor with syntax coloring to detect syntax errors).</p>
 <p>A comment is written like this:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- A comment --&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- A comment --&gt;</span>
 </pre></div>
 </div>
 <p>There is no need to follow any specific order for the various inputs given in XML files.</p>
@@ -283,25 +296,25 @@ LOOKUP_TABLE default
 <p>XML is a case sensitive language. The name of XML <strong>nodes</strong> and <strong>attributes</strong> are case-sensitive.</p>
 <p>However, the name of the string variables that can be input between quotation marks are case insensitive.</p>
 <p>Hence, in the following XML line</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;Coeff</span> <span class="na">Index=</span><span class="s">&quot;1&quot;</span> <span class="na">Type=</span><span class="s">&quot;Constant_Zone&quot;</span><span class="nt">&gt;</span>
 </pre></div>
 </div>
-<p>Here, <em>Coeff</em> is a <strong>node</strong>, <em>Index</em> and <em>Type</em> are <strong>attributes</strong> : they require the uppercase “C”, “I” and “T”.</p>
+<p>Here, <em>Coeff</em> is a <strong>node</strong>, <em>Index</em> and <em>Type</em> are <strong>attributes</strong> : they require the uppercase &#8220;C&#8221;, &#8220;I&#8221; and &#8220;T&#8221;.</p>
 <p>However, the string <em>Constant_Zone</em> can be read <em>constant_zone</em> in AMITEX_FFTP.</p>
 <p><strong>Exception</strong> : path names are case-sensitive.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="bin-files">
 <span id="input-bin"></span><h2>BIN files<a class="headerlink" href="#bin-files" title="Permalink to this headline">¶</a></h2>
-<p>BIN files are used to introduce per zone material coefficients or initial internal variables (see <a class="reference internal" href="materials.html#user-material-coefficients"><span class="std std-ref">Material Coefficients</span></a>), or composite voxels properties (see <a class="reference internal" href="materials.html#materials-composite"><span class="std std-ref">COMPOSITE VOXELS (ADVANCED USERS)</span></a>).</p>
+<p>BIN files are used to introduce per zone material coefficients or initial internal variables (see <a class="reference internal" href="materials.html#user-material-coefficients"><em>Material Coefficients</em></a>), or composite voxels properties (see <a class="reference internal" href="materials.html#materials-composite"><em>COMPOSITE VOXELS (ADVANCED USERS)</em></a>).</p>
 <p>The header must contain the following <strong>2 lines</strong>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>2
+<div class="highlight-xml"><div class="highlight"><pre>2
 double
 </pre></div>
 </div>
 <p>The first line is the number of binary values within the file, it must greater or equal to the number of zones defined in the VTK file.</p>
 <p>The second line defines the data type (<em>char</em>, <em>short</em>, <em>int</em>, <em>long</em>, <em>unsigned_short</em>, <em>unsigned_int</em>, <em>unsigned_long</em>, respectively coded on 1, 2, 4 and 8 bytes, or <em>float</em> and <em>double</em> on 4 and 8 bytes), here the type is <em>double</em>. The rest of the file should be binary data satisfying the constraints defined in <a class="reference internal" href="#binary-data">Binary data</a> (<em>big endian</em> ordering and maximum values).</p>
-<p>MATLAB/OCTAVE functions can be found in <a class="reference external" href="../general/tools.html#tools" title="(in AMITEX general)"><span>Tools</span></a> to generate BIN files compatible with <strong>AMITEX_FFTP</strong>.</p>
+<p>MATLAB/OCTAVE functions can be found in <a class="reference external" href="../general/tools.html#tools" title="(in AMITEX general v)"><em>Tools</em></a> to generate BIN files compatible with <strong>AMITEX_FFTP</strong>.</p>
 </div>
 </div>
 
@@ -318,7 +331,7 @@ double
     </p>
     <p>
         &copy; Copyright 2020, GELEBART Lionel.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.1.3.<br/>
     </p>
   </div>
 </footer>

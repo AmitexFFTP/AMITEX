@@ -1,34 +1,47 @@
 
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ALGORITHM &#8212; AMITEX user guide  documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <title>ALGORITHM &mdash; AMITEX user guide  documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/my-styles.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/sandstone/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="AMITEX user guide  documentation" href="index.html" />
     <link rel="next" title="BEHAVIORS" href="behaviors.html" />
     <link rel="prev" title="LOADING&amp;OUTPUTS" href="loading_outputs.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
 
-  </head><body>
+  </head>
+  <body>
 
  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -126,8 +139,8 @@
 <li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#external-loading">EXTERNAL LOADING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#strain-gradient-loadings">STRAIN GRADIENT LOADINGS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#beam-and-plates">Beam and plates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-plates-example-with-normal-vector-e-z">Loading of plates (example with normal vector <span class="math notranslate nohighlight">\(e_z\)</span> )</a></li>
-<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-beams-example-below-with-beam-axis-e-x">Loading of beams (example below with beam axis <span class="math notranslate nohighlight">\(e_x\)</span> )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-plates-example-with-normal-vector">Loading of plates (example with normal vector <span class="math">\(e_z\)</span> )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_outputs.html#loading-of-beams-example-below-with-beam-axis">Loading of beams (example below with beam axis <span class="math">\(e_x\)</span> )</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="loading_outputs.html#diffusion">DIFFUSION</a><ul>
@@ -138,7 +151,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ALGORITHM</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">ALGORITHM</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#standard-parameters">Standard parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-parameters">Additional Parameters</a></li>
 </ul>
@@ -214,16 +227,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+    <div class="col-md-12 content">
       
   <div class="section" id="algorithm">
 <span id="id1"></span><h1>ALGORITHM<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="section" id="standard-parameters">
 <span id="algorithm-standard"></span><h2>Standard parameters<a class="headerlink" href="#standard-parameters" title="Permalink to this headline">¶</a></h2>
-<p>This section describes the algorithm parameters given in the file <em>algorithm.xml</em> (see <a class="reference internal" href="to_begin.html#to-begin-how-to-launch"><span class="std std-ref">HOW TO LAUNCH AMITEX_FFTP</span></a> ).</p>
+<p>This section describes the algorithm parameters given in the file <em>algorithm.xml</em> (see <a class="reference internal" href="to_begin.html#to-begin-how-to-launch"><em>HOW TO LAUNCH AMITEX_FFTP</em></a> ).</p>
 <p>The <strong>default algorithm</strong> file given below should be used first and modified if needed</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;Algorithm_Parameters&gt;</span>
 
 <span class="nt">&lt;Algorithm</span> <span class="na">Type=</span><span class="s">&quot;Basic_Scheme&quot;</span><span class="nt">&gt;</span>                     <span class="c">&lt;!-- &quot;Default&quot; (Basic_Scheme) --&gt;</span>
@@ -241,32 +254,32 @@
 </div>
 <p><strong>Filter</strong> - Different discrete Green operators are implemented in the code :</p>
 <ul class="simple">
-<li>the classical one <a class="reference internal" href="references.html#references"><span class="std std-ref">[Moulinec1998]</span></a></li>
+<li>the classical one <a class="reference internal" href="references.html#references"><em>[Moulinec1998]</em></a></li>
 <li>the hexaedral and octaedral filtered Green operators, which are Finite Difference based operators</li>
 </ul>
-<p>The hexaedral filtered Green Operator is the “Default”, it is :</p>
+<p>The hexaedral filtered Green Operator is the &#8220;Default&#8221;, it is :</p>
 <ul class="simple">
-<li>equivalent to hexaedral finite elements with reduced integration (and also to the so-called “rotated” Green operator proposed by <a class="reference internal" href="references.html#references"><span class="std std-ref">[Willot2015]</span></a>,</li>
+<li>equivalent to hexaedral finite elements with reduced integration (and also to the so-called &#8220;rotated&#8221; Green operator proposed by <a class="reference internal" href="references.html#references"><em>[Willot2015]</em></a>,</li>
 <li>very efficient to reduce the sensitivity to the mechanical contrast,</li>
 <li>efficient to reduce spurious oscillations</li>
 </ul>
-<p><strong>Small_Perturbation</strong> - The user can choose to perform the simulation with or without the small perturbation assumption. Of course, the loading file must be consistent with this choice (see <a class="reference internal" href="loading_outputs.html#warning-hpp"><span class="std std-ref">Warning</span></a>).</p>
-<p><strong>Algorithm</strong> - Here, the basic scheme <a class="reference internal" href="references.html#references"><span class="std std-ref">[Moulinec1998]</span></a>, a fixed-point algorithm, is implemented with an additionnal convergence acceleration procedure which can be used or not.
+<p><strong>Small_Perturbation</strong> - The user can choose to perform the simulation with or without the small perturbation assumption. Of course, the loading file must be consistent with this choice (see <a class="reference internal" href="loading_outputs.html#warning-hpp"><em>Warning</em></a>).</p>
+<p><strong>Algorithm</strong> - Here, the basic scheme <a class="reference internal" href="references.html#references"><em>[Moulinec1998]</em></a>, a fixed-point algorithm, is implemented with an additionnal convergence acceleration procedure which can be used or not.
 The acceleration procedure stores the last 4 couples of (solution, residual) and proposes every <em>modACV</em> (=3 by default) iterations a solution different from the one proposed by the fixed-point algorithm.
-This convergence acceleration procedure (see procedure <em>ACT3</em> in the finite element code CAST3M), described in <a class="reference internal" href="references.html#references"><span class="std std-ref">[Chen2019]</span></a>, is :</p>
+This convergence acceleration procedure (see procedure <em>ACT3</em> in the finite element code CAST3M), described in <a class="reference internal" href="references.html#references"><em>[Chen2019]</em></a>, is :</p>
 <ul class="simple">
 <li>very efficient to reduce the sensitivity to the mechanical contrast,</li>
 <li>very efficient to reduce the sensitivity to the reference material choice,</li>
 <li>more memory consuming.</li>
 </ul>
-<p>The convergence criterion is given by an equilibrium condition (<em>i.e.</em> <span class="math notranslate nohighlight">\(div(\sigma) = 0\)</span>) together with an average condition on the applied load. The default value is <span class="math notranslate nohighlight">\(10^{-4}\)</span> (a maximum value is set to <span class="math notranslate nohighlight">\(10^{-3}\)</span>).</p>
+<p>The convergence criterion is given by an equilibrium condition (<em>i.e.</em> <span class="math">\(div(\sigma) = 0\)</span>) together with an average condition on the applied load. The default value is <span class="math">\(10^{-4}\)</span> (a maximum value is set to <span class="math">\(10^{-3}\)</span>).</p>
 <p><strong>If memory is not a problem, do not hesitate and use the convergence acceleration!</strong></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="additional-parameters">
 <span id="algorithm-additional"></span><h2>Additional Parameters<a class="headerlink" href="#additional-parameters" title="Permalink to this headline">¶</a></h2>
 <p>By default, choice is made in <strong>AMITEX_FFTP</strong> to perform at least one iteration (even if the initial guess satisfies convergence criteria), and at least one iteration after a convergence acceleration. This is not mandatory, and it can be overcome this by setting <strong>Nitermin</strong> and <strong>Nitermin_acv</strong> to 0 as follows</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Algorithm</span> <span class="na">Type=</span><span class="s">&quot;Basic_Scheme&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;Algorithm</span> <span class="na">Type=</span><span class="s">&quot;Basic_Scheme&quot;</span><span class="nt">&gt;</span>
      <span class="nt">&lt;Convergence_Criterion</span> <span class="na">Value=</span><span class="s">&quot;Default&quot;</span><span class="nt">/&gt;</span>
      <span class="nt">&lt;Convergence_Acceleration</span> <span class="na">Value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
      <span class="nt">&lt;Nitermin</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>            <span class="c">&lt;!-- &quot;0&quot; or &quot;1&quot; : 1 = at least one iteration per loading increment--&gt;</span>
@@ -276,7 +289,7 @@ This convergence acceleration procedure (see procedure <em>ACT3</em> in the fini
 </div>
 <p>Nitermin=Nitermin_acv=0 will probably become the default behavior in the future.</p>
 <p><strong>In case of convergence issue or bad convergence</strong>, and only in that case, the following parameters can be added</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Algorithm</span> <span class="na">Type=</span><span class="s">&quot;Basic_Scheme&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;Algorithm</span> <span class="na">Type=</span><span class="s">&quot;Basic_Scheme&quot;</span><span class="nt">&gt;</span>
      <span class="nt">&lt;Convergence_Criterion</span> <span class="na">Value=</span><span class="s">&quot;Default&quot;</span><span class="nt">/&gt;</span>
      <span class="nt">&lt;Convergence_Acceleration</span> <span class="na">Value=</span><span class="s">&quot;true&quot;</span> <span class="na">modACV=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>  <span class="c">&lt;!-- default modACV=3 --&gt;</span>
      <span class="nt">&lt;Convergence_Criterion_Smacro</span> <span class="na">Value=</span><span class="s">&quot;1e-3&quot;</span><span class="nt">/&gt;</span>      <span class="c">&lt;!--  positive value &lt;1e-1 --&gt;</span>
@@ -289,17 +302,17 @@ This convergence acceleration procedure (see procedure <em>ACT3</em> in the fini
 <span class="nt">&lt;/Algorithm&gt;</span>
 </pre></div>
 </div>
-<p><strong>modACV</strong>, the number of iterations between two convergence accelerations can be optimized from numerical experiments on a given simulation. Typical values can be 2,3,4,5… and 3 is the default.</p>
+<p><strong>modACV</strong>, the number of iterations between two convergence accelerations can be optimized from numerical experiments on a given simulation. Typical values can be 2,3,4,5... and 3 is the default.</p>
 <p><strong>Convergence_Criterion_Smacro</strong>, the convergence criterion on the macroscropic applied stresses can be relaxed (it can be usefull when applying a loading with a loading with an applied stress direction).</p>
-<p><strong>Convergence_Criterion_Compatibility</strong>, the compatibility criterion fixed at <span class="math notranslate nohighlight">\(10^{-10}\)</span>, can be relaxed.
+<p><strong>Convergence_Criterion_Compatibility</strong>, the compatibility criterion fixed at <span class="math">\(10^{-10}\)</span>, can be relaxed.
 Note that this value <strong>must remain very small</strong> because the strain field being an output of the Green operator
 it is naturally compatible. However, it has been observed in specific cases slightly higher values, resulting in convergence issue.
-As an example, it has been necessary, in the case of a coating crack simulation, to reduce this value to <span class="math notranslate nohighlight">\(10^{-9}\)</span>.</p>
+As an example, it has been necessary, in the case of a coating crack simulation, to reduce this value to <span class="math">\(10^{-9}\)</span>.</p>
 <p><strong>Nitermax</strong>, the maximum number of iterations can be modified if necessary.</p>
-<p><strong>Initialize</strong> can be set to “previous” so that the strain field initial guess at the begining of a new step is the strainfield obtained at the end of the previous step. Instead, the initial guess is by default a linear extrapolation of the two previous strain fields.</p>
+<p><strong>Initialize</strong> can be set to &#8220;previous&#8221; so that the strain field initial guess at the begining of a new step is the strainfield obtained at the end of the previous step. Instead, the initial guess is by default a linear extrapolation of the two previous strain fields.</p>
 <p><strong>Finite Strains with non-symmetric reference material behavior</strong></p>
 <p>In the finite strain frameworks, the reference material behavior (relating the first Piola Kirchoff stress tensor  to the displacement gradient) can be symmetrized or not. By default in <strong>AMITEX_FFTP</strong>, it is symmetrized. This choice results from simulations with small strain values, leading to identical convergence properties for the finite strains and the small strain frameworks (this is no more the case when using a non-symmetrized behavior). However, non-symmetrized reference behavior can be used as follows</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Mechanics&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;Mechanics&gt;</span>
     <span class="nt">&lt;Filter</span> <span class="na">Type=</span><span class="s">&quot;Default&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;C0sym</span> <span class="na">Value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>      <span class="c">&lt;!-- default is true --&gt;</span>
 <span class="nt">&lt;/Mechanics&gt;</span>
@@ -307,7 +320,7 @@ As an example, it has been necessary, in the case of a coating crack simulation,
 </div>
 <p><strong>Small strain simulation with non symmetrized displacement gradients</strong></p>
 <p>It is possible with <strong>AMITEX_FFTP</strong>, to perform simulations with the small strains assumption but taking into account the complete displacement gradient (and not only the symmetric part). This allows to use behaviors that depend on the non symmetric part of the displacement gradient through the variables DFGRD0 and DGRD1 of the <em>umat</em> procedure. This option can be used as follows</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Mechanics&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;Mechanics&gt;</span>
     <span class="nt">&lt;Filter</span> <span class="na">Type=</span><span class="s">&quot;Default&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;Small_Perturbations</span> <span class="na">Value=</span><span class="s">&quot;true&quot;</span> <span class="na">Displacement_Gradient=</span><span class="s">&quot;nsym&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/Mechanics&gt;</span>
@@ -330,7 +343,7 @@ As an example, it has been necessary, in the case of a coating crack simulation,
     </p>
     <p>
         &copy; Copyright 2020, GELEBART Lionel.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.1.3.<br/>
     </p>
   </div>
 </footer>

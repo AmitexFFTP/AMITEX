@@ -1,34 +1,47 @@
 
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installation &#8212; AMITEX general  documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <title>Installation &mdash; AMITEX general  documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/my-styles.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/my-styles.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/sandstone/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="AMITEX general  documentation" href="index.html" />
     <link rel="next" title="Tools" href="tools.html" />
     <link rel="prev" title="DOWNLOAD" href="download.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
 
-  </head><body>
+  </head>
+  <body>
 
  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -75,6 +88,7 @@
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="download.html">DOWNLOAD</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="download.html#version-8-17-x-training-session-validation-tests">VERSION 8.17.x + TRAINING SESSION + VALIDATION TESTS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-14"><strong>AMITEX_FFTP v8.17.14</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-13"><strong>AMITEX_FFTP v8.17.13</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-11"><strong>AMITEX_FFTP v8.17.11</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="download.html#amitex-fftp-v8-17-9"><strong>AMITEX_FFTP v8.17.9</strong></a></li>
@@ -88,7 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="download.html#version-2-3-4">VERSION 2.3.4</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-guide">Installation guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#validation">Validation</a></li>
@@ -114,8 +128,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">PERFORMANCE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-heavy-behaviors-e-g-cristalline-plasticity">Scalability with “numerically heavy” behaviors (<em>e.g.</em> cristalline plasticity)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-light-behaviors-e-g-linear-elasticity">Scalability with “numerically light” behaviors (<em>e.g.</em> linear elasticity)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-heavy-behaviors-e-g-cristalline-plasticity">Scalability with &#8220;numerically heavy&#8221; behaviors (<em>e.g.</em> cristalline plasticity)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scalability-with-numerically-light-behaviors-e-g-linear-elasticity">Scalability with &#8220;numerically light&#8221; behaviors (<em>e.g.</em> linear elasticity)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a><ul>
@@ -196,19 +210,19 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+    <div class="col-md-12 content">
       
   <div class="section" id="installation">
 <span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>The code should be installed on <strong>Linux systems</strong>, on which it is developped and tested.</p>
-<p>A few users have installed <strong>AMITEX_FFTP</strong> successfully on <strong>macOS</strong>: see <a class="reference internal" href="#mac-install"><span class="std std-ref">macOS specificity</span></a>.</p>
-<p>For <strong>WINDOWS 10</strong>, the better way is to use the WSL (Windows Subsystem for Linux) that allows for the installation of Linux distributions:  see <a class="reference internal" href="#windows10-install"><span class="std std-ref">Windows10-WSL specificity</span></a>.</p>
-<p>Installation on <strong>WINDOWS</strong> has also been tested once with <strong>CYGWIN</strong> (<a class="reference external" href="https://www.cygwin.com/">https://www.cygwin.com/</a>)… try it if you have time ;-)</p>
+<p>A few users have installed <strong>AMITEX_FFTP</strong> successfully on <strong>macOS</strong>: see <a class="reference internal" href="#mac-install"><em>macOS specificity</em></a>.</p>
+<p>For <strong>WINDOWS 10</strong>, the better way is to use the WSL (Windows Subsystem for Linux) that allows for the installation of Linux distributions:  see <a class="reference internal" href="#windows10-install"><em>Windows10-WSL specificity</em></a>.</p>
+<p>Installation on <strong>WINDOWS</strong> has also been tested once with <strong>CYGWIN</strong> (<a class="reference external" href="https://www.cygwin.com/">https://www.cygwin.com/</a>)... try it if you have time ;-)</p>
 <hr class="docutils" />
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>If possible, install GCC, opemMPI and FFTW with package manager (such as yum, apt… depending on you linux distribution).</p>
-<p>If really not possible, you can install them by your own in your home directory (see <a class="reference internal" href="#gcc-openmpi-fftw-mfront"><span class="std std-ref">GCC, openMPI, fftw, mfront</span></a>).</p>
+<p>If possible, install GCC, opemMPI and FFTW with package manager (such as yum, apt... depending on you linux distribution).</p>
+<p>If really not possible, you can install them by your own in your home directory (see <a class="reference internal" href="#gcc-openmpi-fftw-mfront"><em>GCC, openMPI, fftw, mfront</em></a>).</p>
 <p><strong>1. Fortran compiler</strong> : Intel 15.0.0 (minimum tested) or GCC &gt; 5.0.0</p>
 <p>The program (v8.17.8) has been tested successfully with Intel 19 and GCC 9.3.0.</p>
 <p><strong>2. MPI library</strong> : The program has been tested successfully with at least : Intel MPI 5.0.1 (version 2015) and version 2019 as well as Open MPI 2.0.4, 3.1.0, 4.0.3</p>
@@ -238,28 +252,28 @@
 <p class="last">Then the executable program <strong>amitex_fftp</strong> is located in <em>(amitex_fftp)/libAmitex/bin</em> folder</p>
 </div>
 <p><strong>1. Adjust</strong> the following first lines of the <em>install</em> file located in the main folder <em>(amitex_fftp)</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compiler : ifort, gfortran</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># Compiler : ifort, gfortran</span>
 <span class="nv">FC</span><span class="o">=</span>ifort
-<span class="c1"># FC=gfortran</span>
+<span class="c"># FC=gfortran</span>
 
-<span class="c1"># MPI compiler</span>
+<span class="c"># MPI compiler</span>
 <span class="nv">MPIFC</span><span class="o">=</span>mpif90
-<span class="c1">#MPIFC=mpiifort</span>
+<span class="c">#MPIFC=mpiifort</span>
 
 
-<span class="c1"># FFTW Library</span>
-<span class="c1">#   fftw3      - FFTW version 3.x</span>
-<span class="c1">#   fftw3_f03  - FFTW 3.3-beta1 or later (with Fortran 2003 interface)</span>
-<span class="c1">#   generic    - A general FFT algorithm (no 3rd-party library needed)</span>
+<span class="c"># FFTW Library</span>
+<span class="c">#   fftw3      - FFTW version 3.x</span>
+<span class="c">#   fftw3_f03  - FFTW 3.3-beta1 or later (with Fortran 2003 interface)</span>
+<span class="c">#   generic    - A general FFT algorithm (no 3rd-party library needed)</span>
 
 <span class="nv">FFT</span><span class="o">=</span>fftw3_f03
 
-<span class="c1"># FFTW library path</span>
+<span class="c"># FFTW library path</span>
 <span class="nv">FFT_inc</span><span class="o">=</span>/usr/include
 <span class="nv">FFT_lib</span><span class="o">=</span>/usr/lib64
 
-<span class="c1"># OPTIMIZATION - TO BE ADJUSTED ONLY IN CASE OF TROUBLE AT EXECUTION</span>
-<span class="nv">OPTIM_2decomp</span><span class="o">=</span>-O3  <span class="c1">#--- use OPTIM_2decomp=-O2 on ubuntu 20.04 (with native gcc9.3.0) or opensuse tumbleweed (with gcc10)</span>
+<span class="c"># OPTIMIZATION - TO BE ADJUSTED ONLY IN CASE OF TROUBLE AT EXECUTION</span>
+<span class="nv">OPTIM_2decomp</span><span class="o">=</span>-O3  <span class="c">#--- use OPTIM_2decomp=-O2 on ubuntu 20.04 (with native gcc9.3.0) or opensuse tumbleweed (with gcc10)</span>
 <span class="nv">OPTIM_amitex</span><span class="o">=</span>-O3
 </pre></div>
 </div>
@@ -271,13 +285,13 @@
 <li>ONLY IN CASE OF TROUBLE, the optimization level (-O3 by default). For example on ubuntu 20.04 or opensuse tumbleweed, the code fails at execution . Solution is to set OPTIM_2decomp=-O2 (instead of -O3).</li>
 </ul>
 <p><strong>2. Check</strong> your paths for FFTW3</p>
-<p>Check your path to fftw3 includes, FFT_inc. You should find at least the following files : <code class="docutils literal notranslate"><span class="pre">fftw3.f,</span> <span class="pre">fftw3.f03,</span> <span class="pre">fftw3.h</span></code></p>
-<p>Check your path to fftw3 libraries, FFT_lib. You should find at least the two dynamic libraries : <code class="docutils literal notranslate"><span class="pre">libfftw3f.so,</span> <span class="pre">libfftw3.so</span></code></p>
+<p>Check your path to fftw3 includes, FFT_inc. You should find at least the following files : <tt class="docutils literal"><span class="pre">fftw3.f,</span> <span class="pre">fftw3.f03,</span> <span class="pre">fftw3.h</span></tt></p>
+<p>Check your path to fftw3 libraries, FFT_lib. You should find at least the two dynamic libraries : <tt class="docutils literal"><span class="pre">libfftw3f.so,</span> <span class="pre">libfftw3.so</span></tt></p>
 <p><strong>3. Launch</strong> install:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./install
+<div class="highlight-bash"><div class="highlight"><pre>./install
 </pre></div>
 </div>
-<p>In practice, <code class="docutils literal notranslate"><span class="pre">./install</span></code> :</p>
+<p>In practice, <tt class="docutils literal"><span class="pre">./install</span></tt> :</p>
 <ul class="simple">
 <li>launch the script <em>clean</em> (to clean the directories if a first installation was run before)</li>
 <li>fills correctly <em>(amitex_fftp)/lib_extern/2decomp_fft-1.5.8472/src/Makefile.inc</em> and various Makefiles and scripts,</li>
@@ -296,7 +310,7 @@
 <div class="section" id="validation">
 <h2>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
 <p>The file <em>script_tests.sh</em> within the folder <em>(amitex)/validation</em> provides a list of simulations based on geometries, loadings, algorithms and material properties defined in xml files respectively in directories <em>microstructures</em>, <em>chargements</em>, <em>algorithmes</em> and <em>materiaux</em> under <em>(amitex_fftp)/cas_tests</em>.</p>
-<p>The script <em>script_tests.sh</em> can be run either interactively <code class="docutils literal notranslate"><span class="pre">./script_tests.sh</span></code> or in batch mode. In this cas, different batch scripts for different batch schedulers (Torque, LoadLeveler…) are provided. Of course, you will have to create your own batch script in agreement with the batch scheduler available on your platform.</p>
+<p>The script <em>script_tests.sh</em> can be run either interactively <tt class="docutils literal"><span class="pre">./script_tests.sh</span></tt> or in batch mode. In this cas, different batch scripts for different batch schedulers (Torque, LoadLeveler...) are provided. Of course, you will have to create your own batch script in agreement with the batch scheduler available on your platform.</p>
 <p>Finally, <em>script_test.sh</em> compares simulations results to reference results stored within each <em>(amitex)/resultats/simulation_name/reference</em> folder and give the non-regression comparison in the file <em>tests.log</em> and total time in <em>time.log</em>.</p>
 <hr class="docutils" />
 </div>
@@ -304,101 +318,101 @@
 <span id="id2"></span><h2>GCC, openMPI, fftw, mfront<a class="headerlink" href="#gcc-openmpi-fftw-mfront" title="Permalink to this headline">¶</a></h2>
 <p><strong>IF REALLY IMPOSSIBLE</strong> to install GCC, openMPI, fftw with a package manager, try the following installation procedures in you home directory.</p>
 <p><strong>For GCC</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget ftp://ftp.irisa.fr/pub/mirrors/gcc.gnu.org/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
+<div class="highlight-bash"><div class="highlight"><pre>wget ftp://ftp.irisa.fr/pub/mirrors/gcc.gnu.org/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
 tar xvfz gcc-8.3.0.tar.gz
-<span class="nb">cd</span> gcc-8.3.0
+<span class="nb">cd </span>gcc-8.3.0
 ./contrib/download_prerequisites
 mkdir build
-<span class="nb">cd</span> build
+<span class="nb">cd </span>build
 ../configure --enable-languages<span class="o">=</span>c,c++,fortran --disable-multilib --prefix<span class="o">=</span>&lt;PATH TO NEW VERSION&gt;
-make -j <span class="m">4</span>     <span class="c1"># distributed compilation on 4 process</span>
+make -j 4     <span class="c"># distributed compilation on 4 process</span>
 make install
 </pre></div>
 </div>
 <p>Then you must adjust the PATH and LD_LIBRARY_PATH, for example in a file env_gcc8.3.0.sh</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW GCC VERSION&gt;/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO NEW GCC VERSION&gt;/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW GCC VERSION&gt;/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO NEW GCC VERSION&gt;/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
 </pre></div>
 </div>
 <p>To use te compiler</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> env_gcc8.3.0.sh
-gfortran -v  <span class="c1">#to check the version</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">source </span>env_gcc8.3.0.sh
+gfortran -v  <span class="c">#to check the version</span>
 </pre></div>
 </div>
 <p><strong>For openMPI</strong></p>
 <p>See <a class="reference external" href="https://www.open-mpi.org/faq/">https://www.open-mpi.org/faq/</a>.</p>
 <p>Below an example of standard (no specific options) installation of openMPI</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gunzip -c openmpi-4.0.2.tar.gz <span class="p">|</span> tar xf -
-<span class="nb">cd</span> openmpi-4.0.2
+<div class="highlight-bash"><div class="highlight"><pre>gunzip -c openmpi-4.0.2.tar.gz | tar xf -
+<span class="nb">cd </span>openmpi-4.0.2
 ./configure --prefix<span class="o">=</span>&lt;PATH TO NEW VERSION&gt;
 make all install
 </pre></div>
 </div>
 <p>Then you must adjust the PATH and LD_LIBRARY_PATH, for example in a file env_openmpi.sh</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW OPENMPI VERSION&gt;/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO NEW OPENMPI VERSION&gt;/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW OPENMPI VERSION&gt;/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO NEW OPENMPI VERSION&gt;/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 </pre></div>
 </div>
 <p>To use the compiler</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> env_openmpi.sh
-mpif90 -v  <span class="c1">#to check the version</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">source </span>env_openmpi.sh
+mpif90 -v  <span class="c">#to check the version</span>
 </pre></div>
 </div>
 <p><strong>For FFTW</strong></p>
 <p>See <a class="reference external" href="http://www.fftw.org/fftw3_doc/Installation-on-Unix.html">http://www.fftw.org/fftw3_doc/Installation-on-Unix.html</a>.</p>
 <p>Below an example of standard (no specific options) installation of FFTW with intel compiler (single and double precisions required for <strong>AMITEX_FFTP</strong>) in the main folder</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#install double-precision</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#install double-precision</span>
 ./configure <span class="nv">CC</span><span class="o">=</span>icc --prefix<span class="o">=</span>&lt;PATH TO NEW FFTW VERSION&gt;
-<span class="c1">#remove CC=icc for install with gcc instead of intel</span>
+<span class="c">#remove CC=icc for install with gcc instead of intel</span>
 make
 make install
 
-<span class="c1">#install single-precision</span>
+<span class="c">#install single-precision</span>
 ./configure <span class="nv">CC</span><span class="o">=</span>icc --prefix<span class="o">=</span>&lt;PATH TO NEW FFTW VERSION&gt; --enable-float
-<span class="c1">#remove CC=icc for install with gcc instead of intel</span>
+<span class="c">#remove CC=icc for install with gcc instead of intel</span>
 make
 make install
 </pre></div>
 </div>
 <p>Then you must adjust the PATH and LD_LIBRARY_PATH, for example in a file env_fftw.sh</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW FFTW VERSION&gt;/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO NEW FFTW VERSION&gt;/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW FFTW VERSION&gt;/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO NEW FFTW VERSION&gt;/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 </pre></div>
 </div>
 <p><strong>For MFRONT</strong></p>
 <p>Download the code at <a class="reference external" href="https://sourceforge.net/projects/tfel/files/">https://sourceforge.net/projects/tfel/files/</a></p>
 <p>For a complete and up-to-date description refer to the manual page <a class="reference external" href="http://tfel.sourceforge.net/install.html">http://tfel.sourceforge.net/install.html</a></p>
 <p>Below is a summary that should work with you native gcc compiler or with intel compiler (choose the correct lines)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir tfel-3.2.1-gcc    <span class="c1"># for installation with gcc (native gcc compiler)</span>
-mkdir tfel-3.2.1-intel  <span class="c1"># for installation with intel</span>
+<div class="highlight-bash"><div class="highlight"><pre>mkdir tfel-3.2.1-gcc    <span class="c"># for installation with gcc (native gcc compiler)</span>
+mkdir tfel-3.2.1-intel  <span class="c"># for installation with intel</span>
 
 tar -xf tfel-3.2.1.tar.bz2
-<span class="nb">cd</span> tfel-3.2.1
+<span class="nb">cd </span>tfel-3.2.1
 
 mkdir build
-<span class="nb">cd</span> build
+<span class="nb">cd </span>build
 
-<span class="c1">#for native gcc</span>
-cmake ../ -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -Dlocal-castem-header<span class="o">=</span>ON -Denable-fortran<span class="o">=</span>ON -Denable-aster<span class="o">=</span>ON -DCMAKE_INSTALL_PREFIX<span class="o">=</span>path_to_tfel3.2.1-gcc <span class="p">&amp;</span> &gt;cmake.log
+<span class="c">#for native gcc</span>
+cmake ../ -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -Dlocal-castem-header<span class="o">=</span>ON -Denable-fortran<span class="o">=</span>ON -Denable-aster<span class="o">=</span>ON -DCMAKE_INSTALL_PREFIX<span class="o">=</span>path_to_tfel3.2.1-gcc &amp; &gt;cmake.log
 
-<span class="c1">#for intel</span>
+<span class="c">#for intel</span>
 <span class="nv">CXX</span><span class="o">=</span>icpc <span class="nv">CC</span><span class="o">=</span>icc <span class="nv">FC</span><span class="o">=</span>ifort <span class="nv">F77</span><span class="o">=</span>ifort cmake ../ -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -Dlocal-castem-header<span class="o">=</span>ON -Denable-fortran<span class="o">=</span>ON -Denable-aster<span class="o">=</span>ON -DCMAKE_ <span class="nv">INSTALL_PREFIX</span><span class="o">=</span>path_to_tfel-3.2.1-intel
 
-make -j <span class="m">8</span>               <span class="c1"># 8 is the number of core for a parallel compilation</span>
-make check -j <span class="m">8</span>         <span class="c1"># launch tests</span>
-make install            <span class="c1"># finalize installation in tfel-3.2.1-gcc or tfel-3.2.1-intel</span>
+make -j 8               <span class="c"># 8 is the number of core for a parallel compilation</span>
+make check -j 8         <span class="c"># launch tests</span>
+make install            <span class="c"># finalize installation in tfel-3.2.1-gcc or tfel-3.2.1-intel</span>
 
-<span class="c1"># For a non-native gcc compiler : add CXX=g++ CC=gcc FC=gfortran F77=gfortran</span>
-<span class="c1">#                                 to the cmake command line above</span>
+<span class="c"># For a non-native gcc compiler : add CXX=g++ CC=gcc FC=gfortran F77=gfortran</span>
+<span class="c">#                                 to the cmake command line above</span>
 </pre></div>
 </div>
 <p>Then you must adjust the PATH and LD_LIBRARY_PATH, for example in a file env_mfront.sh</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW TFEL VERSION&gt;/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO TFEL VERSION&gt;/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>&lt;PATH TO NEW TFEL VERSION&gt;/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;PATH TO TFEL VERSION&gt;/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -413,20 +427,20 @@ make install            <span class="c1"># finalize installation in tfel-3.2.1-g
 <li>open-mpi for gcc9,</li>
 <li>FFTW 3.3.8.</li>
 </ul>
-<p>A problem comes with macOS because the commande ‘sed’ used in the scripts <em>install</em> and <em>clean</em>, has not the same behavior on macOS and Linux.</p>
+<p>A problem comes with macOS because the commande &#8216;sed&#8217; used in the scripts <em>install</em> and <em>clean</em>, has not the same behavior on macOS and Linux.</p>
 <p>To overcome this issue :</p>
 <ul>
-<li><p class="first">install ‘gsed’ on macOS (sudo port install gsed)</p>
+<li><p class="first">install &#8216;gsed&#8217; on macOS (sudo port install gsed)</p>
 </li>
-<li><p class="first">Adjust the variable SED in scripts <em>install</em> <strong>AND</strong> <em>clean</em> so that ‘gsed’ is used instead of ‘sed’</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#------- For MAC USERS : uncomment #SED=gsed</span>
+<li><p class="first">Adjust the variable SED in scripts <em>install</em> <strong>AND</strong> <em>clean</em> so that &#8216;gsed&#8217; is used instead of &#8216;sed&#8217;</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#------- For MAC USERS : uncomment #SED=gsed</span>
 <span class="nv">SED</span><span class="o">=</span>sed
 <span class="nv">SED</span><span class="o">=</span>gsed
 </pre></div>
 </div>
 </li>
 </ul>
-<p>Once modified <em>install</em> <strong>AND</strong> <em>clean</em>, the installation procedure is the same as described in <a class="reference internal" href="#installation-guide"><span class="std std-ref">Installation guide</span></a>.</p>
+<p>Once modified <em>install</em> <strong>AND</strong> <em>clean</em>, the installation procedure is the same as described in <a class="reference internal" href="#installation-guide"><em>Installation guide</em></a>.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="windows10-wsl-specificity">
@@ -434,24 +448,24 @@ make install            <span class="c1"># finalize installation in tfel-3.2.1-g
 <p>Windows Subsystem for Linux allows to run Linux distributions directly within your Windows10 environement.
 It has been used successfully to install <strong>AMITEX_FFTP</strong> on a Windows10 PC through a Ubuntu 16.04 installed with WSL.
 On this Linux Windows10-WSL/Ubuntu16.04 (or Ubuntu20.04) the prerequesites are fullfiled by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#COMPILERS</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#COMPILERS</span>
 sudo apt-get install gcc
 sudo apt-get install gfortran
 sudo apt-get install g++
 
-<span class="c1">#MAKE</span>
+<span class="c">#MAKE</span>
 sudo apt-get install make
 
-<span class="c1">#FFTW</span>
+<span class="c">#FFTW</span>
 sudo apt-get install fftw3
 sudo apt-get install fftw3-dev
 
-<span class="c1">#OPENMPI</span>
+<span class="c">#OPENMPI</span>
 sudo apt-get install libopenmpi-dev
 </pre></div>
 </div>
 <p>The corresponding paths for fftw to be adjusted in the <em>install</em> script are</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># On WSL/UBUNTU</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># On WSL/UBUNTU</span>
 <span class="nv">FFT_inc</span><span class="o">=</span>/usr/include
 <span class="nv">FFT_lib</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu
 </pre></div>
@@ -459,7 +473,7 @@ sudo apt-get install libopenmpi-dev
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p>On Ubuntu 20.04, the code is compiled without any error but fails at execution (when running validation tests for example).</p>
-<p class="last">To overcome this problem, the variable <strong>OPTIM_2decomp</strong> in ‘install’ must be set to <strong>-O2</strong> instead of <strong>-O3</strong> (see <a class="reference internal" href="#installation-guide"><span class="std std-ref">Installation guide</span></a>).</p>
+<p class="last">To overcome this problem, the variable <strong>OPTIM_2decomp</strong> in &#8216;install&#8217; must be set to <strong>-O2</strong> instead of <strong>-O3</strong> (see <a class="reference internal" href="#installation-guide"><em>Installation guide</em></a>).</p>
 </div>
 </div>
 </div>
@@ -477,7 +491,7 @@ sudo apt-get install libopenmpi-dev
     </p>
     <p>
         &copy; Copyright 2020, GELEBART Lionel.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.1.3.<br/>
     </p>
   </div>
 </footer>

@@ -1,0 +1,208 @@
+.. _download:
+
+DOWNLOAD
+========
+
+Here you can **FREELY** download **AMITEX_FFTP** for **RESEARCH & EDUCATION** purposes, according to the :download:`licence <_static/_download/LICENCE_AMITEX.pdf>`.
+
+Since v8.17.2, you can also download documents used for **TRAINING SESSIONS**.
+
+The usage of **AMITEX_FFTP** can be divided into two parts :
+
+- The **Standard** usage is based on a user interface described in :ref:`USER <to_begin>`. It doesn't require any code development.  
+- The **Extended** usage is mainly devoted to the implementation of various "couplings" (different physics, different codes). It requires code development. **If interested, feel free to contact us** (:ref:`contacts <contributors>`).
+
+
+Just keep in mind that **AMITEX_FFTP** is not a "big" code, there is not so many people behind it ;-)
+
+---------------------------------------
+
+VERSION 8.17.x + TRAINING SESSION + VALIDATION TESTS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The version 8.17.2 is now quite stable with a quite broad scope, the next 8.17.x versions will consist of **bug corrections** (if reported) or minor modifications.
+
+However the development branch is still in progress !  Contact us if interested !
+
+**AMITEX_FFTP v8.17.14**
+---------------------------
+
+`Download v8.17.14 <http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html>`_
+
+Date : June 2024 (8.17.14)
+
+- minor add-on for compatibility with MEROPE (https://github.com/MarcJos/Merope)
+
+**AMITEX_FFTP v8.17.13**
+---------------------------
+
+`Download v8.17.13 <http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html>`_
+
+Date : September 2023 (8.17.13)
+
+- bug correction : non monotonous loading path + finite strain, option -coeff2print, + small bug corrections
+
+**AMITEX_FFTP v8.17.11**
+---------------------------
+
+Date : March 2022 (8.17.11)
+
+- small bug corrections
+
+- compatibility with intel-oneapi compiler (version tested 2021.1)
+
+
+**AMITEX_FFTP v8.17.9**
+---------------------------
+
+Date : May 2021 (8.17.9)
+
+- modification for strain gradient loadings (i.e. torsion/flexion) => grad(grad(U)) components are now given independantly. 
+
+Date : april 2021 (8.17.8)
+
+- possibility to differentiate 2decomp/amitex optimization options in file ``install`` 
+- bug corrections (output)
+
+The first point is required to run the code on 'ubuntu 20.04' (with native gcc9.3.0) or 'Opensuse Tumbleweed' (with gcc10) : 
+in ``install``, **OPTIM_2decomp** must be set to "-O2" instead of "-O3" otherwise the code (*2decomp*, in fact) fails at execution (see :ref:`installation_guide`)
+
+**AMITEX_FFTP v8.17.2**
+---------------------------
+
+Date : july 2020
+
+Important modifications have been introduced since the last update.
+
+The most important are :
+
+- introduction of composite voxels
+- new command line functionalities (type ``amitex_fftp -help``)
+- constant stress direction loading together with an applied strain component (small and finite strains)
+- beam and plate loadings (torsion and flexion)
+- code reorganization to facilitate couplings
+- various bug corrections and small improvements
+- a new web site!
+
+**TRAINING SESSION**
+---------------------
+
+:download:`Download  <_static/amitex_formation_1.0.3.tar>` the last training session (10/10/2023) 
+
+The purpose of the training session is to help users to :
+
+- install the code and launch simulations
+
+- generate VTK input files, with matlab/octave scripts and functions
+
+- become familiar with the different xml files (material, loading, algorithm)
+
+
+Then, uncompressing the archive will give you one directory::
+
+   tar xvf amitex_formation_v1.0.3.tar
+   cd amitex_training 
+   ls
+   Algorithms           Behaviors               Loadings_outputs  matlab_octave    Scripts
+   amitex_training_pdf  env_amitex_training.sh  Materials         Microstructures  update_solution
+   
+
+The document ``amitex_training_pdf/FORMATION_AMITEX_general_xxx.pdf`` will give you a general description of **AMITEX_FFTP** and  its **Standard** usage.
+
+Then follow the guide in ``amitex_training_pdf/FORMATION_AMITEX_practice_xxx.pdf``.
+Note that the directories in ``amitex_training`` contain a ``solutions`` directory from wich you can copy-paste the files in their parent directories to run the simulations proposed in ``Scripts``.
+
+Of course, prerequisites (see :ref:`install`) have to be fullfilled and the environment variables  in ``env_amitex_training.sh`` have to be adjusted to you configuration (see :ref:`to_begin-how-to-launch`). 
+This will be the first part of the training session.
+
+Note that this WEB SITE is the REFERENCE guide. If you observe any anomaly please contact us (:ref:`contacts <contributors>`).
+
+
+
+**VALIDATION TESTS** 
+----------------------
+
+The compuation time for validation tests depends of course on your hardware, compiler and MPI library.
+A few results are given below for comparison.
+
+Simulation on 1 node (skylake 28 proc.: Bi-Proc Intel Xeon 14 cores 6132 2.60G) : 
+
+* gcc8.1.0 - openMPI3.1.0 - fftw3.3.2 :		**371s** (on 28 proc)
+	
+* intel15 - intelMPI5 - fftw3.3.2 : **203s** (on 28 proc)
+
+An important, and not understood difference is observed between intel and gnu configurations.
+
+
+
+---------------------------
+
+VERSION 4.0.0
+^^^^^^^^^^^^^
+
+
+Important modifications have been introduced with respect to version 2.3.5.
+
+The most important for the users are :
+
+- a simplified way to introduce user defined behaviours, still compatible with **MFront** (http://tfel.sourceforge.net/index.html)
+- a new possiblity to take into account diffusion problems (stationary problems with a unique variable for the moment, like thermal diffusion)
+- the dimensions of the voxels (SPACING in *vtk* files) are now taken into account
+- bug corrections (especially the problem with the recent versions of openMPI)
+
+.. warning::
+
+	**Version 2.3.5 input xml files are no more compatible**
+
+	**These files have to be slightly adapted**
+
+
+ 
+---------------------------
+
+VERSION 2.3.5
+^^^^^^^^^^^^^
+
+Only minor modifications have been introduced with respect to version 2.3.4.
+The most important for the users are :
+
+- bug fixed : writing of messages on the standard output when using gcc compiler
+- introduction of an anisotropic elastic behaviour (Law_Number : 3)
+
+Validation tests have been run on the CEA cluster (maldives).
+Compared to version 2.3.4, validation tests on the other platforms should no be affected.
+ 
+---------------------------
+
+VERSION 2.3.4
+^^^^^^^^^^^^^
+
+Validation tests have been run on various clusters, or standalone PC, but only with intel XEON processors, with the following results:
+
++------------------------+------------+------------------+--------+
+| CCRT cluster (airain)  | intel 14   | bullxmpi 1.2.8.4 | OK     |
++------------------------+------------+------------------+--------+
+| MDS cluster (poincare) | gcc 4.9.0  | openMPI 1.8.4    | OK     | 
++------------------------+------------+------------------+--------+
+|                        | gcc 4.7.2  | openMPI 1.6.3    | OK     |
++------------------------+------------+------------------+--------+
+|                        | intel 13   | intelMPI 4       | OK     |
++------------------------+------------+------------------+--------+
+|                        | intel 15   | intelMPI 5       | OK     |
++------------------------+------------+------------------+--------+
+| CEA cluster (maldives) | intel 15   | intelMPI 5       | OK     |
++------------------------+------------+------------------+--------+
+|                        | gcc 4.8.2  | openMPI 1.6.5    | OK     |
++------------------------+------------+------------------+--------+
+|                        | gcc 4.8.2  | openMPI 1.8.1    | **PB** |
++------------------------+------------+------------------+--------+
+| Standalone PC          | gcc 4.9.2  | openMPI 1.6.5    | OK     |
++------------------------+------------+------------------+--------+
+
+
+The problem with openMPI 1.8.1 was observed on the validation test *beton_relax_65_old*. 
+
+
+.. warning::
+   Performances obtained with [Intel compiler + IntelMPI] are significantly better than with [GCC compiler + openMPI].
+

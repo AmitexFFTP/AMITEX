@@ -1,0 +1,192 @@
+
+.. highlight:: xml
+
+.. _behaviors:
+
+BEHAVIORS
+==========
+
+.. _behaviors-umat-procedures:
+
+UMAT procedures 
+---------------------------
+
+**UMAT** procedures implement the behaviors used in the simulation.
+They are a corner stone of the code as they are called at every iteration, on every voxels.
+They allow for compatibility with :
+
+- Finite Element codes such as **CAST3M** (http://www-cast3m.cea.fr/) or ABAQUS
+
+- The **MFront** (http://tfel.sourceforge.net/index.html) code generator, whic simplifies the process of behavior law implementation.
+
+.. highlight:: bash
+
+The **UMAT** signature of the procdure reads ::
+
+   SUBROUTINE umat_my_behavior( STRESS, STATEV, DDSDDE, SSE, SPD, SCD,&
+                       RPL, DDSDDT, DRPLDE, DRPLDT,&
+                       STRAN, DSTRAN, TIME, DTIME,&
+                       TEMP, DTEMP, PREDEF, DPRED,&
+                       CMNAME, NDI, NSHR, NTENS, NSTATV,&
+                       PROPS, NPROPS, COORDS,&
+                       DROT, PNEWDT, CELENT, DFGRD0, DFGRD1,&
+                       NOEL, NPT, LAYER, KSPT, KSTEP, KINC )
+
+.. highlight:: xml
+
+
+Among the different variables usefull for **ABAQUS**, **AMITEX_FFTP** uses :
+
+- `TIME`   : [in], double, array(2)
+             time(2) = :math:`t`, time at the begining of the load increment,
+             time(1) = 0 (unused here)
+
+- `DTIME`  : [in], double
+             time increment :math:`dt`
+             
+- `STRAN`  : [in], double, array(6) 
+             Strain components at :math:`t` (11,22,33,12,13,23, Voigt notation).
+             For Small Strain Simulations.
+             
+- `DSTRAN` : [in],double, array(6) 
+             Strain increment components  during :math:`dt` (11,22,33,12,13,23, Voigt notation).
+             For Small Strain Simulations.
+
+- `DFGRD0` : [in], double, array(3,3)
+             Transformation gradient (:math:`F=1+grad(U)`) at :math:`t`.
+             For Finite Strains Simulations. 
+             
+- `DFGRD1` : [in], double, array(3,3)
+             Transformation gradient (:math:`F=1+grad(U)`) at :math:`t+dt`.
+             For Finite Strains simulations.
+
+- `TEMP`   : [in], double
+             Temperature at :math:`t`.
+             
+- `DTEMP`  : [in], double
+             Temperature increment during :math:`dt`.
+             
+- `PREDEF` : [in], double, array(*)
+             External parameters at :math:`dt`.
+             
+- `DPRED`  : [in], double, array(*)
+             External parameters increment during :math:`dt`
+
+- `STRESS` : [in/out], double, array(6) 
+             Cauchy stress components (11,22,33,12,13,23).
+             [in]  : value at :math:`t`.
+             [out] : value at :math:`t+dt`. 
+
+- `STATEV` : [in/out], double, array(NSTATEV) 
+             Internal Variables.
+             [in]  : value at :math:`t`.
+             [out] : value at :math:`t+dt`. 
+
+- `PROPS`  : [in], double, array(NPROPS) 
+             Material coefficients
+
+
+These **UMAT** procedure are used in **AMITEX_FFTP** to implement **native** behaviors.
+In addition, with these definitions in mind, users can implement their own behavior whether directly (see :ref:`behaviors-umat`) or with the **MFRONT** code generator.
+
+The links between these procedures with XML files are :
+
+- `PROPS`  : in *material.xml* (see :ref:`materials-standard`)
+             the coefficients ``<Coeff Index="i"`` assigns PROPS(i)
+
+- `STATEV` : in *material.xml* (see :ref:`materials-standard`)
+             the initial internal variable ``<IntVar Index="i"`` assigns to STATEV(i)
+
+- `TEMP`   : in *loading.xml* (see :ref:`loading-external`)
+             the temperatue ``<T`` assigns TEMP and DTEMP
+
+- `PREDEF` : in *loading.xml* (see :ref:`loading-external`)
+             the external parameters ``<Param Index="i"`` assigns PREDEF(i) and DPRED(i)
+
+------------------------------------------------------------------------
+
+.. _behaviors-native:
+
+NATIVE behaviors 
+------------------
+
+Only a few native behavior laws are provided with **AMITEX_FFTP**.
+
+.. highlight::bash
+
+Their implementation can be found in the files ``(amitex)/libAmitex/src/materiaux/*.f90``.
+
+.. highlight::xml
+
+Each file gives a description of the coefficients and internal variables. 
+
+The available native behavior laws are :: 
+
+    elasiso             : isotropic elasticity
+    elasiso_eigs        : isotropic elasticity with eigenstrain
+    elasiso_GD          : Lagrangian isotropic elasticity 
+    elasaniso           : orthotropic elasticity 
+    thermoelasiso       : isotropic thermoelasticity
+    paramextelasiso     : isotropic 'thermo'elasticity but with an external parameter governing the dilatation (instead of the temperature)	
+    contrainte_imposee  : imposed stress
+    viscoelas_maxwell   : Maxwell linear visco-elasticity
+
+
+------------------------------------------------------------------------
+
+.. _behaviors-umat:
+
+UMAT behaviors 
+------------------
+
+
+**amitex_fftp** offers the possibility to introduce user material behaviors through a *UMAT* compatible procedure.
+
+An example is available in *(amitex_fftp)/cas_tests/comportements/polyxCC/comportement_umat*. The user can copy-paste this folder on his home directory (denoted here as *home*) and follow the procedure below.
+
+The folder contains user material files and an additionnal *Makefile*. The name of the *umat* compatible procedure used for the integration of the behaviour law corresponds to the field ``Law`` to be filled in the *material.xml* file (see :ref:`materials-standard`).
+
+The *Makefile* launch the compilation and create in the current folder a dynamic library *libUmatAmitex.so*. 
+The full path towards this library must be used to fill the ``Lib`` field in the *material.xml* file (see :ref:`materials-standard`).
+
+1. Adjust the following first lines of the Makefile ::
+
+	# Compiler (ifort or gfortran)
+	FC=ifort
+
+	# Path to the librairie 2decomp_fft, (amitex)/lib_extern/2decomp_fft-1.5.847, for example:
+	lDecomp=/home/gelebart/amitex_fftp/lib_extern/2decomp_fft-1.5.847
+
+2. Launch the compilation to create the dynamic library ::
+	
+	make clean
+	make
+
+3. Adjust the ``Law`` and ``Lib`` fields of the desired *material.xml* files.
+
+
+
+-----------------------------------------------------------------------
+
+.. _behaviors-mfront:
+
+MFRONT behaviors
+-----------------
+
+**Interfacing AMITEX_FFTP with MFront libraries is straightforward.**
+
+Of course, it assumes that you have installed MFront on your machine and that the LD_LIBRARY_PATH contains the MFront library path.
+
+An example with a dynamic library created by MFront, specifying the *umat* interface , is given in *(amitex_fftp)/cas_tests/mazars*.
+
+The dynamic library *(amitex_fftp)/cas_tests/mazars/src/libUmatBehaviour.so* is an output of MFront using the command: ::
+
+     mfront --obuild --interface=umat mazars.mfront
+
+where *mazars.mfront* is the Mazars damage behavior law delivered with MFront (see http://tfel.sourceforge.net/documentations.html for more information).
+
+The new behaviour law can be used by filling correctly the ``Law`` and ``Lib`` fields of the desired *material.xml* files.
+
+.. Note ::
+	
+	The ordering of the coefficients and internal variables in the *material.xml* file corresponds to their ordering in the *.dgibi* file (CAST3M finite element code input) located in the local *castem* folder generated together with the *src* folder when launching ``mfront --obuild --interface=umat file.mfront``.   

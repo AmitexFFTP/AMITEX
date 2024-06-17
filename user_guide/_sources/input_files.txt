@@ -1,0 +1,137 @@
+
+.. highlight:: xml
+
+.. _input:
+
+INPUT FILES
+===========
+
+
+.. _input-vtk:
+
+VTK files
+--------------------
+
+
+The input file(s) *materialID.vtk* and/or *zoneID.vtk* are integer fields defined on a uniform grid according to the *vtk simple legacy format* (http://www.vtk.org/VTK/img/file-formats.pdf).
+
+As described in :ref:`to_begin-geometry`, all the voxels with a common materialID value define a *material* domain.
+Within a given *material*, all the voxels with a common zoneID value define a *zone*.
+
+VTK files, with *float* or *double* precision can also be used to define :ref:`materials-initial-internal-variables`.  
+
+Finally, the same VTK file format is used by **AMITEX_FFTP** to output fields (stress, strain, internal variables...) with the *float* precision.
+
+**CONSTRAINTS FOR THE GENERATION OF VTK FILES**
+
+**Data definition**
+
+The materialID field must contain integers starting from 1 to N (N=number of *materials*), increasing without any skipping value.
+
+**Within each material** domain,the zoneID field must contain integers starting from 1 to N (N=number of *zones*), increasing without any skipping value.
+
+In both cases, definitions starting from 0 to N-1 are accepted but not encouraged.
+
+**VTK file headers**
+
+The VTK file header must **strictly contain the following 10 lines**::
+
+	  	# vtk DataFile Version 4.5
+		Materiau
+	  	BINARY
+	  	DATASET STRUCTURED_POINTS
+	  	DIMENSIONS    66   66   66
+	  	ORIGIN    0.000   0.000   0.000
+	  	SPACING    1.000000    1.000000   1.000000
+	  	CELL_DATA   274625
+	  	SCALARS MaterialId unsigned_short
+	 	LOOKUP_TABLE default
+
+DIMENSIONS defines the number of voxels per side plus 1. Here, the grid consists of 65x65x65 voxels.
+
+SPACING defines the voxel size and especially the voxel shape. Here voxels are cubic.
+
+CELL_DATA is the number of voxels, it must be in agreement with DIMENSIONS, here 274625=65x65x65.
+
+SCALARS defines the data type (*char*, *short*, *int*, *long*, *unsigned_char*, *unsigned_short*, *unsigned_int*, *unsigned_long*, respectively coded on 1, 2, 4 and 8 bytes), here the type is *unsigned_short* (2 bytes).
+
+.. _Binary data:
+
+**Binary data**
+
+Binary data, given just after the header, **must satisfy the following constraints**:
+
+* byte ordering used to write the binary data is *big endian*
+* the data type when writing binaries must be consistent with the data type given in the header
+* the maximum field value (especially for zoneID) must be less than the limit value corresponding to the data type
+
+
+MATLAB/OCTAVE functions can be found in :ref:`Tools` to generate VTK files compatible with **AMITEX_FFTP**. 
+
+
+.. caution::
+	
+	In case of **unsigned** data types, the limit value used by AMITEX_FFTP is the limit value for corresponding **signed** data types (**~ 0.5 x limit value for unsigned**).
+	
+	For example, the maximum value for both *char* and *unsigned_char* data types (coded on 1 byte) is 127.
+
+
+.. admonition:: TIPS
+
+	1. You can use specific :ref:`general:tools` to generate vtk files for AMITEX_FFTP
+
+	2. **if PARAVIEW can't read your vtk file don't go further with AMITEX_FFTP.**
+
+--------------------------------------------------------------------------------------------------------------------
+
+.. _input-xml:
+
+XML files
+--------------------
+
+Of course, XML files must follow the XML syntax (use a XML editor with syntax coloring to detect syntax errors).
+
+A comment is written like this::
+
+	<!-- A comment -->
+
+There is no need to follow any specific order for the various inputs given in XML files.
+
+**Case sensitivity rules**
+
+XML is a case sensitive language. The name of XML **nodes** and **attributes** are case-sensitive.
+
+However, the name of the string variables that can be input between quotation marks are case insensitive. 
+
+Hence, in the following XML line ::
+
+      <Coeff Index="1" Type="Constant_Zone">	 
+
+Here, *Coeff* is a **node**, *Index* and *Type* are **attributes** : they require the uppercase "C", "I" and "T". 
+
+However, the string *Constant_Zone* can be read *constant_zone* in AMITEX_FFTP.
+
+**Exception** : path names are case-sensitive.  
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+.. _input-bin:
+
+BIN files
+--------------------
+
+BIN files are used to introduce per zone material coefficients or initial internal variables (see :ref:`user-material-coefficients`), or composite voxels properties (see :ref:`materials-composite`).
+
+
+The header must contain the following **2 lines**::
+
+               2
+               double
+
+The first line is the number of binary values within the file, it must greater or equal to the number of zones defined in the VTK file.
+
+The second line defines the data type (*char*, *short*, *int*, *long*, *unsigned_short*, *unsigned_int*, *unsigned_long*, respectively coded on 1, 2, 4 and 8 bytes, or *float* and *double* on 4 and 8 bytes), here the type is *double*. The rest of the file should be binary data satisfying the constraints defined in `Binary data`_ (*big endian* ordering and maximum values).
+
+
+MATLAB/OCTAVE functions can be found in :ref:`Tools` to generate BIN files compatible with **AMITEX_FFTP**. 

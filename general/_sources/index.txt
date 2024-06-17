@@ -1,0 +1,136 @@
+.. _overview:
+
+OVERVIEW
+========
+
+.. figure:: _static/Ex3.png
+            :align: center
+            :figwidth: 50%
+            
+.. *Axial stress distribution within a CFC polycrystal (~42000 grains) submitted to a tensile test (1%) - grid resolution 1024x1024x1024 - local behavior : dislocation based crystal plasticity*
+	      
+            
+----
+
+.. _contributors:
+
+Contributors
+^^^^^^^^^^^^^^
+
+* **GELEBART Lionel**, Engineer - Researcher, CEA Saclay/DEN/DMN/SRMA : ``lionel.gelebart at cea.fr``
+
+  *Development and organization*
+  
+* **DEROUILLAT Julien**, Engineer - Researcher, Maison de la Simulation : ``julien.derouillat at cea.fr``
+
+  *HPC support*
+
+* **DOUCET Nicolas** Internship (12 months) at CEA Saclay/DEN/DMN/SRMA :
+
+  *The first version of the code!*
+   
+* **OUAKI Franck**, Post-doctoral (19 months) at CEA Saclay/DEN/DMN/SRMA :
+
+  *Extension to Finite Strains*
+  
+* **MARANO Aldo**, PhD (36 months) at CEA Saclay/DEN/DMN/SRMA and Mines-ParisTech :
+
+  *Introduction of composite voxels*
+  
+  *Definition of a general framework for couplings (application to strain gradient plasticity)*
+
+* **DUVERGE Jérémy**, Internship (6months) at CEA Saclay/DEN/DMN/SRMA :
+
+  *Additional work on composite voxels (focus on I/O)*
+
+
+Collaborations
+--------------
+
+* **CHEN Yang**, as a post-doc at IMT Lille-Douai (France), then at Oxford University (UK)
+
+  *Implementation of the phase field model for damage (from Miehe's work)*
+  
+* **BOIOLI Francesca**, as a post-doc at LEM-ONERA (France)
+
+  *Coupling between* **AMITEX** *and the DD code microMegas* http://zig.onera.fr/mm_home_page/
+
+* **BOISSE Julien**, reseracher at Université de Lorraine (France)
+
+  *Preliminar implementation of various metallurgical phase field models (proofs of concept)*
+
+
+----
+
+General description
+^^^^^^^^^^^^^^^^^^^^
+
+**AMITEX_FFTP** is a **distributed** solver based on **FFTs** for **non-linear** mechanical simulations on **heterogeneous unit-cells** (described by regular 3D images). 
+**AMITEX_FFTP** can be run either on individual PC, local clusters or on large High Performance Computing platforms to perform large scale simulations such as
+the example given in the figure below. 
+
+Since recent developments, the usage of **AMITEX_FFTP** can now be divided into two parts :
+
+- The **Standard** usage is based on a user interface described in :ref:`USER <to_begin>`. It doesn't require any code development.  
+- The **Extended** usage is mainly devoted to the implementation of various "couplings" (different physics, different codes). It requires code development. **If interested, feel free to contact us.**
+
+The purpose of the further developments are now to :
+
+- stabilize and add new functionalities for the **AMITEX_FFTP-Standard** usage
+- facilitate and promote the developments of new "couplings" through the **AMITEX_FFTP-Extended** usage
+
+Code informations 
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+AMITEX_FFTP is written in modern **FORTRAN** and relies on the **2DECOMP&FFT** library (http://www.2decomp.org) that provides:
+
+* a user-friendly programming interface to work with a 2D pencil decomposition for data distribution on distributed-memory platforms,
+* an interface with most popular external FFT libraries,
+* parallel I/O.
+
+For the user interface, the reading of XML files in **AMITEX_FFTP** relies on **FoX** (http://www1.gly.bris.ac.uk/~walker/FoX/) a Fortran library for XML.
+
+**FoX** and **2DECOMP&FFT** have been added to the source files of **AMITEX_FFTP**, external libraries are required:
+
+- MPI library : **openMPI** and **intelMPI** implementations are regularly used
+- FFT library : **fftw3** is the only library used during developments
+
+----
+
+Features
+^^^^^^^^
+
+The user interface of AMITEX_FFTP allows to:
+
+* "read" the heterogeneous microstructure from VTK files (legacy file format),
+* "assign" and "distribute" material behaviors and their corresponding properties over the 2D pencil decomposition proposed by 2decomp.
+
+The mechanical FFT-based solver within AMITEX_FFTP allows to:
+
+* Solve non-linear mechanical problems on unit-cells with prescribed average stress or strain components,
+* Solve the problems with the classical fixed-point algorithm (see Moulinec 1994) combined with an acceleration convergence algorithm,
+* Choose between a small perturbation or a finite strain framework (mechanics),
+* Choose between classical or finite difference based discrete Green operators (better than the classical),
+* Use composite voxels for voxels crossed by an interface
+
+The mechanical behavior law is evaluated within a standard **UMAT** procedure which ensures compatibility with both:
+
+* The **CAST3M** (http://www-cast3m.cea.fr) Finite Element software, simplifying the cross comparison between the two codes,
+* The **MFront** (http://tfel.sourceforge.net/index.html) code generator, simplifying the process of behavior law implementation.
+
+Of course, the **UMAT** procedure coming from **ABAQUS**, a good compatibility is also expected with this FE code. 
+
+
+Finally, if the code mainly focuses on mechanics, stationary **diffusion** problems can be solved on unit-cells with prescribed average flux or gradient.
+
+----
+
+Distribution
+^^^^^^^^^^^^
+
+For a **Standard** usage, **AMITEX_FFTP** is freely available for research and education purposes :ref:`here <download>`. 
+
+For an **Extended** usage or for new developments, please contact us (lionel.gelebart at cea.fr or julien.derouillat at cea.fr).
+
+
+

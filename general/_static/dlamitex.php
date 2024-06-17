@@ -366,7 +366,7 @@ echo $versionchoisie;
 		*/
 	}
         else {
-            ?> <a href="_download/amitex_fftp-v8.17.13.tar">Telecharger AMITEX_FFTP </a> <?php;
+            ?> <a href="_download/amitex_fftp-v8.17.14.tar">Telecharger AMITEX_FFTP </a> <?php;
 
         }
 	
