@@ -36,7 +36,6 @@ Date : June 2024 (8.17.14)
 **AMITEX_FFTP v8.17.13**
 ---------------------------
 
-`Download v8.17.13 <http://www.maisondelasimulation.fr/projects/amitex/general/_build/html/_static/download_amitex_fftp.html>`_
 
 Date : September 2023 (8.17.13)
 
