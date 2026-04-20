@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Input generator &#8212; py4amitex 1.0.0 documentation</title>
+    <title>Input generator &#8212; py4amitex 1.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
-    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -98,9 +98,44 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="py4amitex.input.Input.generateAlgorithm">
+<span class="sig-name descname"><span class="pre">generateAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#py4amitex.input.Input" title="py4amitex.input.Input"><span class="pre">py4amitex.input.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">os.PathLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#py4amitex.input.Input.generateAlgorithm" title="Link to this definition">¶</a></dt>
+<dd><p>Generate Algorithm Parameters XML file</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="py4amitex.input.Input.generateFiles">
 <span class="sig-name descname"><span class="pre">generateFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#py4amitex.input.Input" title="py4amitex.input.Input"><span class="pre">py4amitex.input.Input</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#py4amitex.input.Input.generateFiles" title="Link to this definition">¶</a></dt>
 <dd><p>Generate all input files (XML, VTK, BIN) in resultsDir</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py4amitex.input.Input.generateLoadingOutput">
+<span class="sig-name descname"><span class="pre">generateLoadingOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#py4amitex.input.Input" title="py4amitex.input.Input"><span class="pre">py4amitex.input.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">os.PathLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#py4amitex.input.Input.generateLoadingOutput" title="Link to this definition">¶</a></dt>
+<dd><p>Generate Loading&amp;Output XML file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py4amitex.input.Input.generateMaterialVTK">
+<span class="sig-name descname"><span class="pre">generateMaterialVTK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#py4amitex.input.Input" title="py4amitex.input.Input"><span class="pre">py4amitex.input.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">os.PathLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#py4amitex.input.Input.generateMaterialVTK" title="Link to this definition">¶</a></dt>
+<dd><p>Generate Material IDs VTK file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py4amitex.input.Input.generateMaterials">
+<span class="sig-name descname"><span class="pre">generateMaterials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#py4amitex.input.Input" title="py4amitex.input.Input"><span class="pre">py4amitex.input.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">os.PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">os.PathLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#py4amitex.input.Input.generateMaterials" title="Link to this definition">¶</a></dt>
+<dd><p>Generate Algorithm Parameters XML file</p>
+<dl class="simple">
+<dt>Parameter <code class="docutils literal notranslate"><span class="pre">path</span></code>:</dt><dd><p>$Parameter <code class="docutils literal notranslate"><span class="pre">coeffDirectory</span></code>:</p>
+</dd>
+</dl>
+<p>directory where coefficients/intvars/composite data will be stored</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py4amitex.input.Input.generateZoneVTK">
+<span class="sig-name descname"><span class="pre">generateZoneVTK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#py4amitex.input.Input" title="py4amitex.input.Input"><span class="pre">py4amitex.input.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">os.PathLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#py4amitex.input.Input.generateZoneVTK" title="Link to this definition">¶</a></dt>
+<dd><p>Generate Zone IDs VTK file</p>
 </dd></dl>
 
 <dl class="py property">
