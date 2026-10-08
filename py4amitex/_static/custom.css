@@ -1,1 +1,16 @@
 /* This file intentionally left blank. */
+.bandeau {
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-size: 22px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 10px 10px lightgrey;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.bandeau a {
+    color: white;
+}
